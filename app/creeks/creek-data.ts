@@ -26,7 +26,7 @@ export const priorityTributaries: { name: string; pct: number; bar: string; labe
 
 export const creeks: Creek[] = [
   {
-    href: '/adobe.html', name: 'Adobe Creek', searchName: 'adobe creek', status: 'active',
+    href: '/adobe', name: 'Adobe Creek', searchName: 'adobe creek', status: 'active',
     location: 'South shore, Big Valley',
     description: 'Historic #2 spawning stream, most frequented in 2016, 2018, 2022, 2023, 2025. Highland Creek joins upstream.',
     tags: [{ label: 'Active', variant: 'active' }, { label: 'Barriers', variant: 'barrier' }],

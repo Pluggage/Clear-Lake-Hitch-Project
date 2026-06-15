@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import { Fish } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
+import { SpawnerTimeline } from '@/components/creek/SpawnerTimeline'
+import { PhotoLightbox } from '@/components/creek/PhotoLightbox'
 import { LiveConditions } from './LiveConditions'
-import { SpawnerTimeline } from './SpawnerTimeline'
-import { PhotoLightbox } from './PhotoLightbox'
-import { infoCards, barriers, survey, nearby } from './kelsey-data'
-import './creek-detail.css'
+import { infoCards, barriers, survey, nearby, popData, photos } from './kelsey-data'
+import '@/components/creek/creek-detail.css'
 
 export const metadata: Metadata = {
   title: 'Kelsey Creek',
@@ -77,7 +77,7 @@ export default function KelseyPage() {
         <LiveConditions />
 
         {/* SPAWNER TIMELINE (client) */}
-        <SpawnerTimeline />
+        <SpawnerTimeline data={popData} title="Lake-wide Spawner Counts: Kelsey's Role Each Year" />
 
         {/* MAIN CONTENT + SIDEBAR */}
         <div className="main-grid">
@@ -111,7 +111,7 @@ export default function KelseyPage() {
               <span className="section-label">Field Photos</span>
               <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>Kelsey Creek in Every Season</h2>
               <p style={{ color: 'var(--muted)', fontSize: '.95rem', marginBottom: '1rem' }}>Field photography from Lake County WPD staff: creek mouth, barriers, gauge sites, and seasonal conditions. Click any photo to open full size.</p>
-              <PhotoLightbox />
+              <PhotoLightbox photos={photos} />
             </div>
           </div>
 

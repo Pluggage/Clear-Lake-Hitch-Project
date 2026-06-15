@@ -1,4 +1,5 @@
 // Static data for the Kelsey Creek detail page (ported from public/kelsey.html).
+import type { Photo } from '@/components/creek/PhotoLightbox'
 
 export interface PopPoint {
   yr: number
@@ -24,16 +25,14 @@ export const popData: PopPoint[] = [
   { yr: 2025, count: 1567, ctx: 'CDFW confirms adults at Kelsey. 1,567 spawners recorded lake-wide.', color: '#7ec8e3' },
 ]
 
-export interface Photo { src: string | null; tag: string; title: string; sub: string }
-
-/** Field photo grid (in display order). Cards without a src render as placeholders. */
+/** Field photo grid (in display order). Cards without a thumb render as placeholders. */
 export const photos: Photo[] = [
-  { src: '/images/kelsey/photo-1.jpg', tag: '2026 Season', title: 'Creek Mouth', sub: 'Entry at Clear Lake State Park' },
-  { src: '/images/kelsey/photo-2.jpg', tag: 'Barrier', title: 'Main Street Crossing', sub: 'Barrier reach · Kelseyville' },
-  { src: null, tag: 'USGS Site', title: 'USGS Gauge Station', sub: 'Stn. 11449500 · continuous flow' },
-  { src: '/images/kelsey/photo-3.jpg', tag: 'Barrier', title: 'Fish Ladder / Barrier', sub: 'Known passage obstacle · in-stream' },
-  { src: null, tag: 'Big Valley', title: 'Big Valley Reach', sub: 'Agricultural corridor · upstream' },
-  { src: '/images/kelsey/photo-4.jpg', tag: 'Spawn Run', title: 'Spawning Activity', sub: 'Adults visible in shallows · spring run' },
+  { thumb: '/images/kelsey/photo-1.jpg', tag: '2026 Season', title: 'Creek Mouth', sub: 'Entry at Clear Lake State Park' },
+  { thumb: '/images/kelsey/photo-2.jpg', tag: 'Barrier', title: 'Main Street Crossing', sub: 'Barrier reach · Kelseyville' },
+  { thumb: null, tag: 'USGS Site', title: 'USGS Gauge Station', sub: 'Stn. 11449500 · continuous flow' },
+  { thumb: '/images/kelsey/photo-3.jpg', tag: 'Barrier', title: 'Fish Ladder / Barrier', sub: 'Known passage obstacle · in-stream' },
+  { thumb: null, tag: 'Big Valley', title: 'Big Valley Reach', sub: 'Agricultural corridor · upstream' },
+  { thumb: '/images/kelsey/photo-4.jpg', tag: 'Spawn Run', title: 'Spawning Activity', sub: 'Adults visible in shallows · spring run' },
 ]
 
 export const infoCards: { variant: '' | 'grn' | 'amb' | 'red'; title: string; body: string }[] = [
