@@ -40,7 +40,7 @@ export default function CreeksPage() {
                 <a href="#all-grid" className="hero-cta-primary">
                   View Priority Creeks
                 </a>
-                <a href="/kelsey.html" className="hero-cta-outline">
+                <a href="/kelsey" className="hero-cta-outline">
                   Kelsey Creek →
                 </a>
               </div>

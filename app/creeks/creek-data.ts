@@ -98,7 +98,7 @@ export const creeks: Creek[] = [
     tags: [{ label: 'No fish 2024-25', variant: 'concern' }, { label: 'McGaugh feeder', variant: 'none' }],
   },
   {
-    href: '/kelsey.html', name: 'Kelsey Creek', searchName: 'kelsey creek', status: 'active',
+    href: '/kelsey', name: 'Kelsey Creek', searchName: 'kelsey creek', status: 'active',
     location: 'South shore, Clear Lake State Park',
     description: 'In 2020 every single one of the 1,672 hitch observed lake-wide was here. The most critical active spawning tributary. USGS gauged.',
     tags: [{ label: '#1 Active', variant: 'active' }, { label: 'Barrier removal', variant: 'restore' }],
