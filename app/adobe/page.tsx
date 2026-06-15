@@ -3,7 +3,7 @@ import { Fish } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { SpawnerTimeline } from '@/components/creek/SpawnerTimeline'
 import { PhotoLightbox } from '@/components/creek/PhotoLightbox'
-import { AdobeConditions } from './AdobeConditions'
+import { LakeConditions } from '@/components/creek/LakeConditions'
 import { popData, photos, infoCards, barriers, survey, nearby } from './adobe-data'
 import '@/components/creek/creek-detail.css'
 
@@ -73,7 +73,7 @@ export default function AdobePage() {
         </div>
 
         {/* CONDITIONS (client) */}
-        <AdobeConditions />
+        <LakeConditions creekName="Adobe Creek" />
 
         {/* SPAWNER TIMELINE (client) */}
         <SpawnerTimeline

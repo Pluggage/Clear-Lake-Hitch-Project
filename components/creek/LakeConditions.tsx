@@ -1,9 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { fetchGauge, fmtAge, lakeContext, spawnPhase } from '@/components/creek/usgs'
+import { fetchGauge, fmtAge, lakeContext, spawnPhase } from './usgs'
 
-export function AdobeConditions() {
+/**
+ * Conditions block for creeks without a dedicated USGS streamflow gauge
+ * (Adobe, Burns Valley, Forbes): spawn phase + live Clear Lake level + rescue.
+ */
+export function LakeConditions({ creekName }: { creekName: string }) {
   const [lake, setLake] = useState<{ val?: number; ctx: string; col: string; pct: number; fresh: string; error?: boolean }>({ ctx: '', col: '', pct: 0, fresh: '' })
   const phase = spawnPhase()
 
@@ -20,7 +24,7 @@ export function AdobeConditions() {
       <div className="section-inner">
         <span className="section-tag tag-blue">Creek Conditions</span>
         <div className="section-h2">Current Season Status</div>
-        <div className="section-sub">Adobe Creek does not have a dedicated USGS streamflow gauge. Conditions are assessed through CDFW and Lake County WPD visual surveys and the lake-wide spawn phase indicator below.</div>
+        <div className="section-sub">{creekName} does not have a dedicated USGS streamflow gauge. Conditions are assessed through CDFW and Lake County WPD visual surveys and the lake-wide spawn phase indicator below.</div>
         <div className="gauge-grid">
           {/* Spawning phase */}
           <div className="gauge-card">
@@ -46,7 +50,7 @@ export function AdobeConditions() {
                 <div className="gauge-fresh">{lake.fresh}</div>
               </>
             )}
-            <a href="https://waterdata.usgs.gov/monitoring-location/11450000/" target="_blank" rel="noopener noreferrer" className="gauge-link">USGS lake level record</a>
+            <a href="https://waterdata.usgs.gov/monitoring-location/11450000/" target="_blank" rel="noopener noreferrer" className="gauge-link">USGS lake level record ↗</a>
           </div>
           {/* Rescue */}
           <div className="gauge-card">

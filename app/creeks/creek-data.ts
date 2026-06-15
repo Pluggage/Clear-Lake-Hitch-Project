@@ -38,7 +38,7 @@ export const creeks: Creek[] = [
     tags: [{ label: 'Scotts feeder', variant: 'none' }],
   },
   {
-    href: '/burns.html', name: 'Burns Valley Creek', searchName: 'burns valley creek', status: 'active',
+    href: '/burns', name: 'Burns Valley Creek', searchName: 'burns valley creek', status: 'active',
     location: 'SE shore, rearing habitat',
     description: 'Rearing habitat: ~4,000 juvenile hitch and thousands of larvae documented in 2024. Major juvenile nursery on the SE shore.',
     tags: [{ label: 'Rearing habitat', variant: 'none' }, { label: 'Active 2024', variant: 'active' }],
@@ -74,7 +74,7 @@ export const creeks: Creek[] = [
     tags: [{ label: 'Scotts feeder', variant: 'none' }],
   },
   {
-    href: '/forbes.html', name: 'Forbes Creek', searchName: 'forbes creek', status: 'active',
+    href: '/forbes', name: 'Forbes Creek', searchName: 'forbes creek', status: 'active',
     location: 'West shore, Lakeport',
     description: '4.7-mile stream entering Clear Lake at Lakeport. Adults confirmed April 18, 2024. Flow cut off May 28, 2024.',
     tags: [{ label: 'Active 2024', variant: 'active' }],
