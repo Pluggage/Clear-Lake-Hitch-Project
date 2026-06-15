@@ -1,14 +1,15 @@
 import type { MetadataRoute } from 'next'
+import { creeks } from './creeks/creek-data'
 
 const BASE = 'https://www.clearlakehitchproject.org'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
-  // App Router pages (creek detail pages now have real routes)
+  // Core App Router pages + every creek detail page (bespoke + lightweight).
   const routes = [
     '/', '/timeline', '/archive', '/map', '/creeks',
-    '/kelsey', '/adobe', '/burns', '/forbes',
+    ...creeks.map((c) => c.href),
   ]
 
   return routes.map((path) => ({
