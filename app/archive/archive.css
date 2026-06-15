@@ -1,0 +1,82 @@
+/* Scoped styles for the Hitch Archive page (ported from public/archive.html),
+   namespaced under .archive-page. The shared <Navigation> supplies the nav. */
+
+.archive-page {
+  --lake: #1a6fa8; --lake-dark: #0d4a72; --lake-light: #d6eaf8;
+  --green: #2d7a3a; --green-light: #e8f5eb;
+  --amber: #c87800; --amber-light: #fff3d6;
+  --red: #c0392b; --sand: #f5f0e8; --text: #1a1a1a; --muted: #5a6474;
+  --border: #dde3ea;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: var(--text); background: #fff; line-height: 1.6;
+}
+.archive-page * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* HERO */
+.archive-page .archive-hero { background: linear-gradient(160deg, var(--lake-dark), #1a6fa8); padding: 3.5rem 2rem 3rem; color: #fff; }
+.archive-page .archive-hero-inner { max-width: 900px; margin: 0 auto; }
+.archive-page .archive-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: .6rem; }
+.archive-page .archive-hero p { font-size: 1rem; color: rgba(255,255,255,.8); line-height: 1.7; max-width: 680px; }
+
+/* CONTROLS (sticky under the 60px nav) */
+.archive-page .archive-controls { background: var(--sand); border-bottom: 1px solid var(--border); padding: 1.2rem 2rem; position: sticky; top: 60px; z-index: 50; }
+.archive-page .controls-inner { max-width: 900px; margin: 0 auto; }
+.archive-page .search-row { display: flex; gap: 10px; margin-bottom: .8rem; flex-wrap: wrap; }
+.archive-page .archive-search { flex: 1; min-width: 200px; padding: 10px 16px; border-radius: 10px; border: 1.5px solid var(--border); font-size: .88rem; outline: none; background: #fff; }
+.archive-page .archive-search:focus { border-color: var(--lake); }
+.archive-page .filter-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.archive-page .filter-group { position: relative; }
+.archive-page .filter-drop-btn { padding: 7px 14px; border-radius: 10px; border: 1.5px solid var(--border); background: #fff; font-size: .82rem; cursor: pointer; color: var(--muted); display: flex; align-items: center; gap: 6px; transition: all .15s; font-weight: 600; }
+.archive-page .filter-drop-btn:hover { border-color: var(--lake); color: var(--lake); }
+.archive-page .filter-drop-btn.has-active { background: var(--lake-light); border-color: var(--lake); color: var(--lake-dark); }
+.archive-page .filter-drop-btn .arrow { font-size: .6rem; transition: transform .2s; }
+.archive-page .filter-group.open .arrow { transform: rotate(180deg); }
+.archive-page .filter-dropdown { display: none; position: absolute; top: calc(100% + 4px); left: 0; background: #fff; border: 1.5px solid var(--border); border-radius: 10px; padding: 6px; min-width: 180px; box-shadow: 0 8px 24px rgba(0,0,0,.1); z-index: 60; }
+.archive-page .filter-group.open .filter-dropdown { display: block; }
+.archive-page .filter-option { padding: 6px 10px; border-radius: 6px; font-size: .8rem; cursor: pointer; color: var(--muted); transition: all .12s; display: flex; align-items: center; gap: 6px; }
+.archive-page .filter-option:hover { background: var(--sand); }
+.archive-page .filter-option.on { background: var(--lake-light); color: var(--lake-dark); font-weight: 600; }
+.archive-page .filter-option .check { width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 9px; flex-shrink: 0; transition: all .12s; }
+.archive-page .filter-option.on .check { background: var(--lake); border-color: var(--lake); color: #fff; }
+.archive-page .filter-count { font-size: .68rem; background: var(--lake); color: #fff; border-radius: 10px; padding: 1px 6px; margin-left: 2px; font-weight: 700; }
+.archive-page .results-count { font-size: .76rem; color: var(--muted); margin-top: .6rem; }
+
+/* ARCHIVE LIST */
+.archive-page .archive-list { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 4rem; }
+.archive-page .archive-entry { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; padding: 1.6rem 1.8rem; margin-bottom: 1rem; transition: all .18s; }
+.archive-page .archive-entry:hover { border-color: var(--lake); box-shadow: 0 4px 20px rgba(26,111,168,.08); transform: translateY(-1px); }
+.archive-page .entry-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: .6rem; }
+.archive-page .entry-title { font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.35; }
+.archive-page .entry-year { font-size: .82rem; font-weight: 700; color: var(--lake); background: var(--lake-light); padding: 3px 10px; border-radius: 14px; white-space: nowrap; flex-shrink: 0; }
+.archive-page .entry-source { font-size: .78rem; color: var(--muted); margin-bottom: .7rem; }
+.archive-page .entry-summary { font-size: .88rem; color: var(--muted); line-height: 1.7; margin-bottom: .8rem; }
+.archive-page .entry-takeaways { margin-bottom: .9rem; padding-left: 1.1rem; }
+.archive-page .entry-takeaways li { font-size: .84rem; color: var(--text); line-height: 1.6; margin-bottom: .3rem; }
+.archive-page .entry-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: .8rem; }
+.archive-page .etag { font-size: .68rem; font-weight: 600; padding: 3px 9px; border-radius: 12px; background: var(--sand); color: var(--muted); border: 1px solid var(--border); text-transform: lowercase; }
+.archive-page .etag.loc { background: #e8f5eb; color: var(--green); border-color: rgba(45,122,58,.15); }
+.archive-page .etag.agency { background: #d6eaf8; color: #0d4a72; border-color: rgba(26,111,168,.2); margin-bottom: 6px; display: inline-block; }
+.archive-page .entry-link { display: inline-flex; align-items: center; gap: 5px; font-size: .84rem; color: var(--lake); font-weight: 600; text-decoration: none; padding: 6px 14px; border-radius: 8px; border: 1.5px solid var(--lake); transition: all .15s; }
+.archive-page .entry-link:hover { background: var(--lake); color: #fff; }
+
+.archive-page .no-results { text-align: center; padding: 3rem 1rem; color: var(--muted); }
+.archive-page .no-results p { font-size: 1rem; margin-bottom: .4rem; }
+.archive-page .no-results span { font-size: .84rem; }
+
+/* HOW TO ADD */
+.archive-page .add-guide { max-width: 900px; margin: 0 auto; padding: 0 2rem 3rem; }
+.archive-page .add-card { background: var(--sand); border: 1.5px solid var(--border); border-radius: 14px; padding: 1.5rem 1.8rem; }
+.archive-page .add-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .5rem; color: var(--text); }
+.archive-page .add-card pre { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; font-size: .76rem; overflow-x: auto; line-height: 1.7; color: var(--muted); }
+.archive-page .add-card p { font-size: .84rem; color: var(--muted); margin-top: .7rem; line-height: 1.6; }
+.archive-page .add-card code { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; font-size: .8em; }
+
+@media (max-width: 600px) {
+  .archive-page .archive-hero { padding: 2.5rem 1.2rem 2rem; }
+  .archive-page .archive-hero h1 { font-size: 1.6rem; }
+  .archive-page .archive-controls { padding: 1rem 1.2rem; }
+  .archive-page .archive-list { padding: 1rem 1.2rem 3rem; }
+  .archive-page .archive-entry { padding: 1.2rem; }
+  .archive-page .entry-top { flex-direction: column; gap: .4rem; }
+  .archive-page .add-guide { padding: 0 1.2rem 2rem; }
+}
