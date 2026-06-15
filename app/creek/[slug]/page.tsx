@@ -3,18 +3,18 @@ import { notFound } from 'next/navigation'
 import { Fish } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { LakeConditions } from '@/components/creek/LakeConditions'
-import { creeks } from '../../creeks/creek-data'
+import { creeks, type Creek } from '../../creeks/creek-data'
 import { mckd } from '../../map/map-data'
 import '@/components/creek/creek-detail.css'
 
 type Info = { t: string; tags?: string[]; b: string; s?: { l: string; v: string; c?: string }[] }
 const MCKD = mckd as Record<string, Info>
 
-/** Lightweight creek pages (everything not given its own bespoke route). */
 const lightweight = creeks.filter((c) => c.href.startsWith('/creek/'))
-const bySlug = (slug: string) => lightweight.find((c) => c.href === `/creek/${slug}`)
+const slugOf = (c: Creek) => (c.href.startsWith('/creek/') ? c.href.slice('/creek/'.length) : c.href.slice(1))
+const bySlug = (slug: string) => lightweight.find((c) => slugOf(c) === slug)
 
-/** Map a creek slug to the interactive map's richer data, where it exists. */
+/** Richer data from the interactive map, where a creek has it. */
 const MAP_KEY: Record<string, string> = {
   'rodman-slough': 'rodman', 'scotts-creek': 'scotts_sys', lyons: 'lyons', morrison: 'morrison',
   lucerne: 'lucerne', manning: 'manning', rumsey: 'rumsey', mcgaugh: 'mcgaugh', cole: 'cole',
@@ -22,14 +22,40 @@ const MAP_KEY: Record<string, string> = {
   'seigler-system': 'seigler_sys',
 }
 
-const STATUS_BADGE: Record<string, { label: string; cls: string }> = {
-  active: { label: 'Active Spawning', cls: 'b-green' },
-  concern: { label: 'Concern', cls: 'b-amber' },
-  none: { label: 'Survey Site', cls: 'b-blue' },
+/** Watershed grouping, derived from each creek's documented location/connections. */
+const SYSTEM: Record<string, string> = {
+  // Scotts Creek / Rodman Slough watershed (north shore)
+  'alley-creek': 'scotts', 'clover-creek': 'scotts', 'cooper-creek': 'scotts', 'dayle-creek': 'scotts',
+  hendricks: 'scotts', 'middle-creek': 'scotts', 'pool-creek': 'scotts', 'rodman-slough': 'scotts', 'scotts-creek': 'scotts',
+  // Seigler Canyon / Cache Creek drainage (east shore)
+  copsey: 'seigler', 'perini-creek': 'seigler', 'seigler-system': 'seigler',
+  // Big Valley & south shore
+  cole: 'bigvalley', 'highland-creek': 'bigvalley', manning: 'bigvalley', mcgaugh: 'bigvalley',
+  rumsey: 'bigvalley', thompson: 'bigvalley', hill: 'bigvalley', adobe: 'bigvalley', kelsey: 'bigvalley',
+  // Lower Arm & east shore
+  burns: 'lowerarm', schindler: 'lowerarm',
+  // North & Upper Arm
+  lyons: 'north', lucerne: 'north', morrison: 'north',
+  // West shore
+  forbes: 'west',
+}
+const SYSTEM_NAME: Record<string, string> = {
+  scotts: 'Scotts Creek / Rodman Slough watershed',
+  seigler: 'Seigler Canyon / Cache Creek drainage',
+  bigvalley: 'Big Valley & south shore',
+  lowerarm: 'Lower Arm & east shore',
+  north: 'North & Upper Arm',
+  west: 'West shore · Lakeport',
+}
+
+const STATUS_BADGE: Record<string, { label: string; cls: string; side: string }> = {
+  active: { label: 'Active Spawning', cls: 'b-green', side: 'g' },
+  concern: { label: 'Concern', cls: 'b-amber', side: 'a' },
+  none: { label: 'Survey Site', cls: 'b-blue', side: '' },
 }
 
 export function generateStaticParams() {
-  return lightweight.map((c) => ({ slug: c.href.replace('/creek/', '') }))
+  return lightweight.map((c) => ({ slug: slugOf(c) }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -50,7 +76,10 @@ export default async function CreekPage({ params }: { params: Promise<{ slug: st
 
   const info = MAP_KEY[slug] ? MCKD[MAP_KEY[slug]] : undefined
   const status = STATUS_BADGE[creek.status]
-  const nearby = creeks.filter((c) => c.name !== creek.name && c.status === 'active').slice(0, 4)
+  const shore = creek.location.split(',')[0]
+  const systemKey = SYSTEM[slug]
+  const systemName = systemKey ? SYSTEM_NAME[systemKey] : undefined
+  const siblings = creeks.filter((c) => c.name !== creek.name && SYSTEM[slugOf(c)] === systemKey).slice(0, 6)
 
   return (
     <>
@@ -96,6 +125,12 @@ export default async function CreekPage({ params }: { params: Promise<{ slug: st
               <div className="prose">
                 <p>{creek.description}</p>
                 {info && info.b !== creek.description && <p>{info.b}</p>}
+                {systemName && (
+                  <p>
+                    {creek.name} is part of the <strong>{systemName}</strong>
+                    {siblings.length > 0 ? ', one of several tributaries that drain this part of the watershed.' : '.'}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -114,17 +149,23 @@ export default async function CreekPage({ params }: { params: Promise<{ slug: st
             )}
 
             <p style={{ color: 'var(--muted)', fontSize: '.85rem', fontStyle: 'italic' }}>
-              This is one of Clear Lake&apos;s {creeks.length} documented tributaries. Detailed survey
-              history and field photos are available for the priority spawning streams.
+              One of Clear Lake&apos;s {creeks.length} documented tributaries. Detailed survey history
+              and field photos are available for the priority spawning streams: {' '}
+              <a href="/kelsey" style={{ color: 'var(--lake)' }}>Kelsey</a>,{' '}
+              <a href="/adobe" style={{ color: 'var(--lake)' }}>Adobe</a>,{' '}
+              <a href="/burns" style={{ color: 'var(--lake)' }}>Burns Valley</a>, and{' '}
+              <a href="/forbes" style={{ color: 'var(--lake)' }}>Forbes</a>.
             </p>
           </div>
 
           {/* SIDEBAR */}
           <aside className="sidebar">
             <div className="side-card dark">
-              <h3>At a Glance</h3>
+              <h3>Creek Profile</h3>
               <div className="side-row"><span className="side-lbl">Location</span><span className="side-val">{creek.location}</span></div>
-              <div className="side-row"><span className="side-lbl">Status</span><span className={`side-val ${creek.status === 'active' ? 'g' : creek.status === 'concern' ? 'a' : ''}`}>{status.label}</span></div>
+              <div className="side-row"><span className="side-lbl">Shore</span><span className="side-val">{shore}</span></div>
+              {systemName && <div className="side-row"><span className="side-lbl">Watershed</span><span className="side-val">{systemName}</span></div>}
+              <div className="side-row"><span className="side-lbl">Survey status</span><span className={`side-val ${status.side}`}>{status.label}</span></div>
             </div>
             <div className="side-card">
               <h3>Quick Actions</h3>
@@ -134,14 +175,16 @@ export default async function CreekPage({ params }: { params: Promise<{ slug: st
                 <a href="tel:7072632344" className="side-btn emergency">⚠ Report Stranded Hitch</a>
               </div>
             </div>
-            <div className="side-card">
-              <h3>Active Spawning Tributaries</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: '.2rem' }}>
-                {nearby.map((n) => (
-                  <a key={n.href} href={n.href} className="creek-link"><strong>{n.name}</strong><span>{n.location}</span></a>
-                ))}
+            {siblings.length > 0 && (
+              <div className="side-card">
+                <h3>{systemName ? 'More in this watershed' : 'Explore Nearby'}</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: '.2rem' }}>
+                  {siblings.map((n) => (
+                    <a key={n.href} href={n.href} className="creek-link"><strong>{n.name}</strong><span>{n.location}</span></a>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </aside>
         </div>
 
