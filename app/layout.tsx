@@ -7,9 +7,29 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'The Clear Lake Hitch Project',
+  metadataBase: new URL('https://www.clearlakehitchproject.org'),
+  title: {
+    default: 'The Clear Lake Hitch Project',
+    template: '%s | The Clear Lake Hitch Project',
+  },
   description: 'Protecting the Clear Lake Hitch for Future Generations. The Clear Lake Hitch is a culturally significant minnow found nowhere else on Earth.',
   generator: 'v0.app',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://www.clearlakehitchproject.org',
+    siteName: 'The Clear Lake Hitch Project',
+    title: 'The Clear Lake Hitch Project',
+    description: 'Protecting the Clear Lake Hitch for Future Generations. An endemic minnow found nowhere else on Earth.',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Clear Lake Hitch Project',
+    description: 'Protecting the Clear Lake Hitch for Future Generations. An endemic minnow found nowhere else on Earth.',
+  },
   icons: {
     icon: [
       {
