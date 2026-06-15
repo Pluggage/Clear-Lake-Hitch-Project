@@ -1,0 +1,132 @@
+/* Scoped styles for the Creeks (tributaries) page, ported from the former
+   public/creeks.html. Everything is namespaced under .creeks-page so the
+   page's own CSS variables and resets do not leak into the rest of the app
+   (globals.css defines --muted as a background, which would break this page). */
+
+.creeks-page {
+  --lake: #1a6fa8;
+  --lake-dark: #0d4a72;
+  --lake-light: #d6eaf8;
+  --green: #2d7a3a;
+  --green-light: #e8f5eb;
+  --amber: #c87800;
+  --amber-light: #fff3d6;
+  --red: #c0392b;
+  --sand: #f5f0e8;
+  --text: #1a1a1a;
+  --muted: #5a6474;
+  --border: #dde3ea;
+
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.6;
+}
+.creeks-page * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* HERO (dark) */
+.creeks-page .hero { background: linear-gradient(160deg, var(--lake-dark) 0%, #1a6fa8 55%, #2980b9 100%); padding: 3.5rem 2rem 3.5rem; position: relative; overflow: hidden; }
+.creeks-page .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cellipse cx='75%25' cy='55%25' rx='38%25' ry='28%25' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E"); pointer-events: none; }
+.creeks-page .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; position: relative; }
+.creeks-page .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.2rem; }
+.creeks-page .hero-badge { padding: 4px 12px; border-radius: 20px; font-size: .76rem; font-weight: 600; letter-spacing: .04em; }
+.creeks-page .b-white { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.2); }
+.creeks-page .b-green { background: rgba(45,122,58,.3); color: #9efaae; border: 1px solid rgba(80,200,100,.3); }
+.creeks-page .b-blue { background: rgba(127,216,255,.15); color: #bde5ff; border: 1px solid rgba(127,216,255,.3); }
+.creeks-page .hero h1 { font-size: 2.8rem; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: .7rem; letter-spacing: -.02em; }
+.creeks-page .hero h1 em { color: #7fd8ff; font-style: normal; }
+.creeks-page .hero-sub { color: rgba(255,255,255,.82); font-size: .98rem; line-height: 1.7; margin-bottom: 1.8rem; max-width: 500px; }
+.creeks-page .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+.creeks-page .hero-cta-primary { display: inline-flex; align-items: center; gap: 6px; padding: .65rem 1.25rem; border-radius: 8px; font-size: .88rem; font-weight: 600; text-decoration: none; background: #fff; color: var(--lake-dark); }
+.creeks-page .hero-cta-outline { display: inline-flex; align-items: center; gap: 6px; padding: .65rem 1.25rem; border-radius: 8px; font-size: .88rem; font-weight: 600; text-decoration: none; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.4); }
+
+/* tributary overview mini-chart */
+.creeks-page .trib-overview { background: rgba(5,14,24,.45); border: 1px solid rgba(127,216,255,.18); border-radius: 14px; padding: 1.2rem; color: #fff; }
+.creeks-page .trib-ov-title { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(127,216,255,.7); margin-bottom: .8rem; }
+.creeks-page .trib-bars { display: flex; flex-direction: column; gap: 6px; }
+.creeks-page .trib-row { display: flex; align-items: center; gap: 8px; font-size: .82rem; }
+.creeks-page .trib-name { width: 120px; flex-shrink: 0; color: rgba(255,255,255,.75); font-size: .78rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.creeks-page .trib-bar-bg { flex: 1; height: 12px; background: rgba(255,255,255,.06); border-radius: 3px; overflow: hidden; }
+.creeks-page .trib-bar-fill { height: 100%; border-radius: 3px; transition: width .8s ease .2s; }
+.creeks-page .trib-val { width: 52px; text-align: right; font-size: .72rem; font-weight: 700; flex-shrink: 0; }
+
+/* STATS BAR */
+.creeks-page .stats-bar { background: var(--sand); border-bottom: 1px solid var(--border); padding: 1.2rem 2rem; }
+.creeks-page .stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+.creeks-page .stat { text-align: center; padding: .9rem; background: #fff; border-radius: 10px; border: 1px solid var(--border); }
+.creeks-page .stat-num { font-size: 1.75rem; font-weight: 700; color: var(--lake); }
+.creeks-page .stat-num.g { color: var(--green); }
+.creeks-page .stat-num.a { color: var(--amber); }
+.creeks-page .stat-num.r { color: var(--red); }
+.creeks-page .stat-label { font-size: .73rem; color: var(--muted); margin-top: 2px; }
+
+/* FILTER BAR */
+.creeks-page .filter-bar { background: #fff; border-bottom: 2px solid var(--border); padding: 1rem 2rem; position: sticky; top: 60px; z-index: 90; backdrop-filter: blur(8px); }
+.creeks-page .filter-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.creeks-page .filter-btn { padding: 6px 15px; border-radius: 20px; border: 1.5px solid var(--border); background: #fff; font-size: .82rem; cursor: pointer; transition: all .2s; color: var(--muted); font-family: inherit; }
+.creeks-page .filter-btn.active { background: var(--lake); color: #fff; border-color: var(--lake); }
+.creeks-page .filter-btn:hover:not(.active) { border-color: var(--lake); color: var(--lake); }
+.creeks-page .search-box { padding: 8px 15px; border-radius: 20px; border: 1.5px solid var(--border); font-size: .84rem; outline: none; font-family: inherit; margin-left: auto; min-width: 210px; }
+.creeks-page .search-box:focus { border-color: var(--lake); }
+
+/* GRID CONTENT */
+.creeks-page .grid-content { max-width: 1100px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+.creeks-page .grid-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; flex-wrap: wrap; gap: .7rem; }
+.creeks-page .grid-head-label { font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--lake); }
+.creeks-page .count-badge { background: var(--lake-light); color: var(--lake); font-size: .68rem; padding: 2px 8px; border-radius: 10px; margin-left: 6px; }
+.creeks-page .grid-search { padding: .5rem 1rem; border: 1.5px solid var(--border); border-radius: 8px; font-size: .88rem; color: var(--text); outline: none; width: 220px; transition: border .2s; }
+.creeks-page .grid-search:focus { border-color: var(--lake); }
+
+.creeks-page .creek-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.2rem; margin-bottom: .5rem; }
+.creeks-page .creek-card { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: all .22s; color: inherit; }
+.creeks-page .creek-card:hover { border-color: var(--lake); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(26,111,168,.12); }
+.creeks-page .creek-card-img { aspect-ratio: 16/7; background: linear-gradient(135deg,#0d3a5a 0%,#0a2540 55%,#061729 100%); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.creeks-page .creek-card-img::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 30%,rgba(127,216,255,.15) 0%,transparent 60%); }
+.creeks-page .creek-card-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(60deg,transparent 30%,rgba(127,216,255,.04) 50%,transparent 70%); animation: creek-sh 6s ease-in-out infinite; }
+@keyframes creek-sh { 0%,100% { transform: translate(-10%,-10%); } 50% { transform: translate(10%,10%); } }
+.creeks-page .creek-img-icon { position: relative; z-index: 1; color: rgba(255,255,255,.5); text-align: center; }
+.creeks-page .creek-img-icon svg { width: 36px; height: 36px; }
+.creeks-page .creek-img-icon div { font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(127,216,255,.5); margin-top: 5px; font-weight: 600; }
+.creeks-page .creek-card-body { padding: 1rem 1.2rem; flex: 1; display: flex; flex-direction: column; }
+.creeks-page .creek-card-name { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.creeks-page .creek-card-loc { font-size: .76rem; color: var(--lake); margin-bottom: .6rem; font-style: italic; }
+.creeks-page .creek-card-desc { font-size: .84rem; color: var(--muted); line-height: 1.6; margin-bottom: .8rem; flex: 1; }
+.creeks-page .creek-card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: .6rem; border-top: 1px solid var(--border); }
+.creeks-page .creek-card-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.creeks-page .creek-tag { font-size: .63rem; font-weight: 700; padding: 2px 7px; border-radius: 9px; text-transform: uppercase; letter-spacing: .05em; }
+.creeks-page .ct-active { background: var(--green-light); color: var(--green); }
+.creeks-page .ct-priority { background: var(--lake-light); color: var(--lake-dark); }
+.creeks-page .ct-restore { background: #e8f0ff; color: #2855a0; }
+.creeks-page .ct-concern { background: var(--amber-light); color: var(--amber); }
+.creeks-page .ct-barrier { background: #fff3e0; color: #b54708; }
+.creeks-page .ct-none { background: #f0f0f0; color: #666; }
+.creeks-page .ct-historical { background: #faf0ff; color: #7030a0; }
+.creeks-page .creek-card-arrow { color: var(--muted); font-size: 1rem; transition: color .2s, transform .2s; }
+.creeks-page .creek-card:hover .creek-card-arrow { color: var(--lake); transform: translateX(3px); }
+
+/* STATUS DOTS */
+.creeks-page .status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; display: inline-block; margin-right: 4px; }
+.creeks-page .sd-active { background: #2d7a3a; box-shadow: 0 0 5px rgba(45,122,58,.5); }
+.creeks-page .sd-concern { background: var(--amber); }
+.creeks-page .sd-none { background: #aaa; }
+
+/* NO RESULTS */
+.creeks-page .no-results { text-align: center; padding: 3rem; color: var(--muted); }
+
+/* FOOTER */
+.creeks-page footer { background: var(--text); color: rgba(255,255,255,.7); padding: 2.5rem 2rem; text-align: center; }
+.creeks-page footer .fl { color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: .4rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.creeks-page footer p { font-size: .82rem; line-height: 1.7; }
+.creeks-page footer a { color: #7fd8ff; text-decoration: none; }
+
+@media (max-width: 900px) {
+  .creeks-page .hero-inner { grid-template-columns: 1fr; }
+  .creeks-page .hero h1 { font-size: 2rem; }
+  .creeks-page .trib-overview { display: none; }
+  .creeks-page .stats-inner { grid-template-columns: 1fr 1fr; }
+  .creeks-page .search-box { min-width: 0; width: 100%; margin-left: 0; }
+}
+@media (max-width: 600px) {
+  .creeks-page .creek-grid { grid-template-columns: 1fr; }
+  .creeks-page .stats-inner { grid-template-columns: 1fr 1fr; }
+}

@@ -5,11 +5,11 @@ import { Fish, Menu, X } from "lucide-react"
 import { useState } from "react"
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#lake-status", label: "Lake Status" },
-  { href: "#fish", label: "Fish Guide" },
-  { href: "#health", label: "Lake Health" },
-  { href: "#involved", label: "Get Involved" },
+  { href: "/#about", label: "About" },
+  { href: "/#lake-status", label: "Lake Status" },
+  { href: "/#fish", label: "Fish Guide" },
+  { href: "/#health", label: "Lake Health" },
+  { href: "/#involved", label: "Get Involved" },
 ]
 
 export function Navigation() {
@@ -17,7 +17,7 @@ export function Navigation() {
 
   return (
     <nav className="sticky top-0 z-50 bg-[var(--lake-dark)] px-4 md:px-8 h-[60px] flex items-center justify-between shadow-lg">
-      <Link href="#home" className="flex items-center gap-2 text-white font-semibold text-sm tracking-wide">
+      <Link href="/" className="flex items-center gap-2 text-white font-semibold text-sm tracking-wide">
         <Fish className="w-6 h-6" />
         <span>The Clear Lake Hitch Project</span>
       </Link>
@@ -36,7 +36,7 @@ export function Navigation() {
         ))}
         <li>
           <a
-            href="/creeks.html"
+            href="/creeks"
             className="text-white/80 text-[0.82rem] px-4 h-[60px] flex items-center hover:text-white hover:bg-white/[0.08] transition-colors"
           >
             Creeks
@@ -94,7 +94,7 @@ export function Navigation() {
             ))}
             <li>
               <a
-                href="/creeks.html"
+                href="/creeks"
                 className="text-white/80 text-sm px-6 py-4 flex items-center hover:text-white hover:bg-white/[0.08] transition-colors border-b border-white/10"
                 onClick={() => setMobileMenuOpen(false)}
               >

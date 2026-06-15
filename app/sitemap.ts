@@ -6,10 +6,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
   // App Router pages
-  const routes = ['/', '/timeline', '/archive', '/map']
+  const routes = ['/', '/timeline', '/archive', '/map', '/creeks']
   // Standalone content pages served from /public
   const staticPages = [
-    '/creeks.html',
     '/kelsey.html',
     '/adobe.html',
     '/forbes.html',
