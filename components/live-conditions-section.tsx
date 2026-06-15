@@ -34,7 +34,7 @@ function getSpawnPhase(now: Date): SpawnPhase {
       bg: "rgba(118,196,66,.14)",
       border: "rgba(118,196,66,.32)",
       label: "Early Spawning Season",
-      desc: "First adult hitch are beginning to move into tributaries. Watch stream crossings — even a few fish sighting is meaningful data worth reporting.",
+      desc: "First adult hitch are beginning to move into tributaries. Watch stream crossings. Even a few fish sighting is meaningful data worth reporting.",
       info: dl > 0 ? `Peak season begins in ~${dl} day${dl !== 1 ? "s" : ""}` : "",
     }
   }
@@ -47,7 +47,7 @@ function getSpawnPhase(now: Date): SpawnPhase {
       bg: "rgba(0,200,83,.13)",
       border: "rgba(0,200,83,.32)",
       label: "Peak Spawning Season",
-      desc: "Clear Lake hitch are actively migrating into spawning tributaries right now. Visual surveys are underway. Report any sightings — your observations help build the long-term record.",
+      desc: "Clear Lake hitch are actively migrating into spawning tributaries right now. Visual surveys are underway. Report any sightings. Your observations help build the long-term record.",
       info: dl > 0 ? `~${dl} day${dl !== 1 ? "s" : ""} remaining in peak season` : "",
     }
   }
@@ -60,7 +60,7 @@ function getSpawnPhase(now: Date): SpawnPhase {
       bg: "rgba(245,158,11,.13)",
       border: "rgba(245,158,11,.3)",
       label: "Late Spawning Season",
-      desc: "Spawning is winding down. Watch for young-of-year hitch in tributary pools. Tributaries may begin to dry — report any stranded fish to the Hitch Rescue Team immediately.",
+      desc: "Spawning is winding down. Watch for young-of-year hitch in tributary pools. Tributaries may begin to dry. Report any stranded fish to the Hitch Rescue Team immediately.",
       info: dl > 0 ? `Season ends in approx. ${dl} day${dl !== 1 ? "s" : ""}` : "",
     }
   }
@@ -164,7 +164,7 @@ function SpawnTimeline({ now }: { now: Date }) {
 
   return (
     <div>
-      <div className="text-[10px] text-white/30 uppercase tracking-wider mb-1.5">Season Timeline — Jan through Jul</div>
+      <div className="text-[10px] text-white/30 uppercase tracking-wider mb-1.5">Season Timeline: Jan through Jul</div>
       <div className="relative h-5 rounded-[10px] overflow-visible bg-[#050d15] flex mb-1">
         {zones.map((z, i) => {
           const l = pct(z.s)
@@ -231,10 +231,10 @@ export function LiveConditionsSection() {
         let ctx = ""
         let cc = "rgba(255,255,255,.42)"
         if (g.value < 0) {
-          ctx = "Below datum — critically low"
+          ctx = "Below datum, critically low"
           cc = "#fca5a5"
         } else if (g.value < 2) {
-          ctx = "Low — below normal range"
+          ctx = "Low, below normal range"
           cc = "#fca5a5"
         } else if (g.value < 5) {
           ctx = "Normal lake level"
@@ -262,19 +262,19 @@ export function LiveConditionsSection() {
         let ctx = ""
         let cc = "rgba(255,255,255,.42)"
         if (g.value < 1) {
-          ctx = "Near zero — very little outflow"
+          ctx = "Near zero, very little outflow"
           cc = "#fca5a5"
         } else if (g.value < 10) {
-          ctx = "Low outflow — lake retaining water"
+          ctx = "Low outflow, lake retaining water"
           cc = "#fcd34d"
         } else if (g.value < 100) {
           ctx = "Moderate outflow through dam"
           cc = "#6ee7b7"
         } else if (g.value < 500) {
-          ctx = "High discharge — elevated outflow"
+          ctx = "High discharge, elevated outflow"
           cc = "#7fd8ff"
         } else {
-          ctx = "Very high discharge — flood management"
+          ctx = "Very high discharge, flood management"
           cc = "#fca5a5"
         }
         setCacheData({
@@ -291,16 +291,16 @@ export function LiveConditionsSection() {
     const m = d.getMonth()
     let seasonal, sc
     if (m >= 7 && m <= 9) {
-      seasonal = "Peak HAB season — blooms frequently active Aug–Oct"
+      seasonal = "Peak HAB season, blooms frequently active Aug to Oct"
       sc = "#fca5a5"
     } else if (m === 6 || m === 10) {
       seasonal = "HAB activity developing or declining"
       sc = "#fcd34d"
     } else if (m >= 4 && m <= 5) {
-      seasonal = "Low-moderate risk — blooms may begin"
+      seasonal = "Low-moderate risk, blooms may begin"
       sc = "#a0d8b8"
     } else {
-      seasonal = "Lower HAB risk — typical for winter/early spring"
+      seasonal = "Lower HAB risk, typical for winter/early spring"
       sc = "#6ee7b7"
     }
     setCyanoSeasonal({ text: seasonal, color: sc })
@@ -325,7 +325,7 @@ export function LiveConditionsSection() {
         </div>
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-3 mb-2">Live Conditions &amp; Spawner Map</h2>
         <p className="text-white/60 text-base max-w-[650px] mb-10 leading-relaxed">
-          Real-time lake level, dam discharge, cyanobacteria monitoring, and spawning season status — alongside the
+          Real-time lake level, dam discharge, cyanobacteria monitoring, and spawning season status, alongside the
           interactive tributary survey map.
         </p>
 
@@ -403,7 +403,7 @@ export function LiveConditionsSection() {
                   <div className="text-[10px] text-white/25">{lakeData.fresh}</div>
                 </>
               )}
-              {lakeError && <div className="text-[10px] text-white/25">Could not load — use USGS link below</div>}
+              {lakeError && <div className="text-[10px] text-white/25">Could not load, use USGS link below</div>}
               <div className="text-[10px] text-white/30 mt-1 leading-snug">
                 Full lake = 7.56 ft Rumsey ·{" "}
                 <a
@@ -467,7 +467,7 @@ export function LiveConditionsSection() {
                   <div className="text-[10px] text-white/25">{cacheData.fresh}</div>
                 </>
               )}
-              {cacheError && <div className="text-[10px] text-white/25">Could not load — use USGS link below</div>}
+              {cacheError && <div className="text-[10px] text-white/25">Could not load, use USGS link below</div>}
               <a
                 href="https://waterdata.usgs.gov/monitoring-location/11451000/#dataTypeId=continuous-00060-0&period=P7D"
                 target="_blank"

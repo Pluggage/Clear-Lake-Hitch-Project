@@ -4,12 +4,12 @@ const threats = [
   {
     icon: Leaf,
     title: "Harmful Algal Blooms (HABs)",
-    description: "Clear Lake experiences severe annual cyanobacterial blooms that produce toxins dangerous to fish, wildlife, pets, and humans. Blooms reduce oxygen, block sunlight, and devastate aquatic food webs — directly impacting juvenile hitch survival.",
+    description: "Clear Lake experiences severe annual cyanobacterial blooms that produce toxins dangerous to fish, wildlife, pets, and humans. Blooms reduce oxygen, block sunlight, and devastate aquatic food webs, directly impacting juvenile hitch survival.",
   },
   {
     icon: Fish,
     title: "Invasive Species",
-    description: "Non-native species like common carp, goldfish, largemouth bass, and others compete with and predate on native fish. Carp and goldfish disturb sediments, uproot vegetation, and consume hitch eggs — contributing directly to recruitment failure each spawning season.",
+    description: "Non-native species like common carp, goldfish, largemouth bass, and others compete with and predate on native fish. Carp and goldfish disturb sediments, uproot vegetation, and consume hitch eggs, contributing directly to recruitment failure each spawning season.",
   },
   {
     icon: Droplets,
@@ -31,12 +31,12 @@ const threats = [
     title: "What We're Doing",
     description: null,
     list: [
-      "Annual visual spawner surveys — CDFW, Robinson Rancheria, Habematolel Pomo of Upper Lake, Big Valley Rancheria, LCWPD, and community scientists",
-      "Hitch tagging study — Habematolel Pomo of Upper Lake monitors migration patterns",
-      "Carp & goldfish removal — CDFW, Robinson Rancheria and Rojas Fisheries",
+      "Annual visual spawner surveys: CDFW, Robinson Rancheria, Habematolel Pomo of Upper Lake, Big Valley Rancheria, LCWPD, and community scientists",
+      "Hitch tagging study: Habematolel Pomo of Upper Lake monitors migration patterns",
+      "Carp & goldfish removal: CDFW, Robinson Rancheria and Rojas Fisheries",
       "CDFW in-lake mark-recapture survey",
-      "USGS gillnet surveys — abundance and distribution since 2017",
-      "Hitch Rescue Team — responds to stranded hitch reports",
+      "USGS gillnet surveys: abundance and distribution since 2017",
+      "Hitch Rescue Team: responds to stranded hitch reports",
     ],
   },
 ]
@@ -52,7 +52,7 @@ export function LakeHealthSection() {
           Threats &amp; Conservation
         </h2>
         <p className="text-white/75 text-base max-w-[650px] mb-12 leading-relaxed">
-          Clear Lake faces a convergence of environmental pressures — and an equally broad coalition working to reverse them.
+          Clear Lake faces a convergence of environmental pressures, and an equally broad coalition working to reverse them.
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

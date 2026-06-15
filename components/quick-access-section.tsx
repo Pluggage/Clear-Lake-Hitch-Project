@@ -148,7 +148,7 @@ export function QuickAccessSection() {
           <span className="w-2.5 h-2.5 rounded-full bg-[var(--lake)] flex-shrink-0" />
           <div>
             <strong className="block text-sm font-semibold text-foreground">Hitch Archive</strong>
-            <span className="text-xs text-muted-foreground">Reports, studies &amp; data from 2013–2025</span>
+            <span className="text-xs text-muted-foreground">Reports, studies &amp; data from 2013 to 2025</span>
           </div>
         </Link>
       </div>

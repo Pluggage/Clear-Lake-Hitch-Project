@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Clear Lake Tributaries — The Clear Lake Hitch Project</title>
+<title>Clear Lake Tributaries | The Clear Lake Hitch Project</title>
 <meta name="description" content="Interactive guide to all 22 tributaries of Clear Lake. Kelsey, Adobe, Cole, Forbes, Burns Valley, and every stream that sustains the endemic Clear Lake hitch.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -79,7 +79,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--lake-dark);padding:0 2rem
 .creek-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(60deg,transparent 30%,rgba(127,216,255,.04) 50%,transparent 70%);animation:sh 6s ease-in-out infinite}
 @keyframes sh{0%,100%{transform:translate(-10%,-10%)}50%{transform:translate(10%,10%)}}
 .creek-card-img img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
-.creek-img-icon{position:relative;z-index:1;color:rgba(127,216,255,.45);text-align:center}
+.creek-img-icon{position:relative;z-index:1;color:rgba(255,255,255,.5);text-align:center}
 .creek-img-icon svg{width:36px;height:36px}
 .creek-img-icon div{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(127,216,255,.5);margin-top:5px;font-weight:600}
 .creek-card-body{padding:1rem 1.2rem;flex:1;display:flex;flex-direction:column}
@@ -132,7 +132,7 @@ footer a{color:#7fd8ff;text-decoration:none}
 
 <nav>
   <a class="nav-logo" href="/">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7fd8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg>
     The Clear Lake Hitch Project
   </a>
   <ul class="nav-links">
@@ -162,7 +162,7 @@ footer a{color:#7fd8ff;text-decoration:none}
     </div>
     <!-- PRIORITY TRIBUTARIES MINI-CHART -->
     <div class="trib-overview">
-      <div class="trib-ov-title">Priority Tributaries — 2025 Status</div>
+      <div class="trib-ov-title">Priority Tributaries: 2025 Status</div>
       <div class="trib-bars">
         <div class="trib-row">
           <div class="trib-name">Kelsey Creek</div>
@@ -236,7 +236,7 @@ footer a{color:#7fd8ff;text-decoration:none}
 
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.7rem">
     <div style="font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--lake)">
-      All Tributaries — Alphabetical
+      All Tributaries: Alphabetical
       <span style="background:var(--lake-light);color:var(--lake);font-size:.68rem;padding:2px 8px;border-radius:10px;margin-left:6px" id="count-badge">27 creeks</span>
     </div>
     <input id="creek-search" type="text" placeholder="Search creeks..." style="padding:.5rem 1rem;border:1.5px solid var(--border);border-radius:8px;font-size:.88rem;color:var(--text);outline:none;width:220px;transition:border .2s" onfocus="this.style.borderColor='var(--lake)'" onblur="this.style.borderColor='var(--border)'">
@@ -248,7 +248,7 @@ footer a{color:#7fd8ff;text-decoration:none}
       <div class="creek-card-body">
         <div class="creek-card-name"><span class="status-dot sd-active"></span>Adobe Creek</div>
         <div class="creek-card-loc">South shore - Big Valley</div>
-        <div class="creek-card-desc">Historic #2 spawning stream — most frequented in 2016, 2018, 2022, 2023, 2025. Highland Creek joins upstream.</div>
+        <div class="creek-card-desc">Historic #2 spawning stream, most frequented in 2016, 2018, 2022, 2023, 2025. Highland Creek joins upstream.</div>
         <div class="creek-card-footer">
           <div class="creek-card-tags"><span class="creek-tag ct-active">Active</span><span class="creek-tag ct-barrier">Barriers</span></div>
           <span class="creek-card-arrow">&rarr;</span>
@@ -272,7 +272,7 @@ footer a{color:#7fd8ff;text-decoration:none}
       <div class="creek-card-body">
         <div class="creek-card-name"><span class="status-dot sd-active"></span>Burns Valley Creek</div>
         <div class="creek-card-loc">SE shore - rearing habitat</div>
-        <div class="creek-card-desc">Rearing habitat — ~4,000 juvenile hitch and thousands of larvae documented in 2024. Major juvenile nursery on the SE shore.</div>
+        <div class="creek-card-desc">Rearing habitat: ~4,000 juvenile hitch and thousands of larvae documented in 2024. Major juvenile nursery on the SE shore.</div>
         <div class="creek-card-footer">
           <div class="creek-card-tags"><span class="creek-tag ct-none">Rearing habitat</span><span class="creek-tag ct-active">Active 2024</span></div>
           <span class="creek-card-arrow">&rarr;</span>
@@ -296,7 +296,7 @@ footer a{color:#7fd8ff;text-decoration:none}
       <div class="creek-card-body">
         <div class="creek-card-name"><span class="status-dot sd-concern"></span>Cole Creek</div>
         <div class="creek-card-loc">South shore - East of Kelsey</div>
-        <div class="creek-card-desc">Funded restoration project — 1.55 miles of hitch spawning habitat. Downstream reach ran dry in 2024. USGS gauged (discharge + temp).</div>
+        <div class="creek-card-desc">Funded restoration project: 1.55 miles of hitch spawning habitat. Downstream reach ran dry in 2024. USGS gauged (discharge + temp).</div>
         <div class="creek-card-footer">
           <div class="creek-card-tags"><span class="creek-tag ct-restore">Restoration</span></div>
           <span class="creek-card-arrow">&rarr;</span>
@@ -320,7 +320,7 @@ footer a{color:#7fd8ff;text-decoration:none}
       <div class="creek-card-body">
         <div class="creek-card-name"><span class="status-dot sd-active"></span>Copsey Creek</div>
         <div class="creek-card-loc">East shore - Seigler Canyon system</div>
-        <div class="creek-card-desc">Adults confirmed March through May 2024 — the most encouraging signal from the Seigler Canyon drainage in two decades.</div>
+        <div class="creek-card-desc">Adults confirmed March through May 2024, the most encouraging signal from the Seigler Canyon drainage in two decades.</div>
         <div class="creek-card-footer">
           <div class="creek-card-tags"><span class="creek-tag ct-active">Active 2024</span><span class="creek-tag ct-none">Cache Creek system</span></div>
           <span class="creek-card-arrow">&rarr;</span>
@@ -380,7 +380,7 @@ footer a{color:#7fd8ff;text-decoration:none}
       <div class="creek-card-body">
         <div class="creek-card-name"><span class="status-dot sd-none"></span>Hill Creek</div>
         <div class="creek-card-loc">South shore - McGaugh feeder</div>
-        <div class="creek-card-desc">No adults observed in 2024-2025. Upstream feeder to McGaugh Slough — access requires McGaugh to connect to the lake first.</div>
+        <div class="creek-card-desc">No adults observed in 2024-2025. Upstream feeder to McGaugh Slough. Access requires McGaugh to connect to the lake first.</div>
         <div class="creek-card-footer">
           <div class="creek-card-tags"><span class="creek-tag ct-concern">No fish 2024-25</span><span class="creek-tag ct-none">McGaugh feeder</span></div>
           <span class="creek-card-arrow">&rarr;</span>
@@ -404,7 +404,7 @@ footer a{color:#7fd8ff;text-decoration:none}
       <div class="creek-card-body">
         <div class="creek-card-name"><span class="status-dot sd-none"></span>Lucerne Creek</div>
         <div class="creek-card-loc">NE shore - rearing habitat</div>
-        <div class="creek-card-desc">Rearing habitat near the town of Lucerne on the NE shore. Limited survey data — NE shore monitoring gap.</div>
+        <div class="creek-card-desc">Rearing habitat near the town of Lucerne on the NE shore. Limited survey data, an NE shore monitoring gap.</div>
         <div class="creek-card-footer">
           <div class="creek-card-tags"><span class="creek-tag ct-none">Rearing habitat</span></div>
           <span class="creek-card-arrow">&rarr;</span>
@@ -428,7 +428,7 @@ footer a{color:#7fd8ff;text-decoration:none}
       <div class="creek-card-body">
         <div class="creek-card-name"><span class="status-dot sd-active"></span>Manning Creek</div>
         <div class="creek-card-loc">SW shore - Big Valley</div>
-        <div class="creek-card-desc">CDFW confirmed adults 2024 and 2025. Thompson Creek was rerouted into Manning Creek — both drain together to the lake.</div>
+        <div class="creek-card-desc">CDFW confirmed adults 2024 and 2025. Thompson Creek was rerouted into Manning Creek, and both drain together to the lake.</div>
         <div class="creek-card-footer">
           <div class="creek-card-tags"><span class="creek-tag ct-active">Active 2024-25</span></div>
           <span class="creek-card-arrow">&rarr;</span>
@@ -524,7 +524,7 @@ footer a{color:#7fd8ff;text-decoration:none}
       <div class="creek-card-body">
         <div class="creek-card-name"><span class="status-dot sd-none"></span>Schindler Creek</div>
         <div class="creek-card-loc">East end - rearing habitat in the Keys</div>
-        <div class="creek-card-desc">Rearing habitat in the Clearlake Oaks Keys area. 2024 WPD survey site — no fish observed.</div>
+        <div class="creek-card-desc">Rearing habitat in the Clearlake Oaks Keys area. 2024 WPD survey site: no fish observed.</div>
         <div class="creek-card-footer">
           <div class="creek-card-tags"><span class="creek-tag ct-none">Rearing habitat</span><span class="creek-tag ct-none">The Keys</span></div>
           <span class="creek-card-arrow">&rarr;</span>
@@ -560,7 +560,7 @@ footer a{color:#7fd8ff;text-decoration:none}
       <div class="creek-card-body">
         <div class="creek-card-name"><span class="status-dot sd-active"></span>Thompson Creek</div>
         <div class="creek-card-loc">SW shore - Manning Creek feeder</div>
-        <div class="creek-card-desc">CDFW confirmed adults 2024 and 2025. Rerouted from Rumsey Slough — now feeds Manning Creek in the Big Valley corridor.</div>
+        <div class="creek-card-desc">CDFW confirmed adults 2024 and 2025. Rerouted from Rumsey Slough, it now feeds Manning Creek in the Big Valley corridor.</div>
         <div class="creek-card-footer">
           <div class="creek-card-tags"><span class="creek-tag ct-active">Active 2024-25</span><span class="creek-tag ct-none">Manning feeder</span></div>
           <span class="creek-card-arrow">&rarr;</span>
@@ -575,7 +575,7 @@ footer a{color:#7fd8ff;text-decoration:none}
 
 <footer>
   <div class="fl">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7fd8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg>
     The Clear Lake Hitch Project
   </div>
   <p style="margin-top:6px">A project by <strong style="color:#fff">Taylor Woodruff</strong> &amp; <strong style="color:#fff">Jordan Stevens</strong></p>

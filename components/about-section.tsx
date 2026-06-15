@@ -10,13 +10,13 @@ const infoCards = [
     variant: "default",
   },
   {
-    title: "CA Endangered Species Act — Listed Threatened (2014)",
+    title: "CA Endangered Species Act: Listed Threatened (2014)",
     content: "The California Department of Fish and Wildlife has protected the CLH as threatened since 2014, restricting take and mandating conservation efforts.",
     variant: "warn",
   },
   {
-    title: "Federal ESA Listing Proposed — January 2025",
-    content: "The U.S. Fish & Wildlife Service has proposed listing the CLH as threatened under federal law — a critical step toward broader habitat and population protection.",
+    title: "Federal ESA Listing Proposed: January 2025",
+    content: "The U.S. Fish & Wildlife Service has proposed listing the CLH as threatened under federal law, a critical step toward broader habitat and population protection.",
     variant: "danger",
   },
   {
@@ -41,10 +41,10 @@ export function AboutSection() {
             </h2>
             <div className="space-y-4 text-[var(--muted-color)] text-[0.97rem] leading-relaxed">
               <p>
-                The Clear Lake hitch (<em>Lavinia exilicauda chi</em>) is a subspecies of minnow found only in Clear Lake, Lake County, California — the <strong className="text-[var(--text)]">largest natural freshwater lake entirely within California</strong>, and one of the <strong className="text-[var(--text)]">oldest lakes in North America </strong> at nearly 500,000 years old. It is one of the most ecologically and culturally significant fish in the state — and it&apos;s disappearing.
+                The Clear Lake hitch (<em>Lavinia exilicauda chi</em>) is a subspecies of minnow found only in Clear Lake, Lake County, California, the <strong className="text-[var(--text)]">largest natural freshwater lake entirely within California</strong>, and one of the <strong className="text-[var(--text)]">oldest lakes in North America </strong> at nearly 500,000 years old. It is one of the most ecologically and culturally significant fish in the state, and it&apos;s disappearing.
               </p>
               <p>
-                Each spring, adult hitch migrate from the lake into its tributaries to spawn — a spectacle that has sustained the <strong className="text-[var(--text)]">Indigenous Pomo Tribes</strong> as a food and cultural resource since time immemorial. The Pomo people know this fish as <em>chi</em>. Tribal communities have long held deep spiritual and practical connections to this fish and the watershed that sustains it.
+                Each spring, adult hitch migrate from the lake into its tributaries to spawn, a spectacle that has sustained the <strong className="text-[var(--text)]">Indigenous Pomo Tribes</strong> as a food and cultural resource since time immemorial. The Pomo people know this fish as <em>chi</em>. Tribal communities have long held deep spiritual and practical connections to this fish and the watershed that sustains it.
               </p>
               <p>
                 Today, the Clear Lake hitch faces mounting threats: prolonged drought, loss of spawning habitat, harmful algal blooms, competition and predation from invasive species, and reduced water flows in tributaries. In February 2023, Lake County declared a <strong className="text-[var(--text)]">local state of emergency</strong> due to the risk of extinction. As of January 2025, the U.S. Fish &amp; Wildlife Service has proposed listing the hitch as <strong className="text-[var(--text)]">threatened under the Federal Endangered Species Act</strong>.

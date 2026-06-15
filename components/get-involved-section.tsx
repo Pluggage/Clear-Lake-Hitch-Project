@@ -5,7 +5,7 @@ const involvementOptions = [
   {
     icon: Telescope,
     title: "Become a Community Scientist",
-    description: "Report Clear Lake hitch sightings during the spring spawning season (March–May). Your observations directly support the long-term population record.",
+    description: "Report Clear Lake hitch sightings during the spring spawning season (March to May). Your observations directly support the long-term population record.",
     linkText: "Volunteer here",
     href: "https://www.lakecountyca.gov/1913/Community-Science",
     external: true,
@@ -21,7 +21,7 @@ const involvementOptions = [
   {
     icon: Phone,
     title: "Report Stranded Hitch",
-    description: "If you spot hitch stranded in a dry or disconnected tributary, call immediately — the Hitch Rescue Team responds and relocates fish to safe water. Quick action saves lives.",
+    description: "If you spot hitch stranded in a dry or disconnected tributary, call immediately. The Hitch Rescue Team responds and relocates fish to safe water. Quick action saves lives.",
     linkText: "Call (707) 263-2344",
     href: "tel:7072632344",
     external: false,
@@ -30,13 +30,13 @@ const involvementOptions = [
   {
     icon: TreePine,
     title: "Support Lake Rehabilitation",
-    description: "Multiple organizations are working to restore Clear Lake's health — from large-scale habitat projects to community shoreline stewardship.",
+    description: "Multiple organizations are working to restore Clear Lake's health, from large-scale habitat projects to community shoreline stewardship.",
     linkText: "Blue Ribbon Committee (AB 707)",
     href: "https://resources.ca.gov/Initiatives/Blue-Ribbon-Committee-for-the-Rehabilitation-of-Clear-Lake",
     external: true,
     additionalLinks: [
       { text: "Middle Creek Restoration Project", href: "https://www.lakecountyca.gov/1273/Middle-Creek-Restoration-Project" },
-      { text: "Shoreline Stewardship — Invasive Primrose Removal", href: "https://www.lakecountyca.gov/1545/Primrose" },
+      { text: "Shoreline Stewardship: Invasive Primrose Removal", href: "https://www.lakecountyca.gov/1545/Primrose" },
       { text: "Lake County Land Trust", href: "https://www.lakecountylandtrust.org/" },
       { text: "Tribal EcoRestoration Alliance", href: "https://www.tribalecorestoration.org/" },
     ],
@@ -54,7 +54,7 @@ export function GetInvolvedSection() {
           Help Protect the Hitch
         </h2>
         <p className="text-[var(--muted-color)] text-base max-w-[650px] mb-12 leading-relaxed">
-          {"Whether you're a scientist, angler, student, or just a curious resident — there's a way for you to contribute to Clear Lake Hitch conservation."}
+          {"Whether you're a scientist, angler, student, or just a curious resident, there's a way for you to contribute to Clear Lake Hitch conservation."}
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

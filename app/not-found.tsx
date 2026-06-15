@@ -7,7 +7,7 @@ export default function NotFound() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-[#0d4a72] px-8 flex items-center justify-between h-[60px] shadow-md">
         <Link href="/" className="text-white text-base font-semibold no-underline flex items-center gap-2.5">
-          <Fish className="w-6 h-6 text-[#7fd8ff]" />
+          <Fish className="w-6 h-6 text-white" />
           Clear Lake Hitch Project
         </Link>
         <ul className="flex list-none">
@@ -89,7 +89,7 @@ export default function NotFound() {
           </h1>
 
           <p className="text-base text-[#5a6474] leading-relaxed mb-2">
-            The page you&apos;re looking for has <strong className="text-[#1a1a1a]">gone upstream</strong> — or it hasn&apos;t been built yet. Either way, this hitch got away.
+            The page you&apos;re looking for has <strong className="text-[#1a1a1a]">gone upstream</strong>, or it hasn&apos;t been built yet. Either way, this hitch got away.
           </p>
 
           <p className="text-sm text-[#5a6474] mb-8 italic">

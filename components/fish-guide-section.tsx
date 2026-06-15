@@ -101,7 +101,7 @@ function FishModal({ fish, onClose }: { fish: FishType; onClose: () => void }) {
             <dt className="text-xs font-bold uppercase tracking-wide text-[var(--muted-color)]">Origin</dt>
             <dd className="text-sm">
               {fish.type === "native" ? "Native to Clear Lake basin" : 
-               fish.type === "failed" ? "Non-native — introduced, did not establish" :
+               fish.type === "failed" ? "Non-native, introduced, did not establish" :
                "Introduced (non-native)"}
             </dd>
           </div>
@@ -120,25 +120,25 @@ function FishModal({ fish, onClose }: { fish: FishType; onClose: () => void }) {
           {fish.status === "threatened" && (
             <div>
               <dt className="text-xs font-bold uppercase tracking-wide text-[var(--muted-color)]">Conservation Status</dt>
-              <dd className="text-sm">Threatened — California ESA (2014) · Federal listing proposed (Jan 2025)</dd>
+              <dd className="text-sm">Threatened: California ESA (2014) · Federal listing proposed (Jan 2025)</dd>
             </div>
           )}
           {fish.status === "extinct" && (
             <div>
               <dt className="text-xs font-bold uppercase tracking-wide text-[var(--muted-color)]">Conservation Status</dt>
-              <dd className="text-sm">Extinct — no longer exists anywhere on Earth</dd>
+              <dd className="text-sm">Extinct: no longer exists anywhere on Earth</dd>
             </div>
           )}
           {fish.status === "extirpated" && (
             <div>
               <dt className="text-xs font-bold uppercase tracking-wide text-[var(--muted-color)]">Conservation Status</dt>
-              <dd className="text-sm">Extirpated from Clear Lake — may exist elsewhere</dd>
+              <dd className="text-sm">Extirpated from Clear Lake, may exist elsewhere</dd>
             </div>
           )}
           {fish.type === "failed" && (
             <div>
               <dt className="text-xs font-bold uppercase tracking-wide text-[var(--muted-color)]">Introduction Outcome</dt>
-              <dd className="text-sm">Failed — did not establish in Clear Lake</dd>
+              <dd className="text-sm">Failed: did not establish in Clear Lake</dd>
             </div>
           )}
         </div>
@@ -198,7 +198,7 @@ export function FishGuideSection() {
           Fishes of Clear Lake
         </h2>
         <p className="text-[var(--muted-color)] text-base max-w-[650px] mb-8 leading-relaxed">
-          All 36 documented fish species of Clear Lake — native, introduced, and those lost — plus 4 failed introductions. Click any card for detailed information.
+          All 36 documented fish species of Clear Lake (native, introduced, and those lost) plus 4 failed introductions. Click any card for detailed information.
         </p>
         
         {/* Controls */}
@@ -285,7 +285,7 @@ export function FishGuideSection() {
         <div className="mt-10 pt-6 border-t-2 border-[var(--border-color)]">
           <h3 className="text-lg font-bold text-[var(--text)] mb-1">Unsuccessful Introductions</h3>
           <p className="text-sm text-[var(--muted-color)] mb-4">
-            These species were released into Clear Lake but failed to establish self-sustaining populations — illustrating that Clear Lake&apos;s unique warm, shallow, and eutrophic conditions are not suitable for all introduced fish species.
+            These species were released into Clear Lake but failed to establish self-sustaining populations, illustrating that Clear Lake&apos;s unique warm, shallow, and eutrophic conditions are not suitable for all introduced fish species.
           </p>
           
           <div className="relative">

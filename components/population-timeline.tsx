@@ -3,16 +3,16 @@
 import { useState, useRef, useCallback } from "react"
 
 const popData = [
-  { yr: 2013, count: 500, est: true, ctx: "Drought conditions. Fewer than 500 spawners observed — survey methods still being standardized.", color: "#c03030" },
+  { yr: 2013, count: 500, est: true, ctx: "Drought conditions. Fewer than 500 spawners observed, survey methods still being standardized.", color: "#c03030" },
   { yr: 2014, count: 1119, est: false, ctx: "Improved rain. 1,119 spawners counted. California lists the hitch as Threatened under state ESA.", color: "#7ec8e3" },
   { yr: 2016, count: 693, est: false, ctx: "Moderate year. 693 spawners across tributaries. Kelsey and Adobe Creeks remain primary streams.", color: "#a0b8c8" },
-  { yr: 2017, count: 517, est: false, ctx: "USGS begins gillnet surveys — establishes the baseline that will later reveal a 96% decline.", color: "#a0b8c8" },
+  { yr: 2017, count: 517, est: false, ctx: "USGS begins gillnet surveys, establishing the baseline that will later reveal a 96% decline.", color: "#a0b8c8" },
   { yr: 2018, count: 1153, est: false, ctx: "Strong year. 1,153 spawners. Adobe Creek most frequented tributary this season.", color: "#7ec8e3" },
   { yr: 2019, count: 612, est: false, ctx: "Below average. 612 spawners. USGS gillnet catches already ~55% below 2017 baseline.", color: "#a0b8c8" },
   { yr: 2020, count: 1672, est: false, ctx: "Best year in over a decade. All 1,672 hitch observed exclusively in Kelsey Creek.", color: "#6ee7b7" },
-  { yr: 2021, count: 120, est: false, ctx: "Catastrophic drought. Only 120 spawners — a 93% crash from the prior year. Tributaries ran dry.", color: "#c03030" },
+  { yr: 2021, count: 120, est: false, ctx: "Catastrophic drought. Only 120 spawners, a 93% crash from the prior year. Tributaries ran dry.", color: "#c03030" },
   { yr: 2022, count: 306, est: false, ctx: "Still in crisis. 306 spawners. USGS gillnet shows ~4% of 2017 baseline. Lake County declares emergency in early 2023.", color: "#d08040" },
-  { yr: 2023, count: 2548, est: false, ctx: "Record year — 2,548 spawners after heavy winter rains refilled tributaries. A fragile sign of hope.", color: "#00c853" },
+  { yr: 2023, count: 2548, est: false, ctx: "Record year: 2,548 spawners after heavy winter rains refilled tributaries. A fragile sign of hope.", color: "#00c853" },
   { yr: 2024, count: 1042, est: false, ctx: "Back to moderate levels. 1,042 spawners. Federal ESA listing proposed in January 2025.", color: "#7ec8e3" },
   { yr: 2025, count: 1567, est: false, ctx: "1,567 spawners observed so far. Surveys ongoing. Adobe and Kelsey Creeks leading again.", color: "#7ec8e3" },
 ]
@@ -76,7 +76,7 @@ export function PopulationTimeline() {
         {/* Header */}
         <div className="flex items-center justify-between mb-5 flex-wrap gap-2">
           <h2 className="text-base font-bold text-foreground">
-            Clear Lake Hitch — Spawner Count by Year
+            Clear Lake Hitch: Spawner Count by Year
           </h2>
           <button
             onClick={popAnimate}

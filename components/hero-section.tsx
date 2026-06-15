@@ -34,7 +34,7 @@ export function HeroSection() {
           
           {/* Subheading */}
           <p className="text-white/85 text-base md:text-lg mb-8 leading-relaxed max-w-xl">
-            The Clear Lake Hitch is a culturally significant minnow found nowhere else on Earth. We monitor, protect, and advocate for this remarkable fish — and the lake ecosystem it calls home.
+            The Clear Lake Hitch is a culturally significant minnow found nowhere else on Earth. We monitor, protect, and advocate for this remarkable fish, and the lake ecosystem it calls home.
           </p>
           
           {/* CTAs */}
