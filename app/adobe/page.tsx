@@ -18,7 +18,7 @@ export default function AdobePage() {
   return (
     <>
       <Navigation />
-      <div className="creek-detail">
+      <div id="main" role="main" className="creek-detail">
         {/* BREADCRUMB */}
         <div className="bc">
           <a href="/">Home</a>

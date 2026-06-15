@@ -38,7 +38,7 @@ export function Navigation() {
   return (
     <nav className="sticky top-0 z-50 bg-[var(--lake-dark)] px-4 md:px-8 h-[60px] flex items-center justify-between shadow-lg">
       <Link href="/" className="flex items-center gap-2 text-white font-semibold text-sm tracking-wide">
-        <Fish className="w-6 h-6" />
+        <Fish className="w-6 h-6" aria-hidden="true" />
         <span>The Clear Lake Hitch Project</span>
       </Link>
 
@@ -69,7 +69,7 @@ export function Navigation() {
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         aria-label="Toggle menu"
       >
-        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {mobileMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
       </button>
 
       {/* Mobile Menu */}

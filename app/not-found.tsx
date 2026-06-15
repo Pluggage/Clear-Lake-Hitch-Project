@@ -30,7 +30,7 @@ export default function NotFound() {
       </nav>
 
       {/* Page Body */}
-      <div className="flex-1 flex flex-col items-center justify-center px-8 py-12 relative overflow-hidden bg-gradient-to-b from-[#f0f7ff] to-white">
+      <div id="main" role="main" className="flex-1 flex flex-col items-center justify-center px-8 py-12 relative overflow-hidden bg-gradient-to-b from-[#f0f7ff] to-white">
         {/* Background watermark fish SVG */}
         <svg 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.055] pointer-events-none w-[min(620px,90vw)]" 

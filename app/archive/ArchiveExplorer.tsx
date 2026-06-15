@@ -103,7 +103,7 @@ export function ArchiveExplorer() {
               </button>
               <div className="filter-dropdown">
                 {YEARS.map((y) => (
-                  <div key={y.val} className={`filter-option${year === y.val ? ' on' : ''}`} onClick={() => setYear(y.val)}>
+                  <div key={y.val} className={`filter-option${year === y.val ? ' on' : ''}`} role="button" tabIndex={0} aria-pressed={year === y.val} onClick={() => setYear(y.val)} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setYear(y.val) } }}>
                     <span className="check">{year === y.val ? '✓' : ''}</span> {y.label}
                   </div>
                 ))}
@@ -116,7 +116,7 @@ export function ArchiveExplorer() {
               </button>
               <div className="filter-dropdown">
                 {TOPICS.map((t) => (
-                  <div key={t.tag} className={`filter-option${tags.includes(t.tag) ? ' on' : ''}`} onClick={() => toggleTag(t.tag)}>
+                  <div key={t.tag} className={`filter-option${tags.includes(t.tag) ? ' on' : ''}`} role="button" tabIndex={0} aria-pressed={tags.includes(t.tag)} onClick={() => toggleTag(t.tag)} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleTag(t.tag) } }}>
                     <span className="check">{tags.includes(t.tag) ? '✓' : ''}</span> {t.label}
                   </div>
                 ))}
@@ -129,7 +129,7 @@ export function ArchiveExplorer() {
               </button>
               <div className="filter-dropdown">
                 {AGENCIES.map((a) => (
-                  <div key={a.a} className={`filter-option${agencies.includes(a.a) ? ' on' : ''}`} onClick={() => toggleAgency(a.a)}>
+                  <div key={a.a} className={`filter-option${agencies.includes(a.a) ? ' on' : ''}`} role="button" tabIndex={0} aria-pressed={agencies.includes(a.a)} onClick={() => toggleAgency(a.a)} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleAgency(a.a) } }}>
                     <span className="check">{agencies.includes(a.a) ? '✓' : ''}</span> {a.label}
                   </div>
                 ))}

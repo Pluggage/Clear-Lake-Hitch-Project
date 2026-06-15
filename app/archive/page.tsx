@@ -31,7 +31,7 @@ export default function ArchivePage() {
   return (
     <>
       <Navigation />
-      <div className="archive-page">
+      <div id="main" role="main" className="archive-page">
         <div className="archive-hero">
           <div className="archive-hero-inner">
             <h1>

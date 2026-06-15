@@ -17,7 +17,7 @@ export default function ForbesPage() {
   return (
     <>
       <Navigation />
-      <div className="creek-detail">
+      <div id="main" role="main" className="creek-detail">
         <div className="bc">
           <a href="/">Home</a>
           <span className="bc-sep">›</span>

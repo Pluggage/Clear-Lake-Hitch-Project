@@ -136,5 +136,5 @@ export function MapExplorer() {
     }
   }, [])
 
-  return <div className="map-page" ref={ref} dangerouslySetInnerHTML={{ __html: MAP_MARKUP }} />
+  return <div id="main" role="main" className="map-page" ref={ref} dangerouslySetInnerHTML={{ __html: MAP_MARKUP }} />
 }

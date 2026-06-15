@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <main>
+      <main id="main">
         <HeroSection />
         <StatsBar />
         <PopulationTimeline />

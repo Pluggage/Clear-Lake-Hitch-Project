@@ -792,7 +792,7 @@ export default function TimelinePage() {
   const introduced = SPECIES.filter(s => s.status === 'introduced')
 
   return (
-    <div className="min-h-screen bg-background">
+    <div id="main" role="main" className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="bg-[#0d4a72] px-4 md:px-8 h-[60px] flex items-center justify-between shadow-lg">
         <Link href="/" className="flex items-center gap-2 text-white font-semibold text-sm tracking-wide">
