@@ -1,7 +1,7 @@
 "use client"
 
-import Link from "next/link"
-import { Fish, ArrowLeft, ChevronRight, Calendar, X } from "lucide-react"
+import { Navigation } from "@/components/navigation"
+import { Fish, ChevronRight, Calendar, X } from "lucide-react"
 import { useState } from "react"
 
 // ===================== DATA =====================
@@ -792,18 +792,9 @@ export default function TimelinePage() {
   const introduced = SPECIES.filter(s => s.status === 'introduced')
 
   return (
-    <div id="main" role="main" className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="bg-[#0d4a72] px-4 md:px-8 h-[60px] flex items-center justify-between shadow-lg">
-        <Link href="/" className="flex items-center gap-2 text-white font-semibold text-sm tracking-wide">
-          <Fish className="w-6 h-6" />
-          <span>The Clear Lake Hitch Project</span>
-        </Link>
-        <Link href="/" className="text-white/75 text-[0.82rem] flex items-center gap-1 hover:text-white transition-colors">
-          <ArrowLeft className="w-4 h-4" />
-          Back to main site
-        </Link>
-      </nav>
+    <>
+      <Navigation />
+      <div id="main" role="main" className="min-h-screen bg-background">
 
       {/* Hero */}
       <div className="bg-gradient-to-br from-[#0d1f30] via-[#0d4a72] to-[#1a6fa8] py-14 px-4 md:px-8 text-white relative overflow-hidden">
@@ -1197,5 +1188,6 @@ export default function TimelinePage() {
         Species abundance scores based on Appendix I of Moyle et al. 2013. Scoring: 5=Abundant, 4=Common, 3=Declining, 2=Rare, 1=Extirpated, 0=Not present / not yet introduced.
       </div>
     </div>
+    </>
   )
 }

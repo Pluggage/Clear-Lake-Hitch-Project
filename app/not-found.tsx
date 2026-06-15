@@ -1,33 +1,11 @@
 import Link from "next/link"
 import { Fish } from "lucide-react"
+import { Navigation } from "@/components/navigation"
 
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-[#0d4a72] px-8 flex items-center justify-between h-[60px] shadow-md">
-        <Link href="/" className="text-white text-base font-semibold no-underline flex items-center gap-2.5">
-          <Fish className="w-6 h-6 text-white" />
-          Clear Lake Hitch Project
-        </Link>
-        <ul className="flex list-none">
-          <li>
-            <Link href="/" className="text-white/80 no-underline text-sm px-3 h-[60px] flex items-center transition-colors hover:text-white hover:bg-white/10">
-              Tributaries
-            </Link>
-          </li>
-          <li>
-            <Link href="/#about" className="text-white/80 no-underline text-sm px-3 h-[60px] flex items-center transition-colors hover:text-white hover:bg-white/10">
-              The Hitch
-            </Link>
-          </li>
-          <li>
-            <Link href="/timeline" className="text-white/80 no-underline text-sm px-3 h-[60px] flex items-center transition-colors hover:text-white hover:bg-white/10">
-              Timeline
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <Navigation />
 
       {/* Page Body */}
       <div id="main" role="main" className="flex-1 flex flex-col items-center justify-center px-8 py-12 relative overflow-hidden bg-gradient-to-b from-[#f0f7ff] to-white">
