@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Clear Lake Tributaries — The Clear Lake Hitch Project</title>
+<meta name="description" content="Interactive guide to all 22 tributaries of Clear Lake. Kelsey, Adobe, Cole, Forbes, Burns Valley, and every stream that sustains the endemic Clear Lake hitch.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --lake:#1a6fa8;--lake-dark:#0d4a72;--lake-light:#d6eaf8;
+  --green:#2d7a3a;--green-light:#e8f5eb;
+  --amber:#c87800;--amber-light:#fff3d6;
+  --red:#c0392b;--sand:#f5f0e8;--text:#1a1a1a;--muted:#5a6474;
+  --border:#dde3ea;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+
+nav{position:sticky;top:0;z-index:100;background:var(--lake-dark);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.nav-logo{color:#fff;font-size:1rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:10px}
+.nav-links{display:flex;list-style:none}
+.nav-links a{color:rgba(255,255,255,.82);text-decoration:none;font-size:.8rem;padding:0 .8rem;height:60px;display:flex;align-items:center;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.on{color:#fff;background:rgba(255,255,255,.1)}
+
+/* HERO (dark) */
+.hero{background:linear-gradient(160deg,var(--lake-dark) 0%,#1a6fa8 55%,#2980b9 100%);padding:3.5rem 2rem 3.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cellipse cx='75%25' cy='55%25' rx='38%25' ry='28%25' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.2rem}
+.hero-badge{padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:600;letter-spacing:.04em}
+.b-white{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.b-green{background:rgba(45,122,58,.3);color:#9efaae;border:1px solid rgba(80,200,100,.3)}
+.b-blue{background:rgba(127,216,255,.15);color:#bde5ff;border:1px solid rgba(127,216,255,.3)}
+.hero h1{font-size:2.8rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:.7rem;letter-spacing:-.02em}
+.hero h1 em{color:#7fd8ff;font-style:normal}
+.hero-sub{color:rgba(255,255,255,.82);font-size:.98rem;line-height:1.7;margin-bottom:1.8rem;max-width:500px}
+
+/* tributary overview mini-chart */
+.trib-overview{background:rgba(5,14,24,.45);border:1px solid rgba(127,216,255,.18);border-radius:14px;padding:1.2rem;color:#fff}
+.trib-ov-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(127,216,255,.7);margin-bottom:.8rem}
+.trib-bars{display:flex;flex-direction:column;gap:6px}
+.trib-row{display:flex;align-items:center;gap:8px;font-size:.82rem}
+.trib-name{width:120px;flex-shrink:0;color:rgba(255,255,255,.75);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trib-bar-bg{flex:1;height:12px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.trib-bar-fill{height:100%;border-radius:3px;transition:width .8s ease .2s}
+.trib-val{width:52px;text-align:right;font-size:.72rem;font-weight:700;flex-shrink:0}
+.trib-status{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+
+/* STATS BAR */
+.stats-bar{background:var(--sand);border-bottom:1px solid var(--border);padding:1.2rem 2rem}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.stat{text-align:center;padding:.9rem;background:#fff;border-radius:10px;border:1px solid var(--border)}
+.stat-num{font-size:1.75rem;font-weight:700;color:var(--lake)}
+.stat-num.g{color:var(--green)}.stat-num.a{color:var(--amber)}.stat-num.r{color:var(--red)}
+.stat-label{font-size:.73rem;color:var(--muted);margin-top:2px}
+
+/* FILTER BAR */
+.filter-bar{background:#fff;border-bottom:2px solid var(--border);padding:1rem 2rem;position:sticky;top:60px;z-index:90;backdrop-filter:blur(8px)}
+.filter-inner{max-width:1100px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filter-btn{padding:6px 15px;border-radius:20px;border:1.5px solid var(--border);background:#fff;font-size:.82rem;cursor:pointer;transition:all .2s;color:var(--muted);font-family:inherit}
+.filter-btn.active{background:var(--lake);color:#fff;border-color:var(--lake)}
+.filter-btn:hover:not(.active){border-color:var(--lake);color:var(--lake)}
+.search-box{padding:8px 15px;border-radius:20px;border:1.5px solid var(--border);font-size:.84rem;outline:none;font-family:inherit;margin-left:auto;min-width:210px}
+.search-box:focus{border-color:var(--lake)}
+
+/* GRID CONTENT */
+.grid-content{max-width:1100px;margin:0 auto;padding:2rem 2rem 4rem}
+.group-label{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--lake);padding-bottom:.6rem;margin-bottom:1rem;border-bottom:2px solid var(--lake-light);display:flex;align-items:center;gap:10px;margin-top:2rem}
+.group-label:first-child{margin-top:0}
+.group-label-count{background:var(--lake-light);color:var(--lake);font-size:.68rem;padding:2px 8px;border-radius:10px}
+
+.creek-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin-bottom:.5rem}
+.creek-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:all .22s;color:inherit}
+.creek-card:hover{border-color:var(--lake);transform:translateY(-3px);box-shadow:0 8px 28px rgba(26,111,168,.12)}
+.creek-card.priority{border-color:rgba(26,111,168,.25)}
+.creek-card-img{aspect-ratio:16/9;background:linear-gradient(135deg,#0d3a5a 0%,#0a2540 55%,#061729 100%);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.creek-card-img::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 30%,rgba(127,216,255,.15) 0%,transparent 60%)}
+.creek-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(60deg,transparent 30%,rgba(127,216,255,.04) 50%,transparent 70%);animation:sh 6s ease-in-out infinite}
+@keyframes sh{0%,100%{transform:translate(-10%,-10%)}50%{transform:translate(10%,10%)}}
+.creek-card-img img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
+.creek-img-icon{position:relative;z-index:1;color:rgba(127,216,255,.45);text-align:center}
+.creek-img-icon svg{width:36px;height:36px}
+.creek-img-icon div{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(127,216,255,.5);margin-top:5px;font-weight:600}
+.creek-card-body{padding:1rem 1.2rem;flex:1;display:flex;flex-direction:column}
+.creek-card-name{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.creek-card-loc{font-size:.76rem;color:var(--lake);margin-bottom:.6rem;font-style:italic}
+.creek-card-desc{font-size:.84rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem;flex:1}
+.creek-card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:.6rem;border-top:1px solid var(--border)}
+.creek-card-tags{display:flex;gap:5px;flex-wrap:wrap}
+.creek-tag{font-size:.63rem;font-weight:700;padding:2px 7px;border-radius:9px;text-transform:uppercase;letter-spacing:.05em}
+.ct-active{background:var(--green-light);color:var(--green)}
+.ct-priority{background:var(--lake-light);color:var(--lake-dark)}
+.ct-restore{background:#e8f0ff;color:#2855a0}
+.ct-concern{background:var(--amber-light);color:var(--amber)}
+.ct-barrier{background:#fff3e0;color:#b54708}
+.ct-none{background:#f0f0f0;color:#666}
+.ct-historical{background:#faf0ff;color:#7030a0}
+.creek-card-arrow{color:var(--muted);font-size:1rem;transition:color .2s,transform .2s}
+.creek-card:hover .creek-card-arrow{color:var(--lake);transform:translateX(3px)}
+
+/* STATUS DOTS */
+.status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;display:inline-block;margin-right:4px}
+.sd-active{background:#2d7a3a;box-shadow:0 0 5px rgba(45,122,58,.5)}
+.sd-concern{background:var(--amber)}
+.sd-none{background:#aaa}
+
+/* NO RESULTS */
+#no-results{display:none;text-align:center;padding:3rem;color:var(--muted)}
+
+/* FOOTER */
+footer{background:var(--text);color:rgba(255,255,255,.7);padding:2.5rem 2rem;text-align:center}
+footer .fl{color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:.4rem;display:flex;align-items:center;justify-content:center;gap:8px}
+footer p{font-size:.82rem;line-height:1.7}
+footer a{color:#7fd8ff;text-decoration:none}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero h1{font-size:2rem}
+  .trib-overview{display:none}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .search-box{min-width:0;width:100%;margin-left:0}
+}
+@media(max-width:600px){
+  .creek-grid{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7fd8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg>
+    The Clear Lake Hitch Project
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#lake-status">Lake Status</a></li>
+    <li><a href="/#fish">Fish Guide</a></li>
+    <li><a href="/creeks.html" class="on">Creeks</a></li>
+    <li><a href="/#involved">Get Involved</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badges">
+        <span class="hero-badge b-white">22 Documented Tributaries</span>
+        <span class="hero-badge b-green">9 Active Spawning Streams</span>
+        <span class="hero-badge b-blue">Live USGS Data</span>
+      </div>
+      <h1>Clear Lake<br><em>Tributaries</em></h1>
+      <p class="hero-sub">Every stream that feeds Clear Lake tells part of the hitch story. These creeks are the spawning grounds, nurseries, and lifelines that sustain California's most endangered endemic fish. Some run strong. Some have gone dry.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="#priority-label" style="display:inline-flex;align-items:center;gap:6px;padding:.65rem 1.25rem;border-radius:8px;font-size:.88rem;font-weight:600;text-decoration:none;background:#fff;color:var(--lake-dark)">View Priority Creeks</a>
+        <a href="kelsey.html" style="display:inline-flex;align-items:center;gap:6px;padding:.65rem 1.25rem;border-radius:8px;font-size:.88rem;font-weight:600;text-decoration:none;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)">Kelsey Creek &rarr;</a>
+      </div>
+    </div>
+    <!-- PRIORITY TRIBUTARIES MINI-CHART -->
+    <div class="trib-overview">
+      <div class="trib-ov-title">Priority Tributaries — 2025 Status</div>
+      <div class="trib-bars">
+        <div class="trib-row">
+          <div class="trib-name">Kelsey Creek</div>
+          <div class="trib-bar-bg"><div class="trib-bar-fill" style="width:95%;background:#2d7a3a"></div></div>
+          <span class="trib-val" style="color:#6ee7b7">Active</span>
+        </div>
+        <div class="trib-row">
+          <div class="trib-name">Adobe Creek</div>
+          <div class="trib-bar-bg"><div class="trib-bar-fill" style="width:90%;background:#2d7a3a"></div></div>
+          <span class="trib-val" style="color:#6ee7b7">Active</span>
+        </div>
+        <div class="trib-row">
+          <div class="trib-name">Burns Valley</div>
+          <div class="trib-bar-bg"><div class="trib-bar-fill" style="width:85%;background:#2d7a3a"></div></div>
+          <span class="trib-val" style="color:#6ee7b7">Active</span>
+        </div>
+        <div class="trib-row">
+          <div class="trib-name">Manning Creek</div>
+          <div class="trib-bar-bg"><div class="trib-bar-fill" style="width:80%;background:#2d7a3a"></div></div>
+          <span class="trib-val" style="color:#6ee7b7">Active</span>
+        </div>
+        <div class="trib-row">
+          <div class="trib-name">Forbes Creek</div>
+          <div class="trib-bar-bg"><div class="trib-bar-fill" style="width:75%;background:#2d7a3a"></div></div>
+          <span class="trib-val" style="color:#6ee7b7">Active</span>
+        </div>
+        <div class="trib-row">
+          <div class="trib-name">Cole Creek</div>
+          <div class="trib-bar-bg"><div class="trib-bar-fill" style="width:60%;background:#c87800"></div></div>
+          <span class="trib-val" style="color:#fcd34d">Restore</span>
+        </div>
+        <div class="trib-row">
+          <div class="trib-name">Morrison Creek</div>
+          <div class="trib-bar-bg"><div class="trib-bar-fill" style="width:50%;background:#1a6fa8"></div></div>
+          <span class="trib-val" style="color:#7fd8ff">Survey</span>
+        </div>
+        <div class="trib-row">
+          <div class="trib-name">Seigler System</div>
+          <div class="trib-bar-bg"><div class="trib-bar-fill" style="width:30%;background:#c0392b"></div></div>
+          <span class="trib-val" style="color:#fca5a5">Concern</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">22</div><div class="stat-label">Documented tributaries</div></div>
+    <div class="stat"><div class="stat-num g">9</div><div class="stat-label">Priority spawning streams</div></div>
+    <div class="stat"><div class="stat-num a">4+</div><div class="stat-label">Active restoration projects</div></div>
+    <div class="stat"><div class="stat-num r">2</div><div class="stat-label">Streams with no recent adults</div></div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" data-filter="all" onclick="filter('all',this)">All (22)</button>
+    <button class="filter-btn" data-filter="priority" onclick="filter('priority',this)">Priority (9)</button>
+    <button class="filter-btn" data-filter="active" onclick="filter('active',this)">Active Spawning</button>
+    <button class="filter-btn" data-filter="restoration" onclick="filter('restoration',this)">Restoration</button>
+    <button class="filter-btn" data-filter="concern" onclick="filter('concern',this)">Concern</button>
+    <input class="search-box" id="searchBox" placeholder="Search tributaries..." oninput="search(this.value)">
+  </div>
+</div>
+
+<!-- GRID -->
+<div class="grid-content">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.7rem">
+    <div style="font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--lake)">
+      All Tributaries — Alphabetical
+      <span style="background:var(--lake-light);color:var(--lake);font-size:.68rem;padding:2px 8px;border-radius:10px;margin-left:6px" id="count-badge">27 creeks</span>
+    </div>
+    <input id="creek-search" type="text" placeholder="Search creeks..." style="padding:.5rem 1rem;border:1.5px solid var(--border);border-radius:8px;font-size:.88rem;color:var(--text);outline:none;width:220px;transition:border .2s" onfocus="this.style.borderColor='var(--lake)'" onblur="this.style.borderColor='var(--border)'">
+  </div>
+
+  <div class="creek-grid" id="all-grid">
+    <a href="adobe.html" class="creek-card" data-name="adobe creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-active"></span>Adobe Creek</div>
+        <div class="creek-card-loc">South shore - Big Valley</div>
+        <div class="creek-card-desc">Historic #2 spawning stream — most frequented in 2016, 2018, 2022, 2023, 2025. Highland Creek joins upstream.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-active">Active</span><span class="creek-tag ct-barrier">Barriers</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="alley-creek.html" class="creek-card" data-name="alley creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Alley Creek</div>
+        <div class="creek-card-loc">N shore - Scotts Creek watershed</div>
+        <div class="creek-card-desc">Joins Clover Creek before feeding into the Scotts Creek system. Part of the largest single freshwater input to Clear Lake via Rodman Slough.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Scotts feeder</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="burns.html" class="creek-card" data-name="burns valley creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-active"></span>Burns Valley Creek</div>
+        <div class="creek-card-loc">SE shore - rearing habitat</div>
+        <div class="creek-card-desc">Rearing habitat — ~4,000 juvenile hitch and thousands of larvae documented in 2024. Major juvenile nursery on the SE shore.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Rearing habitat</span><span class="creek-tag ct-active">Active 2024</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="clover-creek.html" class="creek-card" data-name="clover creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Clover Creek</div>
+        <div class="creek-card-loc">N shore - Middle Creek feeder</div>
+        <div class="creek-card-desc">Joins Middle Creek before the combined flow enters Scotts Creek and Rodman Slough. Part of the Scotts watershed system.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Scotts feeder</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="cole.html" class="creek-card" data-name="cole creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-concern"></span>Cole Creek</div>
+        <div class="creek-card-loc">South shore - East of Kelsey</div>
+        <div class="creek-card-desc">Funded restoration project — 1.55 miles of hitch spawning habitat. Downstream reach ran dry in 2024. USGS gauged (discharge + temp).</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-restore">Restoration</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="cooper-creek.html" class="creek-card" data-name="cooper creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Cooper Creek</div>
+        <div class="creek-card-loc">N shore - Scotts Creek feeder</div>
+        <div class="creek-card-desc">Feeds into Scotts Creek on the north shore. Dayle Creek joins upstream. Part of the Rodman Slough watershed system.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Scotts feeder</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="copsey.html" class="creek-card" data-name="copsey creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-active"></span>Copsey Creek</div>
+        <div class="creek-card-loc">East shore - Seigler Canyon system</div>
+        <div class="creek-card-desc">Adults confirmed March through May 2024 — the most encouraging signal from the Seigler Canyon drainage in two decades.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-active">Active 2024</span><span class="creek-tag ct-none">Cache Creek system</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="dayle-creek.html" class="creek-card" data-name="dayle creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Dayle Creek</div>
+        <div class="creek-card-loc">N shore - Cooper Creek feeder</div>
+        <div class="creek-card-desc">Feeds into Cooper Creek, which feeds Scotts Creek. Part of the broader Rodman Slough watershed on the north shore.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Scotts feeder</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="forbes.html" class="creek-card" data-name="forbes creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-active"></span>Forbes Creek</div>
+        <div class="creek-card-loc">West shore - Lakeport</div>
+        <div class="creek-card-desc">4.7-mile stream entering Clear Lake at Lakeport. Adults confirmed April 18, 2024. Flow cut off May 28, 2024.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-active">Active 2024</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="hendricks.html" class="creek-card" data-name="hendricks creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-active"></span>Hendricks Creek</div>
+        <div class="creek-card-loc">N shore - Scotts Creek feeder</div>
+        <div class="creek-card-desc">Adult hitch confirmed April 2, 2024 in Lake County WPD surveys. Feeds into Scotts Creek. Pool Creek joins upstream.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-active">Active 2024</span><span class="creek-tag ct-none">Scotts feeder</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="highland-creek.html" class="creek-card" data-name="highland creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Highland Creek</div>
+        <div class="creek-card-loc">South shore - Adobe Creek feeder</div>
+        <div class="creek-card-desc">Joins Adobe Creek upstream in the south-shore drainage. Conditions in Highland directly affect the Adobe Creek spawning reach.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Adobe feeder</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="hill.html" class="creek-card" data-name="hill creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Hill Creek</div>
+        <div class="creek-card-loc">South shore - McGaugh feeder</div>
+        <div class="creek-card-desc">No adults observed in 2024-2025. Upstream feeder to McGaugh Slough — access requires McGaugh to connect to the lake first.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-concern">No fish 2024-25</span><span class="creek-tag ct-none">McGaugh feeder</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="kelsey.html" class="creek-card" data-name="kelsey creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-active"></span>Kelsey Creek</div>
+        <div class="creek-card-loc">South shore - Clear Lake State Park</div>
+        <div class="creek-card-desc">In 2020 every single one of the 1,672 hitch observed lake-wide was here. The most critical active spawning tributary. USGS gauged.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-active">#1 Active</span><span class="creek-tag ct-restore">Barrier removal</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="lucerne.html" class="creek-card" data-name="lucerne creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Lucerne Creek</div>
+        <div class="creek-card-loc">NE shore - rearing habitat</div>
+        <div class="creek-card-desc">Rearing habitat near the town of Lucerne on the NE shore. Limited survey data — NE shore monitoring gap.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Rearing habitat</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="lyons.html" class="creek-card" data-name="lyons creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Lyons Creek</div>
+        <div class="creek-card-loc">NW shore - Upper Arm</div>
+        <div class="creek-card-desc">Listed in historical hitch habitat documentation as a spawning tributary. Limited recent survey coverage.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-historical">Historical spawn</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="manning.html" class="creek-card" data-name="manning creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-active"></span>Manning Creek</div>
+        <div class="creek-card-loc">SW shore - Big Valley</div>
+        <div class="creek-card-desc">CDFW confirmed adults 2024 and 2025. Thompson Creek was rerouted into Manning Creek — both drain together to the lake.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-active">Active 2024-25</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="mcgaugh.html" class="creek-card" data-name="mcgaugh slough">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>McGaugh Slough</div>
+        <div class="creek-card-loc">South shore - between Manning &amp; Adobe</div>
+        <div class="creek-card-desc">No adults observed 2024-2025. Hill Creek joins upstream. Positioned between two active tributaries.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-concern">No fish 2024-25</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="middle-creek.html" class="creek-card" data-name="middle creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Middle Creek</div>
+        <div class="creek-card-loc">N shore - Upper Lake - Scotts feeder</div>
+        <div class="creek-card-desc">Flows through Upper Lake, joins Scotts Creek before Rodman Slough. UC Davis TERC flow monitoring. No water temp data.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Scotts feeder</span><span class="creek-tag ct-none">UC Davis monitored</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="morrison.html" class="creek-card" data-name="morrison creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Morrison Creek</div>
+        <div class="creek-card-loc">NE shore - Upper Arm</div>
+        <div class="creek-card-desc">Listed in USFWS Species Status Assessment as a historical hitch spawning tributary. NE shore monitoring gap.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-historical">Historical spawn</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="perini-creek.html" class="creek-card" data-name="perini creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Perini Creek</div>
+        <div class="creek-card-loc">East shore - Seigler Canyon system</div>
+        <div class="creek-card-desc">Feeds into Seigler Canyon Creek on the east shore. Part of the Cache Creek drainage. Historical spawning tributary.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Seigler system</span><span class="creek-tag ct-historical">Historical spawn</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="pool-creek.html" class="creek-card" data-name="pool creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Pool Creek</div>
+        <div class="creek-card-loc">N shore - Hendricks Creek feeder</div>
+        <div class="creek-card-desc">Feeds into Hendricks Creek, which feeds Scotts Creek. Part of the Rodman Slough watershed on the north shore.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Scotts feeder</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="rodman-slough.html" class="creek-card" data-name="rodman slough">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-active"></span>Rodman Slough</div>
+        <div class="creek-card-loc">North shore - largest inflow</div>
+        <div class="creek-card-desc">Entry point for the entire Scotts Creek watershed. Scotts Creek (~24% of lake inflow, 30 miles) and Middle Creek enter the lake here.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-active">Active</span><span class="creek-tag ct-none">~24% lake inflow</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="rumsey.html" class="creek-card" data-name="rumsey slough">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Rumsey Slough</div>
+        <div class="creek-card-loc">South shore - historic Thompson Creek channel</div>
+        <div class="creek-card-desc">Enters between Manning and Adobe Creeks. Historic Thompson Creek channel once drained here before being rerouted into Manning.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Historic channel</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="schindler.html" class="creek-card" data-name="schindler creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-none"></span>Schindler Creek</div>
+        <div class="creek-card-loc">East end - rearing habitat in the Keys</div>
+        <div class="creek-card-desc">Rearing habitat in the Clearlake Oaks Keys area. 2024 WPD survey site — no fish observed.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-none">Rearing habitat</span><span class="creek-tag ct-none">The Keys</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="scotts-creek.html" class="creek-card" data-name="scotts creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-active"></span>Scotts Creek</div>
+        <div class="creek-card-loc">N shore - Rodman Slough - largest stream</div>
+        <div class="creek-card-desc">30-mile watershed providing ~24% of all Clear Lake inflow. Enters via Rodman Slough. Hendricks, Cooper and feeder creeks join upstream.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-active">Active</span><span class="creek-tag ct-none">USGS + UC Davis gauged</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="seigler-system.html" class="creek-card" data-name="seigler canyon creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-concern"></span>Seigler Canyon Creek</div>
+        <div class="creek-card-loc">East shore - Cache Creek drainage</div>
+        <div class="creek-card-desc">No confirmed adults at Seigler Canyon since ~2004. Copsey Creek (same system) confirmed adults March-May 2024.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-concern">No adults ~20 yrs</span><span class="creek-tag ct-none">Cache Creek system</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+    <a href="thompson.html" class="creek-card" data-name="thompson creek">
+      <div class="creek-card-img" style="aspect-ratio:16/7"><div class="creek-img-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg><div>Photo 2026</div></div></div>
+      <div class="creek-card-body">
+        <div class="creek-card-name"><span class="status-dot sd-active"></span>Thompson Creek</div>
+        <div class="creek-card-loc">SW shore - Manning Creek feeder</div>
+        <div class="creek-card-desc">CDFW confirmed adults 2024 and 2025. Rerouted from Rumsey Slough — now feeds Manning Creek in the Big Valley corridor.</div>
+        <div class="creek-card-footer">
+          <div class="creek-card-tags"><span class="creek-tag ct-active">Active 2024-25</span><span class="creek-tag ct-none">Manning feeder</span></div>
+          <span class="creek-card-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div id="no-results" style="display:none;text-align:center;padding:3rem;color:var(--muted)">No tributaries match that search.</div>
+
+</div>
+
+<footer>
+  <div class="fl">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7fd8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><circle cx="15.5" cy="12" r="1.5"/><path d="M2 12s1.5-2 3.5-2c1.5 0 2.5 1 2.5 2s-1 2-2.5 2C3.5 14 2 12 2 12z"/></svg>
+    The Clear Lake Hitch Project
+  </div>
+  <p style="margin-top:6px">A project by <strong style="color:#fff">Taylor Woodruff</strong> &amp; <strong style="color:#fff">Jordan Stevens</strong></p>
+  <p style="margin-top:6px"><a href="/">&larr; Main site</a></p>
+</footer>
+
+<script>
+const searchInput = document.getElementById('creek-search');
+const cards = document.querySelectorAll('#all-grid .creek-card');
+const noResults = document.getElementById('no-results');
+const countBadge = document.getElementById('count-badge');
+
+searchInput.addEventListener('input', function(){
+  const q = this.value.toLowerCase().trim();
+  let visible = 0;
+  cards.forEach(card => {
+    const name = card.dataset.name || '';
+    const loc = card.querySelector('.creek-card-loc')?.textContent.toLowerCase() || '';
+    const desc = card.querySelector('.creek-card-desc')?.textContent.toLowerCase() || '';
+    const match = !q || name.includes(q) || loc.includes(q) || desc.includes(q);
+    card.style.display = match ? '' : 'none';
+    if(match) visible++;
+  });
+  noResults.style.display = visible === 0 ? 'block' : 'none';
+  countBadge.textContent = visible === 27 ? '27 creeks' : `${visible} of 27`;
+});
+</script>
+</body>
+</html>

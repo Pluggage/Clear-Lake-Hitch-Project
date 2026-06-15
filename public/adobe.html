@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Adobe Creek — Clear Lake Hitch Project</title>
+<meta name="description" content="Detailed survey data, field photos, and conservation status for Adobe Creek — a Clear Lake hitch spawning tributary.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --lake:#1a6fa8;--lake-dark:#0d4a72;--lake-light:#d6eaf8;
+  --green:#2d7a3a;--green-light:#e8f5eb;
+  --amber:#c87800;--amber-light:#fff3d6;
+  --red:#c0392b;--sand:#f5f0e8;--text:#1a1a1a;--muted:#5a6474;
+  --border:#dde3ea;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:var(--lake-dark);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.nav-logo{color:#fff;font-size:1rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:10px}
+.nav-logo svg{width:24px;height:24px}
+.nav-links{display:flex;list-style:none}
+.nav-links a{color:rgba(255,255,255,.82);text-decoration:none;font-size:.8rem;padding:0 .8rem;height:60px;display:flex;align-items:center;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.on{color:#fff;background:rgba(255,255,255,.1)}
+.bc{background:var(--sand);border-bottom:1px solid var(--border);padding:.7rem 2rem;font-size:.82rem;color:var(--muted)}
+.bc a{color:var(--lake);text-decoration:none}.bc a:hover{text-decoration:underline}
+.bc-sep{margin:0 .5rem;color:var(--border)}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(160deg,var(--lake-dark) 0%,#1a6fa8 55%,#2980b9 100%);padding:3.5rem 2rem 3rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cellipse cx='75%25' cy='55%25' rx='38%25' ry='28%25' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.2rem}
+.hero-badge{padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:600;letter-spacing:.04em}
+.b-green{background:rgba(45,122,58,.3);color:#9efaae;border:1px solid rgba(80,200,100,.3)}
+.b-blue{background:rgba(255,255,255,.12);color:#bde5ff;border:1px solid rgba(127,216,255,.3)}
+.b-amber{background:rgba(200,120,0,.25);color:#ffe599;border:1px solid rgba(255,220,100,.3)}
+.hero h1{font-size:2.8rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:.7rem;letter-spacing:-.02em}
+.hero h1 em{color:#7fd8ff;font-style:normal}
+.hero-sub{color:rgba(255,255,255,.82);font-size:.98rem;line-height:1.7;margin-bottom:1.8rem;max-width:520px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:.65rem 1.25rem;border-radius:8px;font-size:.88rem;font-weight:600;text-decoration:none;border:2px solid transparent;transition:all .2s;cursor:pointer}
+.btn-white{background:#fff;color:var(--lake-dark)}
+.btn-white:hover{background:#e8f5ff}
+.btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-outline:hover{background:rgba(255,255,255,.1)}
+
+/* mini-map card */
+.hero-map{background:rgba(5,14,24,.45);border:1px solid rgba(127,216,255,.18);border-radius:14px;padding:.8rem;position:relative;box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.hero-map-label{font-size:.65rem;color:rgba(127,216,255,.7);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;display:flex;align-items:center;gap:6px}
+.hero-map-label::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#ffd54f;box-shadow:0 0 6px rgba(255,213,79,.9);animation:mpm 2s ease-in-out infinite}
+@keyframes mpm{0%,100%{opacity:.8}50%{opacity:1;box-shadow:0 0 10px rgba(255,213,79,.9)}}
+.hero-map svg{width:100%;height:auto;display:block}
+.mm-lake{fill:rgba(10,48,80,.7);stroke:rgba(127,216,255,.45);stroke-width:1}
+.mm-creek{stroke:rgba(127,216,255,.22);stroke-width:1;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.mm-highlight{stroke:#ffd54f;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(255,213,79,.8))}
+.mm-mouth{fill:#ffd54f;filter:drop-shadow(0 0 6px rgba(255,213,79,1))}
+@keyframes mma{0%,100%{r:4}50%{r:7}}
+.mm-mouth{animation:mma 2s ease-in-out infinite}
+
+/* ── STATS BAR ── */
+.stats-bar{background:var(--sand);border-bottom:1px solid var(--border);padding:1.2rem 2rem}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.stat{text-align:center;padding:.9rem;background:#fff;border-radius:10px;border:1px solid var(--border)}
+.stat-num{font-size:1.75rem;font-weight:700;color:var(--lake)}
+.stat-num.g{color:var(--green)}.stat-num.a{color:var(--amber)}.stat-num.r{color:var(--red)}
+.stat-label{font-size:.73rem;color:var(--muted);margin-top:2px}
+
+/* ── LIVE STATUS (dark band) ── */
+.live-section{background:linear-gradient(180deg,#07141f 0%,#0c2035 40%,#060f1a 100%);padding:2.5rem 2rem;color:#fff}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:.8rem}
+.tag-blue{color:#7fd8ff;background:rgba(127,216,255,.1);border:1px solid rgba(127,216,255,.2)}
+.tag-green{color:#6ee7b7;background:rgba(110,231,183,.1);border:1px solid rgba(110,231,183,.2)}
+.tag-amber{color:#fcd34d;background:rgba(252,211,77,.1);border:1px solid rgba(252,211,77,.2)}
+.tag-red{color:#fca5a5;background:rgba(252,165,165,.1);border:1px solid rgba(252,165,165,.2)}
+.section-h2{font-size:1.6rem;font-weight:700;margin-bottom:.4rem;color:#fff}
+.section-sub{font-size:.95rem;color:rgba(255,255,255,.6);margin-bottom:1.8rem;line-height:1.65}
+
+.gauge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:1.5rem}
+.gauge-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:1.2rem 1.3rem}
+.gauge-lbl{font-size:.64rem;color:rgba(255,255,255,.38);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.6rem;display:flex;justify-content:space-between;align-items:center}
+.gauge-src{font-size:.6rem;color:rgba(255,255,255,.25);text-align:right;line-height:1.4}
+.gauge-num{font-size:2rem;font-weight:700;color:#7fd8ff;line-height:1;font-variant-numeric:tabular-nums;transition:color .3s}
+.gauge-num.ld{font-size:.9rem;color:rgba(255,255,255,.3);font-weight:400}
+.gauge-num.er{font-size:.82rem;color:rgba(252,165,165,.6);font-weight:400}
+.gauge-unit{font-size:.76rem;color:rgba(255,255,255,.42);margin:.3rem 0}
+.gauge-ctx{font-size:.78rem;line-height:1.45;margin-bottom:.4rem}
+.gauge-mini{height:3px;border-radius:2px;background:rgba(255,255,255,.07);overflow:hidden;margin:.4rem 0}
+.gauge-mini-fill{height:100%;border-radius:2px;transition:width .8s ease}
+.gauge-fresh{font-size:.62rem;color:rgba(255,255,255,.25)}
+.gauge-link{font-size:.62rem;color:#3a7aaa;text-decoration:none;display:block;margin-top:.3rem}
+.gauge-link:hover{color:#7fd8ff}
+
+/* ── SPAWNER TIMELINE (white section) ── */
+.timeline-section{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 2rem}
+.pop-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:8px}
+.pop-title{font-size:1rem;font-weight:700;color:var(--text)}
+.pop-play{background:var(--lake);color:#fff;border:none;border-radius:20px;padding:5px 14px;font-size:.76rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:5px;transition:background .2s}
+.pop-play:hover{background:var(--lake-dark)}
+.pop-display{display:flex;align-items:flex-end;gap:2rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.pop-year-big{font-size:3.2rem;font-weight:800;color:var(--lake);line-height:1;font-variant-numeric:tabular-nums;min-width:110px;transition:color .3s}
+.pop-count-num{font-size:2rem;font-weight:700;color:var(--text);line-height:1;font-variant-numeric:tabular-nums;transition:color .3s}
+.pop-count-label{font-size:.82rem;color:var(--muted)}
+.pop-context{font-size:.84rem;color:var(--muted);line-height:1.55;min-height:2.6em;transition:opacity .2s}
+.pop-bar-wrap{display:flex;align-items:flex-end;gap:3px;height:48px;margin-bottom:.5rem}
+.pop-bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+.pop-bar{width:100%;border-radius:4px 4px 0 0;transition:height .4s ease,background .3s;min-height:2px}
+.pop-bar-col:hover .pop-bar{filter:brightness(1.2)}
+.pop-bar-col.active .pop-bar{box-shadow:0 0 8px rgba(26,111,168,.4)}
+.pop-bar-yr{font-size:.58rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.pop-slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:var(--lake-light);outline:none;cursor:pointer}
+.pop-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--lake);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.2);cursor:pointer;transition:transform .15s}
+.pop-slider::-webkit-slider-thumb:hover{transform:scale(1.15)}
+.pop-slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--lake);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.2);cursor:pointer}
+.pop-change{display:inline-block;font-size:.78rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:6px}
+
+/* ── MAIN CONTENT (white) ── */
+.main-grid{max-width:1100px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:start}
+
+/* ── ABOUT SECTION ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem}
+.section-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--lake);background:var(--lake-light);padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:.8rem}
+.section-label.grn{color:var(--green);background:var(--green-light)}
+.section-label.amb{color:var(--amber);background:var(--amber-light)}
+.section-label.red{color:var(--red);background:#fdecea}
+h2.section-h2l{font-size:1.7rem;font-weight:700;margin-bottom:.8rem;color:var(--text);line-height:1.2}
+.prose p{color:var(--muted);line-height:1.78;margin-bottom:.9rem;font-size:.96rem}
+.prose p strong{color:var(--text);font-weight:600}
+.prose a{color:var(--lake);text-decoration:none;border-bottom:1px dotted var(--lake);transition:color .15s}
+.prose a:hover{color:var(--lake-dark)}
+.info-cards{display:grid;gap:11px}
+.info-card{background:var(--sand);border-radius:12px;padding:1.1rem 1.3rem;border-left:4px solid var(--lake)}
+.info-card.grn{border-left-color:var(--green);background:var(--green-light)}
+.info-card.amb{border-left-color:var(--amber);background:var(--amber-light)}
+.info-card.red{border-left-color:var(--red);background:#fdecea}
+.info-card h4{font-size:.88rem;font-weight:700;margin-bottom:.35rem;color:var(--text)}
+.info-card p{font-size:.84rem;color:var(--muted);line-height:1.55}
+.pull-quote{border-left:4px solid var(--lake);padding:.9rem 1.2rem;background:var(--lake-light);border-radius:0 10px 10px 0;margin:1.5rem 0;font-size:1rem;color:var(--text);line-height:1.6;font-style:italic;position:relative}
+.pull-quote cite{display:block;margin-top:.4rem;font-size:.78rem;color:var(--muted);font-style:normal}
+
+/* ── BARRIERS (dark section) ── */
+.barriers-section{background:var(--lake-dark);padding:2.5rem 2rem;color:#fff}
+.barriers-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.3rem;margin-top:1.8rem}
+.barrier-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1.4rem}
+.barrier-card h3{font-size:1rem;font-weight:600;color:#fff;margin-bottom:.5rem;padding-bottom:.4rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.barrier-card p{font-size:.87rem;color:rgba(255,255,255,.68);line-height:1.65}
+.bc-tag{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:8px;margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.04em}
+.bc-tag.good{background:rgba(110,231,183,.15);color:#6ee7b7}
+.bc-tag.warn{background:rgba(252,211,77,.12);color:#fcd34d}
+.bc-tag.critical{background:rgba(252,165,165,.12);color:#fca5a5}
+
+/* ── PHOTOS ── */
+.photos-section{padding:2.5rem 2rem;background:#fff;border-top:1px solid var(--border)}
+.photos-inner{max-width:1100px;margin:0 auto}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:1.5rem}
+.photo-card{background:linear-gradient(135deg,#0d3a5a 0%,#0a2540 50%,#061729 100%);border-radius:12px;aspect-ratio:4/3;position:relative;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:transform .18s,box-shadow .18s}
+.photo-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(26,111,168,.22)}
+.photo-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 30%,rgba(127,216,255,.18) 0%,transparent 60%)}
+.photo-card img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1;display:block}
+.photo-card .photo-zoom{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.55);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .18s;z-index:3;pointer-events:none}
+.photo-card:hover .photo-zoom{opacity:1}
+.photo-card .photo-zoom svg{width:22px;height:22px;stroke:#fff;fill:none}
+.photo-inner{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:1rem;z-index:2;pointer-events:none}
+.photo-tag{align-self:flex-end;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:rgba(255,213,79,.15);color:#ffd54f;padding:3px 9px;border-radius:12px;border:1px solid rgba(255,213,79,.3)}
+.photo-caption{background:linear-gradient(transparent,rgba(0,0,0,.7));margin:-1rem;padding:1rem;margin-top:auto}
+.photo-caption strong{display:block;font-size:.84rem;color:#fff;font-weight:600}
+.photo-caption span{font-size:.72rem;color:rgba(255,255,255,.6)}
+.photo-icon{color:rgba(127,216,255,.5);text-align:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-60%)}
+.photo-icon svg{width:44px;height:44px;stroke:rgba(127,216,255,.5)}
+
+/* ── SURVEY TABLE ── */
+.survey-section{padding:2.5rem 2rem;background:var(--sand);border-top:1px solid var(--border)}
+.survey-inner{max-width:1100px;margin:0 auto}
+.survey-table{width:100%;border-collapse:collapse;font-size:.88rem;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.survey-table th{background:var(--lake-dark);color:#fff;font-size:.72rem;font-weight:700;text-align:left;padding:.85rem 1rem;text-transform:uppercase;letter-spacing:.07em}
+.survey-table td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--muted)}
+.survey-table tr:last-child td{border:none}
+.survey-table tr:hover{background:var(--lake-light)}
+.survey-table td.val{color:var(--text);font-weight:700;font-variant-numeric:tabular-nums}
+.survey-table td.g{color:var(--green);font-weight:600}
+.survey-table td.a{color:var(--amber);font-weight:600}
+.survey-table td.r{color:var(--red);font-weight:600}
+
+/* ── RELATED CREEKS ── */
+.related-section{padding:2.5rem 2rem;background:#fff;border-top:1px solid var(--border)}
+.creek-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:1.2rem}
+.creek-link{padding:.9rem 1.1rem;background:var(--sand);border:1.5px solid var(--border);border-radius:12px;text-decoration:none;display:block;transition:all .2s}
+.creek-link:hover{border-color:var(--lake);box-shadow:0 3px 12px rgba(26,111,168,.12);transform:translateY(-1px)}
+.creek-link strong{display:block;font-size:.95rem;color:var(--text);margin-bottom:2px}
+.creek-link span{font-size:.76rem;color:var(--muted)}
+
+/* ── SIDEBAR ── */
+.sidebar{display:flex;flex-direction:column;gap:1rem;position:sticky;top:80px}
+.side-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.3rem;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.side-card.dark{background:linear-gradient(160deg,var(--lake-dark) 0%,#1a6fa8 100%);border-color:transparent;color:#fff}
+.side-card h3{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.75rem}
+.side-card.dark h3{color:rgba(255,255,255,.65)}
+.side-row{display:flex;justify-content:space-between;align-items:baseline;padding:.45rem 0;border-bottom:1px solid var(--border);font-size:.84rem;gap:8px}
+.side-row:last-child{border:none;padding-bottom:0}
+.side-card.dark .side-row{border-bottom-color:rgba(255,255,255,.12)}
+.side-lbl{color:var(--muted);flex-shrink:0}
+.side-card.dark .side-lbl{color:rgba(255,255,255,.65)}
+.side-val{color:var(--text);font-weight:600;text-align:right}
+.side-card.dark .side-val{color:#fff}
+.side-val.g{color:var(--green)}.side-val.a{color:var(--amber)}.side-val.r{color:var(--red)}
+.side-card.dark .side-val.g{color:#9efaae}
+.side-card.dark .side-val.a{color:#ffe599}
+.side-actions{display:flex;flex-direction:column;gap:8px;margin-top:.2rem}
+.side-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:.7rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;border:1.5px solid transparent;transition:all .2s}
+.side-btn.primary{background:var(--lake);color:#fff;border-color:var(--lake)}
+.side-btn.primary:hover{background:var(--lake-dark)}
+.side-btn.outline{background:#fff;color:var(--text);border-color:var(--border)}
+.side-btn.outline:hover{border-color:var(--lake);color:var(--lake)}
+.side-btn.emergency{background:#fdecea;color:var(--red);border-color:rgba(192,57,43,.2)}
+.side-btn.emergency:hover{background:#f8d7d4}
+
+/* ── FOOTER ── */
+footer{background:var(--text);color:rgba(255,255,255,.7);padding:2.5rem 2rem;text-align:center;margin-top:4rem}
+footer .fl{color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:.4rem;display:flex;align-items:center;justify-content:center;gap:8px}
+footer .fl svg{width:20px;height:20px}
+footer p{font-size:.82rem;line-height:1.7}
+footer a{color:#7fd8ff;text-decoration:none}
+footer .disc{font-size:.68rem;opacity:.38;max-width:600px;margin:.8rem auto 0;line-height:1.6}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner,.main-grid,.about-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2rem}
+  .hero-map{display:none}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .gauge-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .sidebar{position:static;order:-1}
+}
+@media(max-width:600px){
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .photo-grid{grid-template-columns:1fr}
+  .barriers-grid{grid-template-columns:1fr}
+}
+
+#lb-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:1rem;cursor:zoom-out}
+#lb-overlay.open{display:flex}
+#lb-box{position:relative;max-width:min(1100px,95vw);max-height:92vh;display:flex;flex-direction:column;align-items:center;gap:.8rem;cursor:default}
+#lb-img{max-width:100%;max-height:78vh;border-radius:10px;object-fit:contain;box-shadow:0 20px 80px rgba(0,0,0,.8);display:block}
+#lb-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:rgba(255,255,255,.4);font-size:.9rem}
+#lb-caption{color:rgba(255,255,255,.82);font-size:.88rem;line-height:1.55;text-align:center;max-width:700px;padding:0 1rem}
+#lb-credit{font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.03em;margin-top:-.2rem}
+#lb-actions{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;justify-content:center;margin-top:.2rem}
+.lb-btn{display:inline-flex;align-items:center;gap:5px;padding:.5rem 1rem;border-radius:8px;font-size:.8rem;font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.82);background:rgba(255,255,255,.08);transition:all .18s;cursor:pointer}
+.lb-btn:hover{background:rgba(255,255,255,.18);color:#fff;border-color:rgba(255,255,255,.5)}
+.lb-btn.download{background:rgba(26,111,168,.35);border-color:rgba(127,216,255,.35);color:#7fd8ff}
+.lb-btn.download:hover{background:rgba(26,111,168,.6)}
+#lb-close{position:fixed;top:1.2rem;right:1.4rem;width:38px;height:38px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;cursor:pointer;transition:all .18s;z-index:10000;line-height:1}
+#lb-close:hover{background:rgba(255,255,255,.25)}
+#lb-nav-prev,#lb-nav-next{position:fixed;top:50%;transform:translateY(-50%);width:44px;height:44px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;cursor:pointer;transition:all .18s;z-index:10000}
+#lb-nav-prev{left:1.2rem}#lb-nav-next{right:1.2rem}
+#lb-nav-prev:hover,#lb-nav-next:hover{background:rgba(255,255,255,.25)}
+#lb-counter{font-size:.72rem;color:rgba(255,255,255,.38);margin-top:-.2rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.46-3.44 6-7 6-3.56 0-7.56-2.54-8.5-6Z"/><path d="M18 12v.5"/><path d="M16 17.93a9.77 9.77 0 0 1 0-11.86"/><path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33"/><path d="M10.46 7.26C10.2 5.88 9.17 4.24 8 3h5.8a2 2 0 0 1 1.98 1.67l.23 1.4"/><path d="m16.01 17.93-.23 1.4A2 2 0 0 1 13.8 21H9.5a5.96 5.96 0 0 0 1.49-3.98"/></svg> The Clear Lake Hitch Project</a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#lake-status">Lake Status</a></li>
+    <li><a href="/#fish">Fish Guide</a></li>
+    <li><a href="/creeks.html" class="on">Creeks</a></li>
+    <li><a href="/#involved">Get Involved</a></li>
+  </ul>
+</nav>
+
+<div class="bc">
+  <a href="/">Home</a><span class="bc-sep">›</span>
+  <a href="/creeks.html">Tributaries</a><span class="bc-sep">›</span>
+  Adobe Creek
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badges">
+        <span class="hero-badge b-green">Active Spawning</span><span class="hero-badge b-blue">Priority Tributary</span><span class="hero-badge b-amber">Multiple Barriers</span>
+      </div>
+      <h1>Adobe Creek<br><em>Historic #2 Spawning Stream</em></h1>
+      <p class="hero-sub">Historically the second most important hitch spawning tributary. Runs through Big Valley and the Kelseyville farming corridor before entering Clear Lake on the south shore — most frequented stream in 2016, 2018, 2022, 2023, and 2025.</p>
+      <div class="hero-btns">
+        <a href="#conditions" class="btn btn-white">Creek Conditions</a>
+        <a href="#timeline" class="btn btn-outline">Survey History</a>
+        <a href="/creeks.html" class="btn btn-outline">← All Creeks</a>
+      </div>
+    </div>
+    <div class="hero-map">
+      <div class="hero-map-label">Adobe Creek on Clear Lake</div>
+      <svg viewBox="0 50 700 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <path class="mm-lake" d="M 138.8,39.1 L 134.8,39.1 L 128.6,47.3 L 123.1,47.4 L 122.5,52.2 L 117.2,55.7 L 109.0,48.4 L 103.2,50.0 L 101.6,52.8 L 100.3,49.9 L 98.1,50.4 L 98.3,56.4 L 84.6,68.1 L 83.5,73.7 L 78.1,78.6 L 80.9,81.5 L 68.2,81.5 L 77.0,83.1 L 69.9,84.9 L 75.7,85.2 L 71.0,85.9 L 72.9,87.0 L 68.6,87.0 L 71.8,87.9 L 68.5,90.9 L 70.4,97.1 L 65.8,107.0 L 67.5,108.5 L 63.1,109.0 L 63.8,113.2 L 60.8,116.2 L 63.0,122.0 L 67.5,122.8 L 69.6,126.0 L 66.4,124.3 L 62.6,125.2 L 59.4,131.2 L 60.4,135.4 L 55.8,137.4 L 55.2,140.9 L 49.7,141.6 L 36.3,157.8 L 40.4,163.1 L 36.9,175.9 L 39.3,180.8 L 39.1,190.0 L 37.3,194.9 L 32.3,196.4 L 33.0,198.9 L 37.3,201.6 L 36.5,204.8 L 39.2,209.3 L 36.1,211.4 L 36.4,214.4 L 38.0,225.9 L 42.1,230.0 L 40.7,231.3 L 36.6,232.6 L 37.1,236.6 L 36.7,238.8 L 40.4,241.0 L 39.3,243.4 L 39.7,244.0 L 38.0,245.9 L 39.0,254.8 L 34.2,260.9 L 38.9,261.5 L 42.7,259.5 L 47.1,259.6 L 50.1,260.6 L 52.7,257.5 L 57.6,258.3 L 60.3,255.8 L 62.9,259.5 L 58.4,263.4 L 60.4,266.7 L 68.1,265.2 L 69.7,268.9 L 74.5,269.6 L 76.5,266.5 L 80.6,266.5 L 82.6,263.3 L 92.3,271.2 L 95.9,273.1 L 98.8,260.4 L 101.7,262.1 L 101.8,267.1 L 107.3,262.2 L 110.2,266.9 L 113.8,272.0 L 117.8,261.7 L 122.3,264.0 L 132.5,255.5 L 140.3,258.2 L 146.4,261.0 L 149.3,264.5 L 152.9,269.5 L 155.0,257.7 L 157.5,252.1 L 161.0,248.1 L 158.1,243.6 L 164.0,247.5 L 165.9,255.0 L 165.0,272.0 L 174.3,265.1 L 176.3,260.8 L 178.1,258.5 L 185.0,260.2 L 186.3,261.0 L 189.3,256.9 L 206.8,259.4 L 207.6,259.5 L 210.2,258.6 L 215.7,252.0 L 214.9,261.9 L 229.4,268.6 L 238.6,269.9 L 239.7,270.2 L 246.2,269.1 L 251.8,267.2 L 255.0,273.5 L 259.7,269.8 L 263.5,271.1 L 266.1,271.6 L 260.3,283.0 L 267.1,274.4 L 276.4,280.2 L 285.2,278.9 L 285.8,288.5 L 277.6,296.3 L 279.8,299.7 L 289.8,303.2 L 297.6,316.6 L 321.7,314.5 L 324.3,310.9 L 320.1,305.4 L 327.3,305.8 L 338.4,298.4 L 342.0,296.4 L 347.5,296.9 L 360.1,300.5 L 370.0,310.4 L 379.3,310.8 L 387.0,302.0 L 386.5,275.3 L 380.4,266.2 L 410.1,263.1 L 413.9,275.2 L 418.9,278.8 L 423.5,273.9 L 431.9,275.9 L 438.9,277.9 L 441.6,271.6 L 448.9,270.3 L 453.9,266.7 L 459.5,268.9 L 465.5,274.2 L 471.1,268.3 L 481.2,263.1 L 487.5,257.2 L 495.8,258.7 L 503.1,258.2 L 512.8,253.9 L 521.0,256.9 L 525.6,261.9 L 530.0,260.9 L 536.3,253.0 L 546.6,256.8 L 556.3,254.9 L 563.3,251.6 L 576.3,260.6 L 588.8,269.7 L 601.5,264.9 L 611.2,265.9 L 629.6,260.2 L 630.9,261.9 L 633.1,263.0 L 642.6,263.2 L 649.9,266.8 L 655.4,268.6 L 658.1,268.3 L 665.9,261.9 L 669.9,265.9 L 673.2,261.6 L 679.2,265.3 L 681.8,264.5 L 683.8,255.9 L 686.6,254.6 L 689.8,254.3 L 694.5,257.3 L 700.0,253.3 L 700.0,39.1 L 138.8,39.1 Z"/>
+        <path class="mm-creek" d="M 28,248 L 95,260 L 143,277"/>
+        <path class="mm-creek" d="M 395,112 L 348,156 L 307,185"/>
+        <path class="mm-creek" d="M 155,418 L 168,368 L 197,294"/>
+        <path class="mm-creek" d="M 660,390 L 618,396 L 537,408"/>
+        <path class="mm-highlight" d="M 121.4,255.9 L 129.1,262.7 L 130.9,278.0 L 129.9,284.1 L 136.1,291.4 L 131.0,300.3 L 126.2,318.6 L 115.4,343.2 L 113.3,379.0 L 103.9,398.5 L 91.1,407.6 L 88.4,421.5 L 84.5,430.9 L 79.5,435.6"/>
+        <circle class="mm-mouth" cx="121.4" cy="255.9" r="5"/>
+        <text x="140" y="360" fill="rgba(255,213,79,.9)" font-size="11" font-weight="700" font-family="'Segoe UI',system-ui,sans-serif">Adobe Creek</text>
+        <text x="140" y="373" fill="rgba(255,213,79,.55)" font-size="8" font-family="'Segoe UI',system-ui,sans-serif">South shore · Big Valley</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Most-frequented years: 2016 18 22 23 25</div></div>
+    <div class="stat"><div class="stat-num">2025</div><div class="stat-label">Most recent confirmed adults</div></div>
+    <div class="stat"><div class="stat-num a">Multiple</div><div class="stat-label">Documented fish passage barriers</div></div>
+    <div class="stat"><div class="stat-num g">#2</div><div class="stat-label">Historic spawning tributary rank</div></div>
+  </div>
+</div>
+
+<!-- CONDITIONS (dark section) -->
+<section class="live-section" id="conditions">
+  <div class="section-inner">
+    <span class="section-tag tag-blue">Creek Conditions</span>
+    <div class="section-h2">Current Season Status</div>
+    <div class="section-sub">Adobe Creek does not have a dedicated USGS streamflow gauge. Conditions are assessed through CDFW and Lake County WPD visual surveys and the lake-wide spawn phase indicator below.</div>
+    <div class="gauge-grid">
+      <div class="gauge-card">
+        <div class="gauge-lbl">Spawning Phase<div class="gauge-src">Auto-calculated</div></div>
+        <div id="kc-phase-val" class="gauge-num" style="font-size:1.4rem">—</div>
+        <div id="kc-phase-unit" class="gauge-unit"></div>
+        <div id="kc-phase-ctx" class="gauge-ctx"></div>
+        <div class="gauge-fresh" style="margin-top:.8rem">Updates on page load</div>
+      </div>
+      <div class="gauge-card">
+        <div class="gauge-lbl">Clear Lake Level<div class="gauge-src">USGS 11450000</div></div>
+        <div id="lake-val2" class="gauge-num ld">Loading...</div>
+        <div id="lake-unit2" class="gauge-unit"></div>
+        <div id="lake-ctx2" class="gauge-ctx"></div>
+        <div class="gauge-mini"><div id="lake-bar2" class="gauge-mini-fill" style="background:linear-gradient(90deg,#1a6fa8,#7fd8ff)"></div></div>
+        <div id="lake-fresh2" class="gauge-fresh"></div>
+        <a href="https://waterdata.usgs.gov/monitoring-location/11450000/" target="_blank" class="gauge-link">USGS lake level record</a>
+      </div>
+      <div class="gauge-card">
+        <div class="gauge-lbl">Report Stranded Hitch<div class="gauge-src">Rescue Team</div></div>
+        <div class="gauge-num" style="font-size:1.1rem;line-height:1.3;color:#6ee7b7">(707)<br>263-2344</div>
+        <div class="gauge-ctx" style="margin-top:.5rem">If you spot hitch stranded in a dry or disconnected section — call immediately. Permits are required; do not attempt relocation yourself.</div>
+        <a href="tel:7072632344" style="display:inline-flex;align-items:center;gap:5px;font-size:.76rem;font-weight:600;color:#6ee7b7;text-decoration:none;background:rgba(110,231,183,.08);border:1px solid rgba(110,231,183,.2);padding:5px 11px;border-radius:16px;margin-top:.7rem">Call Rescue Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADOBE SPAWNER TIMELINE -->
+<div class="timeline-section" id="timeline">
+  <div class="section-inner">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:.6rem;flex-wrap:wrap">
+      <span class="section-label">Spawner History</span>
+      <span style="font-size:.78rem;color:var(--muted)">Adobe Creek led the lake-wide count in 5 of the last 12 survey years</span>
+    </div>
+    <div class="pop-header">
+      <div class="pop-title">Lake-wide Spawner Counts — Adobe Creek's Dominant Years</div>
+      <button class="pop-play" id="popPlay" onclick="popAnimate()">&#9654; Watch the history</button>
+    </div>
+    <div class="pop-display">
+      <div class="pop-year-big" id="popYear">2013</div>
+      <div>
+        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px">
+          <div class="pop-count-num" id="popCount">—</div>
+          <div class="pop-count-label">spawners lake-wide</div>
+          <span class="pop-change" id="popChange"></span>
+        </div>
+        <div class="pop-context" id="popContext"></div>
+      </div>
+    </div>
+    <div class="pop-bar-wrap" id="popBars"></div>
+    <input type="range" class="pop-slider" id="popSlider" min="0" max="11" value="0" oninput="popSetIdx(+this.value)">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:.8rem">
+      <span style="font-size:.72rem;background:var(--lake-light);color:var(--lake-dark);padding:3px 9px;border-radius:12px;font-weight:600">★ Adobe led: 2016 · 2018 · 2022 · 2023 · 2025</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT + SIDEBAR -->
+<div class="main-grid">
+  <div>
+    <!-- ABOUT -->
+    <div style="margin-bottom:3rem">
+      <span class="section-label">About This Creek</span>
+      <h2 class="section-h2l" style="margin-top:.6rem">Clear Lake's Historic Second Stream</h2>
+      <div class="about-grid">
+        <div class="prose">
+          <p>Adobe Creek has been the most frequented hitch spawning tributary in more survey years than any other creek in the dataset — 2016, 2018, 2022, 2023, and 2025. In some of those years it even eclipsed Kelsey. That makes it the clearest illustration of how hitch distribute their spawning effort: in good water years, multiple tributaries carry significant runs. Only in the worst drought years does everything collapse to a single stream.</p>
+          <p>The creek runs through Big Valley agricultural land before reaching the lake, picking up flow from Highland Creek upstream. Its lower reach passes through working farmland and road crossings that introduce multiple documented fish passage barriers — culverts, crossings, and channel modifications that impede or delay hitch migration in low-flow years.</p>
+          <div class="pull-quote">Adobe Creek and Kelsey Creek together form the backbone of south-shore hitch spawning. When both are running strong, the population has room to recover. When both run dry in the same year, the consequences are catastrophic.<cite>— Lake County Water Resources Department</cite></div>
+        </div>
+        <div class="info-cards">
+          <div class="info-card grn"><h4>2024–2025 Survey Status</h4><p>Adult hitch confirmed at Adobe Creek in both CDFW visual surveys. Among the most active tributaries in each season.</p></div>
+          <div class="info-card"><h4>Location</h4><p>Rises in the Mayacamas Mountains · flows through Big Valley agricultural land · enters Clear Lake on south shore near Kelseyville. Highland Creek joins upstream.</p></div>
+          <div class="info-card amb"><h4>Multiple Passage Barriers</h4><p>Several road crossings and culverts in the lower reach documented as fish passage barriers. Exact locations and severity under active assessment by LCWPD.</p></div>
+          <div class="info-card"><h4>Historic Rank</h4><p>Most frequented tributary in 2016, 2018, 2022, 2023, and 2025. Only Kelsey Creek rivals Adobe for total spawning importance over the full survey record.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <div style="margin-bottom:3rem">
+      <span class="section-label">Field Photos</span>
+      <h2 class="section-h2l" style="margin-top:.6rem">Adobe Creek in Every Season</h2>
+      <p style="color:var(--muted);font-size:.95rem;margin-bottom:1rem">Field photography from Lake County WPD staff — creek mouth, barriers, gauge sites, and seasonal conditions.</p>
+      <div class="photo-grid">
+        <div class="photo-card lb-trigger" data-idx="0"
+          data-large="/images/adobe/adobe-spawning-activity-large.jpg"
+          data-caption="A dense aggregation of hitch spawners visible through the clear water of Adobe Creek in spring 2026. Dozens of adults are visible holding position over gravel substrate, a strong indicator of active spawning behavior at this site. Photo: Taylor Woodruff.">
+          <img src="/images/adobe/adobe-spawning-activity-thumb.jpg" alt="Dense school of hitch spawners visible through clear water over gravel substrate in Adobe Creek" loading="lazy">
+          <div class="photo-inner">
+            <span class="photo-tag">Spawn Run</span>
+            <div class="photo-caption"><strong>Spawning Activity</strong><span>Hitch massing in Adobe Creek · Spring 2026</span></div>
+          </div>
+        </div>
+        <div class="photo-card lb-trigger" data-idx="1"
+          data-large="/images/adobe/adobe-wfd-survey-site-large.jpg"
+          data-caption="The Lake County Water Resources Department survey site on Adobe Creek, photographed in spring 2026. A wooden livestock exclusion frame marks the survey transect. The creek runs clear with riparian reed grass lining both banks and valley oaks visible upstream. Photo: Taylor Woodruff.">
+          <img src="/images/adobe/adobe-wfd-survey-site-thumb.jpg" alt="Adobe Creek WFD survey site with wooden monitoring frame in foreground and creek running upstream" loading="lazy">
+          <div class="photo-inner">
+            <span class="photo-tag">Survey Site</span>
+            <div class="photo-caption"><strong>WFD Survey Site</strong><span>Adobe Creek monitoring point · Spring 2026</span></div>
+          </div>
+        </div>
+        <div class="photo-card lb-trigger" data-idx="2"
+          data-large="/images/adobe/adobe-lower-reach-large.jpg"
+          data-caption="The lower reach of Adobe Creek in spring 2026, looking upstream from a bridge crossing. Flanked by riparian willows and cottonwoods just leafing out. A gravel bar is visible mid-channel, and the creek maintains clear, fishable flow at this point in the season. Photo: Taylor Woodruff.">
+          <img src="/images/adobe/adobe-lower-reach-thumb.jpg" alt="Adobe Creek lower reach with willow-lined banks and gravel bar visible in spring flow" loading="lazy">
+          <div class="photo-inner">
+            <span class="photo-tag">Lower Reach</span>
+            <div class="photo-caption"><strong>Lower Reach</strong><span>Adobe Creek approaching Clear Lake · Spring 2026</span></div>
+          </div>
+        </div>
+        <div class="photo-card lb-trigger" data-idx="3"
+          data-large="/images/adobe/adobe-dry-creek-large.jpg"
+          data-caption="Adobe Creek's lower reach during low-flow conditions. The gravelly streambed is nearly completely exposed with white mineral deposits on the rocks. Seasonal drying is a recurring fish passage concern, as hitch require continuous flow from the lake to access upstream spawning habitat. Photo: Taylor Woodruff.">
+          <img src="/images/adobe/adobe-dry-creek-thumb.jpg" alt="Exposed dry streambed of Adobe Creek with white mineral deposits on dark gravel under overcast sky" loading="lazy">
+          <div class="photo-inner">
+            <span class="photo-tag">Drought</span>
+            <div class="photo-caption"><strong>Dry Season Bed</strong><span>Adobe Creek below irrigation threshold</span></div>
+          </div>
+        </div>
+        <div class="photo-card lb-trigger" data-idx="4"
+          data-large="/images/adobe/adobe-upstream-large.jpg"
+          data-caption="Looking upstream from the WFD survey site on Adobe Creek, spring 2026. The creek winds through open valley floor with rock-armored banks. Snow-dusted Mayacamas peaks are visible on the horizon, indicating the upper watershed was still receiving precipitation. Photo: Taylor Woodruff.">
+          <img src="/images/adobe/adobe-upstream-thumb.jpg" alt="Adobe Creek winding through Big Valley floor with rock-armored banks and Mayacamas Mountains in background" loading="lazy">
+          <div class="photo-inner">
+            <span class="photo-tag">Upper Watershed</span>
+            <div class="photo-caption"><strong>Upstream Reach</strong><span>Adobe Creek in Big Valley · Spring 2026</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="side-card dark">
+      <h3>Current Status</h3>
+      <div class="side-row"><span class="side-lbl">Spawning</span><span class="side-val g">Active — confirmed</span></div>
+      <div class="side-row"><span class="side-lbl">Last adults</span><span class="side-val">2025</span></div>
+      <div class="side-row"><span class="side-lbl">Barriers</span><span class="side-val a">Multiple</span></div>
+      <div class="side-row"><span class="side-lbl">Gauge</span><span class="side-val">No dedicated gauge</span></div>
+    </div>
+    <div class="side-card">
+      <h3>Quick Actions</h3>
+      <div class="side-actions">
+        <a href="https://waterdata.usgs.gov/monitoring-location/11449500/" target="_blank" rel="noopener" class="side-btn primary">Live USGS Gauge</a>
+        <a href="/#lake-status" class="side-btn outline">Lake Conditions</a>
+        <a href="/archive.html?q=adobe" class="side-btn outline">Archive Reports</a>
+        <a href="tel:7072632344" class="side-btn emergency">Report Stranded Hitch</a>
+      </div>
+    </div>
+    <div class="side-card">
+      <h3>Creek Profile</h3>
+      <div class="side-row"><span class="side-lbl">Shore</span><span class="side-val">South · Big Valley</span></div>
+      <div class="side-row"><span class="side-lbl">Mouth</span><span class="side-val">S shore near Kelseyville</span></div>
+      <div class="side-row"><span class="side-lbl">CDFW 2024–25</span><span class="side-val g">Adults confirmed</span></div>
+      <div class="side-row"><span class="side-lbl">Barriers</span><span class="side-val a">Multiple documented</span></div>
+    </div>
+    <div class="side-card">
+      <h3>Explore Nearby</h3>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:.2rem">
+        <a href="kelsey.html" class="creek-link"><strong>Kelsey Creek</strong><span>#1 active spawning tributary</span></a>
+        <a href="cole.html" class="creek-link"><strong>Cole Creek</strong><span>Restoration project · east of Kelsey</span></a>
+        <a href="manning.html" class="creek-link"><strong>Manning Creek</strong><span>Active spawn · SW shore</span></a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- BARRIERS (dark section) -->
+<section class="barriers-section">
+  <div class="section-inner">
+    <span class="section-tag tag-amber">Barriers &amp; Restoration</span>
+    <div class="section-h2" style="margin-top:.5rem">Challenges &amp; Conservation Status</div>
+    <div class="section-sub">Key barriers, threats, and active conservation efforts for Adobe Creek.</div>
+    <div class="barriers-grid">
+      <div class="barrier-card"><span class="bc-tag warn">Concern</span><h3>Multiple Documented Barriers</h3><p>Adobe Creek has several road crossings and culverts in its lower reach that have been documented as fish passage barriers. These impede or delay hitch migration during low-flow periods.</p></div>
+      <div class="barrier-card"><span class="bc-tag warn">Concern</span><h3>Agricultural Water Diversions</h3><p>Big Valley agriculture draws from both surface water and groundwater in the Adobe Creek watershed. Diversions during the spawning window can reduce flows below migration thresholds.</p></div>
+      <div class="barrier-card"><span class="bc-tag good">In Progress</span><h3>Active CDFW Monitoring</h3><p>Adobe Creek is included in annual CDFW visual spawner surveys and Lake County WPD monitoring. Barrier assessment ongoing as part of the broader hitch recovery planning.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SURVEY TABLE -->
+<div class="survey-section">
+  <div class="survey-inner">
+    <span class="section-label">Survey Data</span>
+    <h2 class="section-h2l" style="margin-top:.6rem;margin-bottom:1.2rem">Annual Observations — Adobe Creek</h2>
+    <table class="survey-table">
+      <thead><tr><th>Year</th><th>Adults at Adobe</th><th>Lake-wide Count</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="val">2025</td><td class="g">Confirmed</td><td class="val">1,567</td><td>Among leading tributaries</td></tr>
+        <tr><td class="val">2024</td><td class="g">Confirmed</td><td class="val">1,042</td><td>Federal ESA listing proposed Jan 2025</td></tr>
+        <tr><td class="val">2023</td><td class="g">Confirmed</td><td class="val">2,548 ★</td><td>Record year after heavy winter rains</td></tr>
+        <tr><td class="val">2022</td><td class="a">Limited</td><td class="val">306</td><td>Drought year — marginal flow</td></tr>
+        <tr><td class="val">2021</td><td class="r">Dry / near-zero</td><td class="val">120</td><td>Catastrophic drought — tributaries ran dry</td></tr>
+        <tr><td class="val">2020</td><td class="a">Not observed</td><td class="val">1,672</td><td>All lake-wide hitch were in Kelsey Creek that year — Adobe ran low</td></tr>
+        <tr><td class="val">2019</td><td class="a">Limited</td><td class="val">612</td><td>Kelsey primary stream; Adobe ran marginal that season</td></tr>
+        <tr><td class="val">2018</td><td class="g">Active</td><td class="val">1,153</td><td>Adobe led; Kelsey major contributor</td></tr>
+        <tr><td class="val">2017</td><td class="g">Active</td><td class="val">517</td><td>First year USGS baseline gillnet surveys; both creeks running</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <div class="fl"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.46-3.44 6-7 6-3.56 0-7.56-2.54-8.5-6Z"/><path d="M18 12v.5"/><path d="M16 17.93a9.77 9.77 0 0 1 0-11.86"/><path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33"/><path d="M10.46 7.26C10.2 5.88 9.17 4.24 8 3h5.8a2 2 0 0 1 1.98 1.67l.23 1.4"/><path d="m16.01 17.93-.23 1.4A2 2 0 0 1 13.8 21H9.5a5.96 5.96 0 0 0 1.49-3.98"/></svg> The Clear Lake Hitch Project</div>
+  <p style="margin-top:6px">A project by <strong style="color:#fff">Taylor Woodruff</strong> &amp; <strong style="color:#fff">Jordan Stevens</strong></p>
+  <p style="margin-top:6px"><a href="/creeks.html">← Back to all tributaries</a> · <a href="/">Main site</a></p>
+  <p class="disc">Content based on USGS, CDFW, USFWS Species Status Assessment, and Lake County Water Resources Department sources. Watershed data are approximations and may vary from official figures.</p>
+</footer>
+
+<script>
+/* USGS fetch with fallback proxies */
+async function fetchGauge(site,param,period){
+  const base=`https://waterservices.usgs.gov/nwis/iv/?sites=${site}&parameterCd=${param}&format=json&siteStatus=all${period?'&period='+period:''}`;
+  for(const url of[base,`https://corsproxy.io/?${encodeURIComponent(base)}`,`https://api.allorigins.win/raw?url=${encodeURIComponent(base)}`]){
+    try{
+      const ctrl=new AbortController(),t=setTimeout(()=>ctrl.abort(),10000);
+      const r=await fetch(url,{signal:ctrl.signal});clearTimeout(t);
+      if(!r.ok)continue;
+      const j=await r.json(),ts=j?.value?.timeSeries?.[0];
+      if(!ts)continue;
+      const vals=ts.values?.[0]?.value;if(!vals?.length)continue;
+      const series=vals.map(v=>({t:new Date(v.dateTime),v:parseFloat(v.value)})).filter(d=>!isNaN(d.v)&&d.v>-999);
+      if(!series.length)continue;
+      return{series,latest:series[series.length-1],unit:ts.variable?.unit?.unitCode||''};
+    }catch(e){}
+  }
+  throw new Error('unavailable');
+}
+function fmtAge(dt){const m=Math.round((Date.now()-dt)/60000);if(m<2)return'Just now';if(m<60)return`${m}m ago`;const h=Math.floor(m/60);if(h<24)return`${h}h ${m%60}m ago`;return`${Math.floor(h/24)}d ago`;}
+
+/* Spawn phase */
+function loadPhase(){
+  const now=new Date(),m=now.getMonth()+1,d=now.getDate(),md=m*100+d;
+  const v=document.getElementById('kc-phase-val'),u=document.getElementById('kc-phase-unit'),c=document.getElementById('kc-phase-ctx');
+  let label,unit,ctx,col;
+  if(md>=315&&md<=425){label='PEAK';unit='spawning';ctx='Adults actively in creek now';col='#6ee7b7';}
+  else if(md>=220&&md<=314){label='Early';unit='season';ctx='First adults entering tributaries';col='#9efaae';}
+  else if(md>=426&&md<=515){label='Late';unit='season';ctx='Watch for YOY in pools';col='#fcd34d';}
+  else if(m===1||(m===2&&d<20)){label='Pre-';unit='season';ctx='Hitch staging in the lake';col='#7fd8ff';}
+  else{label='Off';unit='season';ctx='Post-spawn · next year builds now';col='rgba(255,255,255,.55)';}
+  v.textContent=label;v.style.color=col;u.textContent=unit;c.textContent=ctx;c.style.color='rgba(255,255,255,.65)';
+}
+
+/* Spawner timeline */
+const popData=[
+  {yr:2013,count:500,est:true,ctx:"Drought era — Adobe ran low. Survey methods still being standardized.",color:"#c03030"},
+  {yr:2014,count:1119,est:false,ctx:"CA lists hitch as Threatened. Adobe among primary spawning streams.",color:"#7ec8e3"},
+  {yr:2016,count:693,est:false,ctx:"★ Adobe led lake-wide spawning effort this season.",color:"#a0b8c8"},
+  {yr:2017,count:517,est:false,ctx:"Adobe active. First year of USGS baseline gillnet surveys.",color:"#7ec8e3"},
+  {yr:2018,count:1153,est:false,ctx:"★ Adobe led; highest tributary count lake-wide this season.",color:"#7ec8e3"},
+  {yr:2019,count:612,est:false,ctx:"Kelsey primary stream; Adobe ran marginal. USGS catches down ~55% from 2017 baseline.",color:"#a0b8c8"},
+  {yr:2020,count:1672,est:false,ctx:"All 1,672 lake-wide hitch were in Kelsey exclusively — Adobe did not host a run.",color:"#d08040"},
+  {yr:2021,count:120,est:false,ctx:"Catastrophic drought. Only 120 spawners. Adobe Creek ran completely dry.",color:"#c03030"},
+  {yr:2022,count:306,est:false,ctx:"★ Adobe among most active tributaries despite post-drought low lake-wide count.",color:"#d08040"},
+  {yr:2023,count:2548,est:false,ctx:"★ Record year after heavy winter rains. Adobe among leading contributors.",color:"#00c853"},
+  {yr:2024,count:1042,est:false,ctx:"Adults confirmed at Adobe. Federal ESA listing proposed January 2025.",color:"#7ec8e3"},
+  {yr:2025,count:1567,est:false,ctx:"★ Adobe confirmed leading tributary. 1,567 spawners recorded lake-wide.",color:"#7ec8e3"},
+];
+const popMax=Math.max(...popData.map(d=>d.count));
+let popIdx=0,popTimer=null;
+function popRender(){
+  const bars=document.getElementById('popBars');
+  bars.innerHTML='<div style="display:flex;align-items:flex-end;gap:3px;height:48px;width:100%">'+popData.map((d,i)=>{
+    const h=Math.max(3,(d.count/popMax)*100);
+    return`<div class="pop-bar-col ${i===popIdx?'active':''}" onclick="popSetIdx(${i})" style="flex:1"><div class="pop-bar" style="height:${h}%;background:${i===popIdx?d.color:'#d0dbe6'}"></div><div class="pop-bar-yr">${String(d.yr).slice(2)}</div></div>`;
+  }).join('')+'</div>';
+  const d=popData[popIdx];
+  document.getElementById('popYear').textContent=d.yr;
+  document.getElementById('popYear').style.color=d.color;
+  const cnt=document.getElementById('popCount');
+  cnt.textContent=d.est?'<'+d.count.toLocaleString():d.count.toLocaleString();
+  cnt.style.color=d.count<400?'#c0392b':d.count>2000?'#2d7a3a':'var(--text)';
+  document.getElementById('popContext').textContent=d.ctx;
+  document.getElementById('popSlider').value=popIdx;
+  const ch=document.getElementById('popChange');
+  if(popIdx>0){
+    const pct=Math.round(((d.count-popData[popIdx-1].count)/popData[popIdx-1].count)*100);
+    if(pct>=0){ch.textContent='▲ +'+pct+'%';ch.style.background='#e8f5eb';ch.style.color='#2d7a3a';}
+    else{ch.textContent='▼ '+pct+'%';ch.style.background='#fdecea';ch.style.color='#c0392b';}
+    ch.style.display='inline-block';
+  }else{ch.style.display='none';}
+}
+function popSetIdx(i){popIdx=i;popRender();}
+function popAnimate(){
+  const btn=document.getElementById('popPlay');
+  if(popTimer){clearInterval(popTimer);popTimer=null;btn.innerHTML='&#9654; Watch the history';return;}
+  popIdx=0;popRender();btn.innerHTML='&#9208; Pause';
+  popTimer=setInterval(()=>{popIdx++;if(popIdx>=popData.length){clearInterval(popTimer);popTimer=null;btn.innerHTML='&#9654; Replay';popIdx=popData.length-1;}popRender();},1200);
+}
+
+/* Lake level for non-gauged pages */
+async function loadLakeLevel(){
+  const[v,u,c2,b,f]=['lake-val2','lake-unit2','lake-ctx2','lake-bar2','lake-fresh2'].map(id=>document.getElementById(id));
+  if(!v)return;
+  try{
+    const g=await fetchGauge('11450000','00065');
+    const val=g.latest.v;
+    v.textContent=val.toFixed(2);v.className='gauge-num';u.textContent='ft (Rumsey)';
+    let ctx,col,pct;
+    if(val<0){ctx='Below datum — critically low';col='#fca5a5';pct=5;}
+    else if(val<2){ctx='Low — below normal range';col='#fca5a5';pct=20;}
+    else if(val<5){ctx='Normal lake level';col='#7fd8ff';pct=60;}
+    else if(val<7){ctx='Above normal';col='#6ee7b7';pct=82;}
+    else{ctx='High water level';col='#6ee7b7';pct=100;}
+    c2.textContent=ctx;c2.style.color=col;v.style.color=col;
+    if(b){b.style.width=pct+'%';}
+    f.textContent=fmtAge(g.latest.t);
+  }catch(e){if(v){v.textContent='Unavailable';v.className='gauge-num er';}}
+}
+loadLakeLevel();
+loadPhase();
+popRender();
+</script>
+
+<div id="lb-overlay" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+  <button id="lb-close" aria-label="Close lightbox" title="Close (Esc)">&#10005;</button>
+  <button id="lb-nav-prev" aria-label="Previous photo">&#8249;</button>
+  <button id="lb-nav-next" aria-label="Next photo">&#8250;</button>
+  <div id="lb-box">
+    <div id="lb-loading">Loading...</div>
+    <img id="lb-img" src="" alt="" style="display:none">
+    <div id="lb-counter"></div>
+    <div id="lb-caption"></div>
+    <div id="lb-credit">Photo credit: Taylor Woodruff</div>
+    <div id="lb-actions">
+      <a id="lb-orig-link" class="lb-btn download" href="#" download target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Original
+      </a>
+      <button class="lb-btn" id="lb-close-btn">&#10005; Close</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const cards=Array.from(document.querySelectorAll('.lb-trigger'));
+  let current=0;
+  const overlay=document.getElementById('lb-overlay');
+  const img=document.getElementById('lb-img');
+  const loading=document.getElementById('lb-loading');
+  const caption=document.getElementById('lb-caption');
+  const counter=document.getElementById('lb-counter');
+  const origLink=document.getElementById('lb-orig-link');
+  function open(idx){current=((idx%cards.length)+cards.length)%cards.length;overlay.classList.add('open');document.body.style.overflow='hidden';load(current);}
+  function close(){overlay.classList.remove('open');document.body.style.overflow='';img.style.display='none';loading.style.display='block';}
+  function load(idx){
+    const card=cards[idx];
+    img.style.display='none';loading.style.display='block';loading.textContent='Loading...';
+    caption.textContent=card.dataset.caption||'';
+    counter.textContent=(idx+1)+' / '+cards.length;
+    origLink.href=card.dataset.large;
+    origLink.download=(card.dataset.large||'').split('/').pop();
+    const t=new Image();
+    t.onload=()=>{img.src=card.dataset.large;img.alt=caption.textContent;img.style.display='block';loading.style.display='none';};
+    t.onerror=()=>{loading.textContent='Image unavailable';};
+    t.src=card.dataset.large;
+  }
+  cards.forEach((card,i)=>{
+    card.addEventListener('click',()=>open(i));
+    const zoom=document.createElement('div');
+    zoom.className='photo-zoom';
+    zoom.innerHTML='<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>';
+    card.appendChild(zoom);
+  });
+  document.getElementById('lb-nav-prev').addEventListener('click',e=>{e.stopPropagation();load(--current<0?(current=cards.length-1):current);});
+  document.getElementById('lb-nav-next').addEventListener('click',e=>{e.stopPropagation();load(++current>=cards.length?(current=0):current);});
+  document.getElementById('lb-close').addEventListener('click',close);
+  document.getElementById('lb-close-btn').addEventListener('click',close);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)close();});
+  document.addEventListener('keydown',e=>{if(!overlay.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft'){current--;if(current<0)current=cards.length-1;load(current);}if(e.key==='ArrowRight'){current++;if(current>=cards.length)current=0;load(current);}});
+})();
+</script>
+
+</body>
+</html>
