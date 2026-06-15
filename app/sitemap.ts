@@ -5,17 +5,13 @@ const BASE = 'https://www.clearlakehitchproject.org'
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
-  // App Router pages
-  const routes = ['/', '/timeline', '/archive', '/map', '/creeks']
-  // Standalone content pages served from /public
-  const staticPages = [
-    '/kelsey.html',
-    '/adobe.html',
-    '/forbes.html',
-    '/burns.html',
+  // App Router pages (creek detail pages now have real routes)
+  const routes = [
+    '/', '/timeline', '/archive', '/map', '/creeks',
+    '/kelsey', '/adobe', '/burns', '/forbes',
   ]
 
-  return [...routes, ...staticPages].map((path) => ({
+  return routes.map((path) => ({
     url: `${BASE}${path}`,
     lastModified: now,
     changeFrequency: 'monthly',
