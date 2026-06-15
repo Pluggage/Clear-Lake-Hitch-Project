@@ -71,7 +71,7 @@ const SPECIES: Species[] = [
       ]},
       {era:'2023-Present', items:[
         {y:'Feb 2023',t:'Lake County emergency declaration',d:'First governmental emergency declaration for a fish species in Lake County history.',tag:'policy'},
-        {y:'2023',t:'Record 2,548 spawners after wet winter',d:'The highest count since monitoring began. Demonstrates recovery potential, but also total dependence on rainfall.',tag:'good'},
+        {y:'2023',t:'Record 2,548 spawners after wet winter',d:'The highest count since monitoring began. Shows both the recovery potential and the total dependence on rainfall.',tag:'good'},
         {y:'Jan 2025',t:'USFWS proposes federal Threatened listing',d:'Proposed critical habitat covers Clear Lake, Thurston Lake, and 18 tributaries. SSA finds high extinction risk within 50 years under most scenarios.',tag:'policy'},
         {y:'Spring 2025',t:'1,567 spawners: above 11-year average',d:'A solid year. Monitoring by CDFW, tribal agencies, and LCWPD continues.',tag:'good'},
       ]},
@@ -167,7 +167,7 @@ const SPECIES: Species[] = [
     summary:'The most consistently stable native fish in Clear Lake across all time periods. Sacramento sucker has maintained "common" to "abundant" status through 150+ years of ecological disruption, making it one of the clearest native success stories in the lake.',
     timeline:[
       {era:'All periods', items:[
-        {y:'1800s-Present',t:'Consistently common across all eras',d:'Sacramento sucker has shown remarkable resilience to the same pressures that extirpated or reduced most other native species. Its tolerance of degraded conditions makes it a consistent presence in the lake\'s fish community.',tag:'good'},
+        {y:'1800s-Present',t:'Consistently common across all eras',d:'Sacramento sucker has withstood the same pressures that extirpated or reduced most other native species. Its tolerance of degraded conditions makes it a consistent presence in the lake\'s fish community.',tag:'good'},
       ]},
     ]
   },
