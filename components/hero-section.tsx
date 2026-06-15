@@ -72,11 +72,14 @@ export function HeroSection() {
         <div className="hidden md:flex justify-center items-center">
           <div className="bg-white/10 border border-white/20 rounded-2xl p-6 text-center backdrop-blur-sm max-w-[300px]">
             <div className="relative w-full h-[130px] mb-4">
-              <img
-                src="/images/clear-lake-hitch.png"
-                alt="Clear Lake Hitch fish"
-                className="w-full h-full object-contain drop-shadow-lg"
-              />
+              <picture className="contents">
+                <source srcSet="/images/clear-lake-hitch.webp" type="image/webp" />
+                <img
+                  src="/images/clear-lake-hitch.png"
+                  alt="Clear Lake Hitch fish"
+                  className="w-full h-full object-contain drop-shadow-lg"
+                />
+              </picture>
             </div>
             <h3 className="text-white text-lg font-semibold mb-1">Clear Lake Hitch</h3>
             <p className="text-white/70 text-sm italic mb-2">Lavinia exilicauda chi</p>
