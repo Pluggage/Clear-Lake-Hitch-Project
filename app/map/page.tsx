@@ -1,15 +1,20 @@
-"use client"
+import type { Metadata } from 'next'
+import { Navigation } from '@/components/navigation'
+import { MapExplorer } from './MapExplorer'
+import './map.css'
 
-import { useEffect } from "react"
+export const metadata: Metadata = {
+  title: 'Interactive Spawner Map',
+  description:
+    'Interactive map of Clear Lake and its hitch spawning tributaries. Click any creek or lake zone for survey status, key data, and related archive reports.',
+  alternates: { canonical: '/map' },
+}
 
 export default function MapPage() {
-  useEffect(() => {
-    window.location.href = "/map-standalone.html"
-  }, [])
-
   return (
-    <div className="min-h-screen bg-[#060f1a] flex items-center justify-center">
-      <div className="text-white/50 text-sm">Loading map...</div>
-    </div>
+    <>
+      <Navigation />
+      <MapExplorer />
+    </>
   )
 }
