@@ -10,7 +10,7 @@ export function MapSection() {
     >
       <div className="max-w-[1100px] mx-auto">
         <div className="mb-4">
-          <h3 className="text-xl font-bold text-white mb-1">Interactive Tributary Map</h3>
+          <h2 className="text-xl font-bold text-white mb-1">Interactive Tributary Map</h2>
           <p className="text-white/60 text-sm max-w-[650px] leading-relaxed">
             Explore every spawning creek, lake zone, and survey site, with population trends and habitat
             conditions for each.

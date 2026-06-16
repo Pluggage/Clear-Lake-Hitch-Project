@@ -72,7 +72,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 ### Wayfinding & discoverability
 - [x] 🔴 Added homepage deep-links: a Creeks card in quick-access, a "Full timeline" link under the population chart, and a footer nav across all pages.
 - [ ] 🟡 Add breadcrumbs / "related" strips to the dead-end /timeline, /archive, /map; add a navigational footer
-- [x] 🟡 `schema.org` JSON-LD: Organization (site-wide), **Dataset** on `/archive`, and **BreadcrumbList** on the creek pages. Fixed the map's single-underscore `replace` bug. *(Per-page OG images and splitting the client-only /timeline for its own metadata are still to do.)*
+- [x] 🟡 `schema.org` JSON-LD: Organization (site-wide), **Dataset** on `/archive`, **BreadcrumbList** on creek pages. Fixed the map underscore bug. Gave `/timeline` real metadata via a route-segment layout. *(Per-page OpenGraph images are still to do.)*
 
 ### Content gaps & audiences
 - [x] 🔴 Added an FAQ, glossary, and "how to identify the Clear Lake hitch" guide at `/faq` (linked in nav)
@@ -81,7 +81,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 - [ ] 🟡 Audience surfaces (researcher data path, angler legality/safety, educator fact sheet, press kit); Spanish core safety/rescue content
 
 ### Accessibility & polish
-- [ ] 🟡 Keyboard + screen-reader access for the Fish Guide modal & chart expanders (reuse the PhotoLightbox pattern); label the map SVG; fix hero heading order (h1→h2)
+- [x] 🟡 Fish Guide cards + modal are keyboard-accessible now (role/tabindex/Enter+Space; Esc to close; role=dialog/aria-modal; focus trap; focus returns to the card on close). Labeled the interactive map SVG (role=img + aria-label) and bumped the homepage map heading to h2. *(Population-chart bars, and gating focus on species cards beneath the collapsed fold, are still to do.)*
 - [x] ⚪ Raised the footer disclaimer contrast (12px + higher opacity).
 
 ---

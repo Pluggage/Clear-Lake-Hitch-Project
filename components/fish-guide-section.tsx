@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect, useRef } from "react"
 import { Fish, X, Search, ChevronDown, ChevronUp } from "lucide-react"
 import { FISH, FAILED_FISH, type Fish as FishType } from "@/lib/fish-data"
 
@@ -85,14 +85,41 @@ function FishTag({ type, status }: { type: string; status: string }) {
 }
 
 function FishModal({ fish, onClose }: { fish: FishType; onClose: () => void }) {
+  const dialogRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const prevFocus = document.activeElement as HTMLElement | null
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { onClose(); return }
+      if (e.key === "Tab" && dialogRef.current) {
+        const f = dialogRef.current.querySelectorAll<HTMLElement>(
+          'button, a[href], input, textarea, select, [tabindex]:not([tabindex="-1"])'
+        )
+        if (f.length === 0) return
+        const first = f[0]
+        const last = f[f.length - 1]
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
+      }
+    }
+    document.addEventListener("keydown", onKey)
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.removeEventListener("keydown", onKey)
+      document.body.style.overflow = ""
+      prevFocus?.focus()
+    }
+  }, [onClose])
+
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black/50 z-[1000] flex items-center justify-center p-4"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="bg-white rounded-2xl max-w-[500px] w-full p-8 max-h-[90vh] overflow-y-auto relative">
+      <div ref={dialogRef} className="bg-white rounded-2xl max-w-[500px] w-full p-8 max-h-[90vh] overflow-y-auto relative" role="dialog" aria-modal="true" aria-label={fish.name}>
         <button
           onClick={onClose}
+          autoFocus
           className="absolute top-4 right-4 text-[var(--muted-color)] hover:text-[var(--text)] transition-colors"
           aria-label="Close modal"
         >
@@ -259,7 +286,10 @@ export function FishGuideSection() {
             {displayedFish.map((fish) => (
               <div
                 key={fish.name}
+                role="button"
+                tabIndex={0}
                 onClick={() => setSelectedFish(fish)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedFish(fish) } }}
                 className="bg-white border border-[var(--border-color)] rounded-xl p-5 cursor-pointer transition-all hover:border-[var(--lake)] hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <FishIcon fish={fish} />
@@ -318,7 +348,10 @@ export function FishGuideSection() {
               {FAILED_FISH.map((fish) => (
                 <div
                   key={fish.name}
+                  role="button"
+                  tabIndex={0}
                   onClick={() => setSelectedFish(fish)}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedFish(fish) } }}
                   className="bg-white border border-[var(--border-color)] rounded-xl p-5 cursor-pointer transition-all hover:border-[#6040a0] hover:-translate-y-0.5 hover:shadow-lg"
                 >
                   <FishIcon fish={fish} />

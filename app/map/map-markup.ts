@@ -30,7 +30,7 @@ export const MAP_MARKUP = `
           <button class="zoom-btn" data-zoom="reset" title="Reset" style="font-size:11px">⟲</button>
         </div>
 
-<svg id="map" viewBox="0 0 700 555" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+<svg id="map" viewBox="0 0 700 555" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Schematic map of Clear Lake and its tributary creeks; use the list and tabs below to explore each location.">
 <defs>
   <radialGradient id="wg" cx="40%" cy="40%" r="65%">
     <stop offset="0%" stop-color="#0d3a5a"/>
