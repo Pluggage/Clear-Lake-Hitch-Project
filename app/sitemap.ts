@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Core App Router pages + every creek detail page (bespoke + lightweight).
   const routes = [
-    '/', '/timeline', '/archive', '/map', '/creeks',
+    '/', '/about', '/timeline', '/archive', '/map', '/creeks', '/faq',
     ...creeks.map((c) => c.href),
   ]
 

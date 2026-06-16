@@ -42,14 +42,14 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 - [ ] ⚪ Move canonical citation strings into one shared module (`lib/sources.ts`) so timeline/archive can't drift again
 
 ### Show who's behind it (biggest trust unlock)
-- [ ] 🔴 Build an **About / Who-We-Are** page (mission, named bios + qualifications, what the project is/isn't; disclose that a project member is also a cited LCWPD survey author)
-- [ ] 🔴 Add a real **contact + "submit a correction"** channel; label the (707) 263-2344 number / 255 N. Forbes St. address as Lake County's, not the project's
-- [ ] 🔴 Hyperlink and accurately scope named partners (Robinson Rancheria, Habematolel Pomo, Big Valley Rancheria, CDFW, USGS, LCWPD) — don't imply partnership/endorsement that doesn't exist
-- [ ] 🟡 State legal/funding status (volunteer vs nonprofit) and add a privacy policy (Vercel Analytics loads in prod)
+- [x] 🔴 Built the **About / contact page** (`/about`): mission, "what this is / isn't", founders (Taylor Woodruff's WPD survey credit noted), how the data is gathered + a last-reviewed date, partners, and a contact form. Framed as an independent volunteer project.
+- [x] 🔴 Added a **contact form** on /about; the (707) 263-2344 line is labeled as the Hitch Rescue Team, not the project. Form is UI-only until a backend is wired (see `NEEDS-FROM-YOU.md`).
+- [x] 🔴 Hyperlinked + scoped partners on the About page (CDFW, USGS, LCWPD, Habematolel, Big Valley, Robinson), framed as work the project documents, not partnerships. (Confirm the Robinson Rancheria link — see `NEEDS-FROM-YOU.md`.)
+- [x] 🟡 Stated legal status (independent volunteer/educational project) on the About page. *(Privacy policy still to add.)*
 - [ ] ⚪ Link any off-site presence (socials, data repo, press) to corroborate the project exists
 
 ### Turn visitors into participants
-- [ ] 🔴 Add a working **"Report a Hitch Sighting"** form + a contact form (Formspree/Netlify/Google Form — no backend needed)
+- [x] 🔴 Added **report-a-sighting + contact form UIs** (sighting on the Get Involved section, contact on /about). Not submitting yet — backend to wire (see `NEEDS-FROM-YOU.md`).
 - [ ] 🔴 Turn "Become a Community Scientist" into a guided on-ramp instead of an off-site county link
 - [ ] 🟡 Season-reminder / newsletter email capture (tie to the existing spawn-countdown)
 - [ ] 🟡 Decide & state the donate/funding posture; add an ESA public-comment advocacy action + social share buttons
@@ -70,7 +70,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 - [ ] ⚪ Stop rendering qualitative words ("Multiple", "#2") in the big-number stat style
 
 ### Wayfinding & discoverability
-- [ ] 🔴 Add deep links from the homepage into its own best content (a Creeks CTA, timeline → /archive, etc.)
+- [x] 🔴 Added homepage deep-links: a Creeks card in quick-access, a "Full timeline" link under the population chart, and a footer nav across all pages.
 - [ ] 🟡 Add breadcrumbs / "related" strips to the dead-end /timeline, /archive, /map; add a navigational footer
 - [ ] 🟡 Per-page metadata + OG/social cards; `schema.org` JSON-LD (Organization, Dataset, BreadcrumbList); split the client-only /timeline so it gets real metadata; fix the map's single-underscore `replace`
 
@@ -82,7 +82,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 
 ### Accessibility & polish
 - [ ] 🟡 Keyboard + screen-reader access for the Fish Guide modal & chart expanders (reuse the PhotoLightbox pattern); label the map SVG; fix hero heading order (h1→h2)
-- [ ] ⚪ Raise the 11px / 35%-opacity legal disclaimer to meet WCAG AA contrast
+- [x] ⚪ Raised the footer disclaimer contrast (12px + higher opacity).
 
 ---
 

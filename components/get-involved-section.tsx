@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Telescope, Tag, Phone, TreePine, ExternalLink } from "lucide-react"
+import { SiteForm } from "@/components/site-form"
 
 const involvementOptions = [
   {
@@ -99,6 +100,15 @@ export function GetInvolvedSection() {
               </div>
             )
           })}
+        </div>
+
+        <div className="mt-12 pt-10 border-t border-[var(--border-color)]">
+          <h3 className="text-xl font-bold text-[var(--text)] mb-2">Report a hitch sighting</h3>
+          <p className="text-[var(--muted-color)] text-sm max-w-[560px] mb-6 leading-relaxed">
+            Saw hitch in a creek this spring? Share what you saw to support the community-science record. For a fish
+            stranded in a drying creek, call the Hitch Rescue Team at (707) 263-2344 right away.
+          </p>
+          <SiteForm kind="sighting" />
         </div>
       </div>
     </section>

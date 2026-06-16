@@ -94,7 +94,7 @@ export function QuickAccessSection() {
 
   return (
     <div className="bg-background border-b-2 border-border py-5 px-4 md:px-8">
-      <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-3">
+      <div className="max-w-[1100px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
         {/* Live Conditions Card */}
         <Link
           href="#lake-status"
@@ -149,6 +149,18 @@ export function QuickAccessSection() {
           <div>
             <strong className="block text-sm font-semibold text-foreground">Hitch Archive</strong>
             <span className="text-xs text-muted-foreground">Reports, studies &amp; data from 2013 to 2025</span>
+          </div>
+        </Link>
+
+        {/* Creeks Card */}
+        <Link
+          href="/creeks"
+          className="flex items-center gap-3 p-4 rounded-xl border-[1.5px] border-border bg-background hover:border-[var(--lake)] hover:shadow-[0_3px_14px_rgba(26,111,168,.1)] hover:-translate-y-[1px] transition-all cursor-pointer"
+        >
+          <span className="w-2.5 h-2.5 rounded-full bg-[var(--lake)] flex-shrink-0" />
+          <div>
+            <strong className="block text-sm font-semibold text-foreground">Tributary Creeks</strong>
+            <span className="text-xs text-muted-foreground">All 27 spawning streams &amp; their status</span>
           </div>
         </Link>
       </div>

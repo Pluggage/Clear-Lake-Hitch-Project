@@ -7,7 +7,6 @@ import { useState } from "react"
 
 /** In-page section links (only resolve on the homepage). */
 const navLinks = [
-  { href: "/#about", label: "About" },
   { href: "/#lake-status", label: "Lake Status" },
   { href: "/#fish", label: "Fish Guide" },
   { href: "/#health", label: "Lake Health" },
@@ -16,6 +15,7 @@ const navLinks = [
 
 /** Standalone pages — these get active-state highlighting. */
 const pageLinks = [
+  { href: "/about", label: "About" },
   { href: "/creeks", label: "Creeks" },
   { href: "/map", label: "Map" },
   { href: "/archive", label: "Hitch Archive" },
