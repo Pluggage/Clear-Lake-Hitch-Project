@@ -35,7 +35,7 @@ const datasetSchema = {
   description:
     'A compiled, sourced record of Clear Lake hitch (Lavinia exilicauda chi) spawner surveys, lake conditions, and conservation milestones, drawn from CDFW, USGS, Lake County Water Resources, tribal monitoring programs, and federal status documents.',
   url: 'https://www.clearlakehitchproject.org/archive',
-  temporalCoverage: '2013/2025',
+  temporalCoverage: '2006/2025',
   spatialCoverage: 'Clear Lake, Lake County, California',
   keywords: ['Clear Lake hitch', 'Lavinia exilicauda chi', 'spawner survey', 'endangered species', 'Clear Lake', 'Lake County California'],
   creator: { '@type': 'Organization', name: 'The Clear Lake Hitch Project' },
