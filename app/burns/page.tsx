@@ -53,8 +53,8 @@ export default function BurnsPage() {
                 <path className="mm-creek" d="M 660,390 L 618,396 L 537,408" />
                 <path className="mm-highlight" d="M 537,408 L 558,376 L 577,383 L 589,388 L 608,399 L 617,397 L 625,404 L 630,410 L 626,413 L 632,416 L 632,420 L 636,427 L 645,431 L 650,438 L 660,441 L 663,445 L 665,454 L 663,459" />
                 <circle className="mm-mouth" cx="537" cy="408" r="5" />
-                <text x="490" y="370" fill="rgba(255,213,79,.9)" fontSize="11" fontWeight="700" fontFamily="'Segoe UI',system-ui,sans-serif">Burns Valley Cr.</text>
-                <text x="490" y="383" fill="rgba(255,213,79,.55)" fontSize="8" fontFamily="'Segoe UI',system-ui,sans-serif">SE shore · Lower Arm</text>
+                <text x="490" y="370" fill="rgba(255,213,79,.9)" fontSize="11" fontWeight="700" fontFamily="system-ui,sans-serif">Burns Valley Cr.</text>
+                <text x="490" y="383" fill="rgba(255,213,79,.55)" fontSize="8" fontFamily="system-ui,sans-serif">SE shore · Lower Arm</text>
               </svg>
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function BurnsPage() {
               <div className="side-actions">
                 <a href="https://waterdata.usgs.gov/monitoring-location/11449500/" target="_blank" rel="noopener noreferrer" className="side-btn primary">Live USGS Gauge ↗</a>
                 <a href="/#lake-status" className="side-btn outline">Lake Conditions</a>
-                <a href="/archive.html?q=burns valley" className="side-btn outline">Archive Reports</a>
+                <a href="/archive?q=burns%20valley" className="side-btn outline">Archive Reports</a>
                 <a href="tel:7072632344" className="side-btn emergency">⚠ Report Stranded Hitch</a>
               </div>
             </div>

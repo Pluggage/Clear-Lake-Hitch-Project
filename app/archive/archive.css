@@ -7,7 +7,7 @@
   --amber: #c87800; --amber-light: #fff3d6;
   --red: #c0392b; --sand: #f5f0e8; --text: #1a1a1a; --muted: #5a6474;
   --border: #dde3ea;
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
   color: var(--text); background: #fff; line-height: 1.6;
 }
 .archive-page * { margin: 0; padding: 0; box-sizing: border-box; }

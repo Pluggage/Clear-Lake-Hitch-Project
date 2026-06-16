@@ -491,6 +491,7 @@ export function LiveConditionsSection() {
                   EPA Monitoring
                 </div>
               </div>
+              <div className="text-[10px] text-white/40 mb-1">Seasonal outlook (typical pattern), not a live reading</div>
               {cyanoSeasonal && (
                 <div className="text-sm mb-1 leading-snug" style={{ color: cyanoSeasonal.color }}>
                   {cyanoSeasonal.text}

@@ -1166,14 +1166,14 @@ export default function TimelinePage() {
       {/* Source Footer */}
       <div className="max-w-[900px] mx-auto px-4 md:px-8 py-6 border-t border-border text-[0.72rem] text-muted-foreground italic leading-relaxed">
         Primary sources:{" "}
-        <span className="not-italic">Moyle et al. 2013: &quot;The native and introduced fishes of Clear Lake: a review of the past to assist with decisions of the future&quot; (Western North American Naturalist)</span>
+        <span className="not-italic">Moyle et al. 2013: &quot;The native and introduced fishes of Clear Lake: a review of the past to assist with decisions of the future&quot; (California Fish and Game 99(1):7-41)</span>
         {" · "}
         <a href="https://pubs.usgs.gov/publication/ofr20251018" target="_blank" rel="noopener noreferrer" className="text-[#1a6fa8] no-underline hover:underline">
           USGS OFR 2025-1018
         </a>
         {" · "}
-        <a href="https://www.federalregister.gov/documents/2025/01/22/2025-01502/endangered-and-threatened-wildlife-and-plants-threatened-species-status-for-clear-lake-hitch" target="_blank" rel="noopener noreferrer" className="text-[#1a6fa8] no-underline hover:underline">
-          USFWS Federal Register 90 FR 5702
+        <a href="https://www.federalregister.gov/documents/2025/01/16/2024-31756/endangered-and-threatened-wildlife-and-plants-threatened-species-status-with-section-4d-rule-for" target="_blank" rel="noopener noreferrer" className="text-[#1a6fa8] no-underline hover:underline">
+          USFWS Federal Register 90 FR 4916 (Jan 16, 2025)
         </a>
         {" · "}
         <a href="https://www.lakecountyca.gov/1450/Clear-Lake-Hitch" target="_blank" rel="noopener noreferrer" className="text-[#1a6fa8] no-underline hover:underline">

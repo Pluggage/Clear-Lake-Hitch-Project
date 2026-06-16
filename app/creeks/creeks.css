@@ -17,7 +17,7 @@
   --muted: #5a6474;
   --border: #dde3ea;
 
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
   color: var(--text);
   background: #fff;
   line-height: 1.6;

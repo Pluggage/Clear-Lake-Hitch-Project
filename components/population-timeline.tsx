@@ -167,6 +167,13 @@ export function PopulationTimeline() {
             setPopIdx(Number(e.target.value))
           }}
         />
+
+        <p className="text-[0.7rem] text-muted-foreground mt-3 leading-relaxed">
+          Source: CDFW and Lake County Water Resources visual spawner surveys (adult hitch counted in tributaries), 2013 through the 2025 season, distinct from the USGS gillnet relative-abundance index behind the 96% decline figure.{" "}
+          <a href="/archive" className="underline hover:text-[var(--lake)]">Source archive</a>
+          {" · "}
+          <a href="https://pubs.usgs.gov/publication/ofr20251018" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--lake)]">USGS OFR 2025-1018</a>
+        </p>
       </div>
 
       <style jsx>{`

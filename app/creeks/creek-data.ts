@@ -12,13 +12,14 @@ export interface Creek {
   tags: { label: string; variant: TagVariant }[]
 }
 
-/** The 8 priority tributaries shown in the hero mini-chart. */
+/** The 9 priority tributaries shown in the hero mini-chart. */
 export const priorityTributaries: { name: string; pct: number; bar: string; label: string; labelColor: string }[] = [
   { name: 'Kelsey Creek', pct: 95, bar: '#2d7a3a', label: 'Active', labelColor: '#6ee7b7' },
   { name: 'Adobe Creek', pct: 90, bar: '#2d7a3a', label: 'Active', labelColor: '#6ee7b7' },
   { name: 'Burns Valley', pct: 85, bar: '#2d7a3a', label: 'Active', labelColor: '#6ee7b7' },
   { name: 'Manning Creek', pct: 80, bar: '#2d7a3a', label: 'Active', labelColor: '#6ee7b7' },
   { name: 'Forbes Creek', pct: 75, bar: '#2d7a3a', label: 'Active', labelColor: '#6ee7b7' },
+  { name: 'Scotts Creek', pct: 72, bar: '#2d7a3a', label: 'Active', labelColor: '#6ee7b7' },
   { name: 'Cole Creek', pct: 60, bar: '#c87800', label: 'Restore', labelColor: '#fcd34d' },
   { name: 'Morrison Creek', pct: 50, bar: '#1a6fa8', label: 'Survey', labelColor: '#7fd8ff' },
   { name: 'Seigler System', pct: 30, bar: '#c0392b', label: 'Concern', labelColor: '#fca5a5' },

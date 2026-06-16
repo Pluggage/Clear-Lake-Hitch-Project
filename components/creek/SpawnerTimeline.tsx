@@ -93,6 +93,12 @@ export function SpawnerTimeline({
             ))}
           </div>
         )}
+        <p style={{ fontSize: '.7rem', color: 'var(--muted)', marginTop: '.8rem', lineHeight: 1.5 }}>
+          Source: CDFW and Lake County WPD visual spawner surveys, lake-wide counts through the 2025 season.{' '}
+          <a href="/archive" style={{ color: 'var(--lake)', textDecoration: 'underline' }}>Source archive</a>
+          {' · '}
+          <a href="https://pubs.usgs.gov/publication/ofr20251018" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--lake)', textDecoration: 'underline' }}>USGS OFR 2025-1018</a>
+        </p>
       </div>
     </div>
   )

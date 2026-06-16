@@ -48,7 +48,7 @@ export default function NotFound() {
           <line x1="77" y1="140" x2="93" y2="156" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
           <line x1="93" y1="140" x2="77" y2="156" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
           {/* text 404 watermark inside body */}
-          <text x="270" y="188" textAnchor="middle" fontFamily="'Segoe UI',system-ui,sans-serif" fontSize="72" fontWeight="900" fill="#0d4a72" opacity=".18">404</text>
+          <text x="270" y="188" textAnchor="middle" fontFamily="system-ui,sans-serif" fontSize="72" fontWeight="900" fill="#0d4a72" opacity=".18">404</text>
         </svg>
 
         <div className="relative z-10 text-center max-w-[560px]">

@@ -3,7 +3,7 @@
    <Navigation> supplies the top bar; this fills the viewport below it. */
 
 .map-page {
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
   background: #060f1a; color: #fff;
   height: calc(100dvh - 60px);
   display: flex; flex-direction: column;

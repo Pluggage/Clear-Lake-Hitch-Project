@@ -54,8 +54,8 @@ export default function ForbesPage() {
                 <path className="mm-creek" d="M 660,390 L 618,396 L 537,408" />
                 <path className="mm-highlight" d="M 39.6,229.9 L 37.0,228.6 L 28.8,229.6 L 22.1,236.6 L 12.9,243.0 L 4.7,243.1" />
                 <circle className="mm-mouth" cx="39.6" cy="229.9" r="5" />
-                <text x="55" y="215" fill="rgba(255,213,79,.9)" fontSize="11" fontWeight="700" fontFamily="'Segoe UI',system-ui,sans-serif">Forbes Creek</text>
-                <text x="55" y="228" fill="rgba(255,213,79,.55)" fontSize="8" fontFamily="'Segoe UI',system-ui,sans-serif">West shore · Lakeport</text>
+                <text x="55" y="215" fill="rgba(255,213,79,.9)" fontSize="11" fontWeight="700" fontFamily="system-ui,sans-serif">Forbes Creek</text>
+                <text x="55" y="228" fill="rgba(255,213,79,.55)" fontSize="8" fontFamily="system-ui,sans-serif">West shore · Lakeport</text>
               </svg>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function ForbesPage() {
               <div className="side-actions">
                 <a href="https://waterdata.usgs.gov/monitoring-location/11449500/" target="_blank" rel="noopener noreferrer" className="side-btn primary">Live USGS Gauge ↗</a>
                 <a href="/#lake-status" className="side-btn outline">Lake Conditions</a>
-                <a href="/archive.html?q=forbes" className="side-btn outline">Archive Reports</a>
+                <a href="/archive?q=forbes" className="side-btn outline">Archive Reports</a>
                 <a href="tel:7072632344" className="side-btn emergency">⚠ Report Stranded Hitch</a>
               </div>
             </div>

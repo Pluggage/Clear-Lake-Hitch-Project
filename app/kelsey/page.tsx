@@ -56,8 +56,8 @@ export default function KelseyPage() {
                 <path className="mm-creek" d="M 660,390 L 618,396 L 537,408" />
                 <path className="mm-highlight" d="M 261.1,271.2 L 254.7,284.8 L 237.7,287.1 L 214.3,298.1 L 197.1,308.6 L 193.8,319.2 L 193.7,339.7 L 194.4,365.1 L 208.8,381.8 L 212.4,398.3 L 213.0,419.7 L 209.9,431.0 L 203.5,444.2 L 191.1,456.0 L 186.1,463.8 L 182.2,472.0 L 186.7,503.9 L 174.2,515.7 L 164.4,534.4 L 168.3,560.9 L 169.6,575.9 L 186.1,583.2 L 198.1,590.4 L 216.9,592.3 L 230.4,594.4 L 255.7,590.2 L 284.7,595.4 L 289.6,595.6" />
                 <circle className="mm-mouth" cx="261.1" cy="271.2" r="5" />
-                <text x="275" y="335" fill="rgba(255,213,79,.9)" fontSize="11" fontWeight="700" fontFamily="'Segoe UI',system-ui,sans-serif">Kelsey Creek</text>
-                <text x="275" y="348" fill="rgba(255,213,79,.55)" fontSize="8" fontFamily="'Segoe UI',system-ui,sans-serif">South shore entry</text>
+                <text x="275" y="335" fill="rgba(255,213,79,.9)" fontSize="11" fontWeight="700" fontFamily="system-ui,sans-serif">Kelsey Creek</text>
+                <text x="275" y="348" fill="rgba(255,213,79,.55)" fontSize="8" fontFamily="system-ui,sans-serif">South shore entry</text>
               </svg>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function KelseyPage() {
               <div className="side-actions">
                 <a href="https://waterdata.usgs.gov/monitoring-location/11449500/" target="_blank" rel="noopener noreferrer" className="side-btn primary">Live USGS Gauge ↗</a>
                 <a href="/#lake-status" className="side-btn outline">Lake Conditions</a>
-                <a href="/archive.html?q=kelsey" className="side-btn outline">Archive Reports</a>
+                <a href="/archive?q=kelsey" className="side-btn outline">Archive Reports</a>
                 <a href="tel:7072632344" className="side-btn emergency">⚠ Report Stranded Hitch</a>
               </div>
             </div>

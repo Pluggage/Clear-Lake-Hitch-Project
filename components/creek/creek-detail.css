@@ -9,7 +9,7 @@
   --amber: #c87800; --amber-light: #fff3d6;
   --red: #c0392b; --sand: #f5f0e8; --text: #1a1a1a; --muted: #5a6474;
   --border: #dde3ea;
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
   color: var(--text); background: #fff; line-height: 1.6;
 }
 .creek-detail * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -92,7 +92,7 @@
 .creek-detail .fc-area { fill: url(#fg); }
 .creek-detail .fc-line { fill: none; stroke: #7fd8ff; stroke-width: 1.5; stroke-linejoin: round; filter: drop-shadow(0 0 3px rgba(127,216,255,.5)); }
 .creek-detail .fc-grid { stroke: rgba(255,255,255,.04); stroke-width: 1; }
-.creek-detail .fc-xlabel { font-size: 8px; fill: rgba(255,255,255,.28); font-family: 'Segoe UI', system-ui, sans-serif; }
+.creek-detail .fc-xlabel { font-size: 8px; fill: rgba(255,255,255,.28); font-family: system-ui, sans-serif; }
 .creek-detail .fc-empty { display: flex; align-items: center; justify-content: center; height: 80px; color: rgba(255,255,255,.25); font-size: .78rem; }
 
 /* SPAWNER TIMELINE */

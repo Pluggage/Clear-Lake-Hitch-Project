@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import { Fish } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { CreekExplorer } from './CreekExplorer'
-import { priorityTributaries } from './creek-data'
+import { creeks, priorityTributaries } from './creek-data'
 import './creeks.css'
 
 export const metadata: Metadata = {
   title: 'Clear Lake Tributaries',
   description:
-    'Interactive guide to all 22 tributaries of Clear Lake. Kelsey, Adobe, Cole, Forbes, Burns Valley, and every stream that sustains the endemic Clear Lake hitch.',
+    `Interactive guide to all ${creeks.length} tributaries of Clear Lake. Kelsey, Adobe, Cole, Forbes, Burns Valley, and every stream that sustains the endemic Clear Lake hitch.`,
   alternates: { canonical: '/creeks' },
 }
 
@@ -22,8 +22,8 @@ export default function CreeksPage() {
           <div className="hero-inner">
             <div>
               <div className="hero-badges">
-                <span className="hero-badge b-white">22 Documented Tributaries</span>
-                <span className="hero-badge b-green">9 Active Spawning Streams</span>
+                <span className="hero-badge b-white">{creeks.length} Documented Tributaries</span>
+                <span className="hero-badge b-green">{priorityTributaries.length} Active Spawning Streams</span>
                 <span className="hero-badge b-blue">Live USGS Data</span>
               </div>
               <h1>
@@ -70,11 +70,11 @@ export default function CreeksPage() {
         <div className="stats-bar">
           <div className="stats-inner">
             <div className="stat">
-              <div className="stat-num">22</div>
+              <div className="stat-num">{creeks.length}</div>
               <div className="stat-label">Documented tributaries</div>
             </div>
             <div className="stat">
-              <div className="stat-num g">9</div>
+              <div className="stat-num g">{priorityTributaries.length}</div>
               <div className="stat-label">Priority spawning streams</div>
             </div>
             <div className="stat">

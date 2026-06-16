@@ -43,19 +43,19 @@ export const barriers: { tag: string; tagClass: 'good' | 'warn' | 'critical'; ti
 ]
 
 export const survey: { year: string; status: string; badge?: string; statusClass: 'g' | 'a' | 'r'; count: string; notes: string }[] = [
-  { year: '2025', status: 'Confirmed', statusClass: 'g', count: '1,567', notes: 'Among leading tributaries' },
-  { year: '2024', status: 'Confirmed', statusClass: 'g', count: '1,042', notes: 'Federal ESA listing proposed Jan 2025' },
-  { year: '2023', status: 'Confirmed', statusClass: 'g', count: '2,548 ★', notes: 'Record year after heavy winter rains' },
-  { year: '2022', status: 'Limited', statusClass: 'a', count: '306', notes: 'Drought year, marginal flow' },
-  { year: '2021', status: 'Dry / near-zero', statusClass: 'r', count: '120', notes: 'Catastrophic drought: tributaries ran dry' },
-  { year: '2020', status: 'ALL 1,672 here', badge: '★★ Kelsey only', statusClass: 'g', count: '1,672', notes: 'Every hitch observed lake-wide was in Kelsey' },
-  { year: '2019', status: 'Most frequented', badge: '★', statusClass: 'g', count: '612', notes: 'Kelsey primary stream that season' },
-  { year: '2018', status: 'Active', statusClass: 'g', count: '1,153', notes: 'Adobe led; Kelsey major contributor' },
-  { year: '2017', status: 'Most frequented', badge: '★', statusClass: 'g', count: '517', notes: 'First year USGS baseline gillnet surveys' },
+  { year: '2025', status: 'Surveyed', statusClass: 'g', count: '1,567', notes: 'Lake-wide spawner count; Burns in the WPD survey program' },
+  { year: '2024', status: 'Juvenile nursery', statusClass: 'g', count: '1,042', notes: 'Burns documented ~4,000 juvenile hitch and thousands of larvae (Lake County WPD)' },
+  { year: '2023', status: 'Record year', statusClass: 'g', count: '2,548 ★', notes: 'Lake-wide record after heavy winter rains' },
+  { year: '2022', status: 'Drought', statusClass: 'a', count: '306', notes: 'Lake-wide drought year, marginal flow' },
+  { year: '2021', status: 'Drought', statusClass: 'r', count: '120', notes: 'Catastrophic drought: tributaries ran dry' },
+  { year: '2020', status: 'Not the host', statusClass: 'a', count: '1,672', notes: 'All 1,672 lake-wide hitch were in Kelsey Creek that year' },
+  { year: '2019', status: 'Below average', statusClass: 'a', count: '612', notes: 'Kelsey was the primary stream that season' },
+  { year: '2018', status: 'Active', statusClass: 'g', count: '1,153', notes: 'Adobe led lake-wide; Kelsey major contributor' },
+  { year: '2017', status: 'Baseline', statusClass: 'g', count: '517', notes: 'First year of USGS baseline gillnet surveys' },
 ]
 
 export const nearby = [
   { href: '/kelsey', name: 'Kelsey Creek', sub: '#1 active spawning tributary' },
-  { href: '/seigler-system.html', name: 'Seigler Canyon System', sub: 'SE shore · historical spawning' },
+  { href: '/creek/seigler-system', name: 'Seigler Canyon System', sub: 'SE shore · historical spawning' },
   { href: '/adobe', name: 'Adobe Creek', sub: 'Historic #2 spawning stream' },
 ]

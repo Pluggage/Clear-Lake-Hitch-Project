@@ -13,7 +13,6 @@ export const metadata: Metadata = {
     template: '%s | The Clear Lake Hitch Project',
   },
   description: 'Protecting the Clear Lake Hitch for Future Generations. The Clear Lake Hitch is a culturally significant minnow found nowhere else on Earth.',
-  generator: 'v0.app',
   alternates: {
     canonical: '/',
   },
@@ -29,23 +28,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Clear Lake Hitch Project',
     description: 'Protecting the Clear Lake Hitch for Future Generations. An endemic minnow found nowhere else on Earth.',
-  },
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
   },
 }
 

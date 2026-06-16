@@ -6,18 +6,18 @@ import { creeks, type Creek } from './creek-data'
 
 type FilterKey = 'all' | 'priority' | 'active' | 'restoration' | 'concern'
 
-const FILTERS: { key: FilterKey; label: string }[] = [
-  { key: 'all', label: 'All (22)' },
-  { key: 'priority', label: 'Priority (9)' },
-  { key: 'active', label: 'Active Spawning' },
-  { key: 'restoration', label: 'Restoration' },
-  { key: 'concern', label: 'Concern' },
-]
-
 const PRIORITY = new Set([
   'Kelsey Creek', 'Adobe Creek', 'Burns Valley Creek', 'Manning Creek',
   'Forbes Creek', 'Cole Creek', 'Morrison Creek', 'Seigler Canyon Creek', 'Scotts Creek',
 ])
+
+const FILTERS: { key: FilterKey; label: string }[] = [
+  { key: 'all', label: `All (${creeks.length})` },
+  { key: 'priority', label: `Priority (${PRIORITY.size})` },
+  { key: 'active', label: 'Active Spawning' },
+  { key: 'restoration', label: 'Restoration' },
+  { key: 'concern', label: 'Concern' },
+]
 
 function matchesFilter(c: Creek, f: FilterKey): boolean {
   switch (f) {

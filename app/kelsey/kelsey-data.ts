@@ -61,7 +61,7 @@ export const survey: { year: string; status: string; badge?: string; statusClass
 ]
 
 export const nearby = [
-  { href: '/cole.html', name: 'Cole Creek', sub: 'Restoration · 1.55 mi' },
-  { href: '/adobe.html', name: 'Adobe Creek', sub: 'Historic #2 spawning stream' },
-  { href: '/manning.html', name: 'Manning Creek', sub: 'Active spawn · Big Valley' },
+  { href: '/creek/cole', name: 'Cole Creek', sub: 'Restoration · 1.55 mi' },
+  { href: '/adobe', name: 'Adobe Creek', sub: 'Historic #2 spawning stream' },
+  { href: '/creek/manning', name: 'Manning Creek', sub: 'Active spawn · Big Valley' },
 ]
