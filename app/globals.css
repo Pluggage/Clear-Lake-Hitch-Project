@@ -195,3 +195,14 @@ summary:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* Watershed map — gentle pulse on active spawning tributaries */
+@keyframes wsPulse {
+  0%, 100% { opacity: 0.16; transform: scale(1); }
+  50%      { opacity: 0.30; transform: scale(1.22); }
+}
+.ws-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wsPulse 3.2s ease-in-out infinite;
+}
