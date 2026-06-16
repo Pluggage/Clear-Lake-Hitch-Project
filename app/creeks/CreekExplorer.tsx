@@ -91,10 +91,14 @@ export function CreekExplorer() {
           {visible.map((c) => (
             <a key={c.href} href={c.href} className="creek-card">
               <div className="creek-card-img">
-                <div className="creek-img-icon">
-                  <Fish strokeWidth={1.5} />
-                  <div>Photo 2026</div>
-                </div>
+                {c.image ? (
+                  <img src={c.image} alt={`${c.name}, ${c.location}`} className="w-full h-full object-cover block" loading="lazy" />
+                ) : (
+                  <div className="creek-img-icon">
+                    <Fish strokeWidth={1.5} aria-hidden="true" />
+                    <div>Field photo coming</div>
+                  </div>
+                )}
               </div>
               <div className="creek-card-body">
                 <div className="creek-card-name">

@@ -56,7 +56,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 
 ### Make the data visual & beautiful
 - [x] 🔴 Fixed the homepage "Interactive Map" — replaced the redirect-stub iframe with a clean click-through panel to `/map`
-- [ ] 🔴 Put the **real creek photos** on the cards + design a proper empty state for the rest *(photos in hand)*
+- [x] 🔴 Put the four flagship creeks' real photos on their `/creeks` cards + a cleaner "Field photo coming" empty state for the rest. (Send more creek photos to fill the others — see `NEEDS-FROM-YOU.md`.)
 - [ ] 🔴 Give photos provenance (credit / date / descriptive alt / license); reconcile "WPD staff" vs "Taylor Woodruff" credits
 - [ ] 🟡 Add screen-reader data tables behind the charts (numbers are currently locked in divs)
 - [ ] 🟡 Differentiate the species-guide icons by status/family (39 identical fish icons today)
