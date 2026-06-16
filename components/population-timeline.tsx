@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef, useCallback } from "react"
+import Link from "next/link"
 
 const popData = [
   { yr: 2013, count: 500, est: true, ctx: "Drought conditions. Fewer than 500 spawners observed, survey methods still being standardized.", color: "#c03030" },
@@ -176,6 +177,21 @@ export function PopulationTimeline() {
           {" · "}
           <Link href="/timeline" className="underline hover:text-[var(--lake)]">Full timeline</Link>
         </p>
+
+        <table className="sr-only">
+          <caption>Clear Lake hitch spawner counts by year</caption>
+          <thead>
+            <tr><th scope="col">Year</th><th scope="col">Spawners observed</th></tr>
+          </thead>
+          <tbody>
+            {popData.map((row) => (
+              <tr key={row.yr}>
+                <td>{row.yr}</td>
+                <td>{row.est ? "Fewer than " : ""}{row.count.toLocaleString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       <style jsx>{`

@@ -58,7 +58,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 - [x] 🔴 Fixed the homepage "Interactive Map" — replaced the redirect-stub iframe with a clean click-through panel to `/map`
 - [x] 🔴 Put the four flagship creeks' real photos on their `/creeks` cards + a cleaner "Field photo coming" empty state for the rest. (Send more creek photos to fill the others — see `NEEDS-FROM-YOU.md`.)
 - [ ] 🔴 Give photos provenance (credit / date / descriptive alt / license); reconcile "WPD staff" vs "Taylor Woodruff" credits
-- [ ] 🟡 Add screen-reader data tables behind the charts (numbers are currently locked in divs)
+- [x] 🟡 Added screen-reader data tables behind the population + creek spawner charts (visually hidden, so the numbers are reachable by assistive tech and crawlers).
 - [ ] 🟡 Differentiate the species-guide icons by status/family (39 identical fish icons today)
 - [ ] 🟡 Add a hitch life-cycle / migration diagram and a schematic watershed map
 - [ ] 🟡 Optimize image delivery (next/image or srcset, explicit dimensions) before the photo drop
@@ -72,7 +72,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 ### Wayfinding & discoverability
 - [x] 🔴 Added homepage deep-links: a Creeks card in quick-access, a "Full timeline" link under the population chart, and a footer nav across all pages.
 - [ ] 🟡 Add breadcrumbs / "related" strips to the dead-end /timeline, /archive, /map; add a navigational footer
-- [ ] 🟡 Per-page metadata + OG/social cards; `schema.org` JSON-LD (Organization, Dataset, BreadcrumbList); split the client-only /timeline so it gets real metadata; fix the map's single-underscore `replace`
+- [x] 🟡 Added `schema.org` Organization JSON-LD site-wide. *(Still to do: per-page OG images, Dataset/BreadcrumbList JSON-LD, splitting the client-only /timeline for its own metadata, and the map's single-underscore `replace` bug.)*
 
 ### Content gaps & audiences
 - [x] 🔴 Added an FAQ, glossary, and "how to identify the Clear Lake hitch" guide at `/faq` (linked in nav)

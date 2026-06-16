@@ -31,6 +31,21 @@ export const metadata: Metadata = {
   },
 }
 
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'The Clear Lake Hitch Project',
+  url: 'https://www.clearlakehitchproject.org',
+  description:
+    'An independent, volunteer-run educational project tracking and raising awareness of the Clear Lake hitch (Lavinia exilicauda chi), a threatened minnow endemic to Clear Lake, California.',
+  founder: [
+    { '@type': 'Person', name: 'Taylor Woodruff' },
+    { '@type': 'Person', name: 'Jordan Stevens' },
+  ],
+  areaServed: { '@type': 'Place', name: 'Clear Lake, Lake County, California' },
+  knowsAbout: 'Clear Lake hitch (Lavinia exilicauda chi) conservation',
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,6 +55,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-sans antialiased">
         <a href="#main" className="skip-link">Skip to main content</a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
