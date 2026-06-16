@@ -28,7 +28,7 @@ export function MapExplorer() {
       const tags = (d.tags || []).map((t) => mtagMap[t] || '').join('')
       const rows = (d.s || []).map((r) => `<div class="mdr"><span class="mdl">${r.l}</span><span class="mdv ${r.c || ''}">${r.v}</span></div>`).join('')
       const archLink = locId
-        ? `<a href="/archive?q=${encodeURIComponent(locId.replace('_', ' '))}" target="_blank" rel="noopener noreferrer" class="march-link">📂 View related reports in Archive ↗</a>`
+        ? `<a href="/archive?q=${encodeURIComponent(locId.replace(/_/g, ' '))}" target="_blank" rel="noopener noreferrer" class="march-link">📂 View related reports in Archive ↗</a>`
         : ''
       return `<div class="mcard"><h3>${d.t}</h3>${tags}<p style="margin-top:6px">${d.b}</p>${archLink}</div><div class="mcard"><h3>Key data</h3>${rows}</div>`
     }

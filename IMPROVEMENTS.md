@@ -60,19 +60,19 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 - [ ] 🔴 Give photos provenance (credit / date / descriptive alt / license); reconcile "WPD staff" vs "Taylor Woodruff" credits
 - [x] 🟡 Added screen-reader data tables behind the population + creek spawner charts (visually hidden, so the numbers are reachable by assistive tech and crawlers).
 - [x] 🟡 Differentiated the species-guide cards: each fish icon is now a tinted chip color-coded by status (native, introduced, invasive, threatened, extinct, extirpated, failed).
-- [x] 🟡 Added a hitch life-cycle / migration diagram (on `/faq`), with a callout for where drought/barriers break the cycle. *(A schematic watershed map is still to do.)*
+- [x] 🟡 Added a hitch life-cycle / migration diagram (on `/faq`) and a schematic "watershed at a glance" overview (tributaries by shore, status-colored) on the homepage.
 - [ ] 🟡 Optimize image delivery (next/image or srcset, explicit dimensions) before the photo drop
 
 ### Elevate the visual system
-- [ ] 🟡 Actually load **Geist** as the brand typeface (+ a display face for headings) — this pass only unified to the system font; wiring Geist needs a build check
-- [ ] 🟡 Consolidate color tokens into one source of truth (rename the `--muted` collision that forces every page to re-fork the palette)
+- [x] 🟡 Wired **Geist** as the brand typeface via next/font (variable + theme tokens; scoped pages now inherit it). *(On the `overhaul` preview branch — confirm the rendered font in the Vercel preview. A separate display face for headings is still optional.)*
+- [x] 🟡 Consolidated color tokens: scoped pages no longer re-fork the full brand palette (they inherit it from globals `:root`), keeping only the `--muted`/`--border` overrides the shadcn collision requires. *(Left the shadcn `--muted` token itself as-is, since renaming it touches the design-system utilities and needs a build to verify.)*
 - [x] 🟡 Hero fish photo now shows on mobile. *(Unifying the hero type scale across pages still to do.)*
-- [ ] ⚪ Stop rendering qualitative words ("Multiple", "#2") in the big-number stat style
+- [x] ⚪ Word-valued stats ("Multiple", "#2", "Lakeport", "1,000s", "Jun 14", "SE Shore") now render in a smaller "qualitative" style on the creek pages, not the big-numeral style.
 
 ### Wayfinding & discoverability
 - [x] 🔴 Added homepage deep-links: a Creeks card in quick-access, a "Full timeline" link under the population chart, and a footer nav across all pages.
 - [ ] 🟡 Add breadcrumbs / "related" strips to the dead-end /timeline, /archive, /map; add a navigational footer
-- [x] 🟡 Added `schema.org` Organization JSON-LD site-wide. *(Still to do: per-page OG images, Dataset/BreadcrumbList JSON-LD, splitting the client-only /timeline for its own metadata, and the map's single-underscore `replace` bug.)*
+- [x] 🟡 `schema.org` JSON-LD: Organization (site-wide), **Dataset** on `/archive`, and **BreadcrumbList** on the creek pages. Fixed the map's single-underscore `replace` bug. *(Per-page OG images and splitting the client-only /timeline for its own metadata are still to do.)*
 
 ### Content gaps & audiences
 - [x] 🔴 Added an FAQ, glossary, and "how to identify the Clear Lake hitch" guide at `/faq` (linked in nav)

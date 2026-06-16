@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { Fish } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { LakeConditions } from '@/components/creek/LakeConditions'
+import { JsonLd } from '@/components/json-ld'
 import { creeks, type Creek } from '../../creeks/creek-data'
 import { mckd } from '../../map/map-data'
 import '@/components/creek/creek-detail.css'
@@ -81,9 +82,20 @@ export default async function CreekPage({ params }: { params: Promise<{ slug: st
   const systemName = systemKey ? SYSTEM_NAME[systemKey] : undefined
   const siblings = creeks.filter((c) => c.name !== creek.name && SYSTEM[slugOf(c)] === systemKey).slice(0, 6)
 
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.clearlakehitchproject.org/' },
+      { '@type': 'ListItem', position: 2, name: 'Tributaries', item: 'https://www.clearlakehitchproject.org/creeks' },
+      { '@type': 'ListItem', position: 3, name: creek.name, item: `https://www.clearlakehitchproject.org/creek/${slug}` },
+    ],
+  }
+
   return (
     <>
       <Navigation />
+      <JsonLd data={breadcrumb} />
       <div id="main" role="main" className="creek-detail">
         <div className="bc">
           <a href="/">Home</a>

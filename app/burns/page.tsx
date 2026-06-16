@@ -64,9 +64,9 @@ export default function BurnsPage() {
         <div className="stats-bar">
           <div className="stats-inner">
             <div className="stat"><div className="stat-num g">~4,000</div><div className="stat-label">Juvenile hitch observed 2024</div></div>
-            <div className="stat"><div className="stat-num g">1,000s</div><div className="stat-label">Larvae observed 2024</div></div>
-            <div className="stat"><div className="stat-num a">Jun 14</div><div className="stat-label">2024 flow cutoff date</div></div>
-            <div className="stat"><div className="stat-num">SE Shore</div><div className="stat-label">Lower Arm, city of Clearlake</div></div>
+            <div className="stat"><div className="stat-num g qual">1,000s</div><div className="stat-label">Larvae observed 2024</div></div>
+            <div className="stat"><div className="stat-num a qual">Jun 14</div><div className="stat-label">2024 flow cutoff date</div></div>
+            <div className="stat"><div className="stat-num qual">SE Shore</div><div className="stat-label">Lower Arm, city of Clearlake</div></div>
           </div>
         </div>
 

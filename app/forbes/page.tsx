@@ -67,7 +67,7 @@ export default function ForbesPage() {
             <div className="stat"><div className="stat-num">4.7</div><div className="stat-label">Miles · west shore stream</div></div>
             <div className="stat"><div className="stat-num g">1,567</div><div className="stat-label">2025 lake-wide hitch count</div></div>
             <div className="stat"><div className="stat-num">2025</div><div className="stat-label">Latest confirmed spawning year</div></div>
-            <div className="stat"><div className="stat-num">Lakeport</div><div className="stat-label">Adjacent community</div></div>
+            <div className="stat"><div className="stat-num qual">Lakeport</div><div className="stat-label">Adjacent community</div></div>
           </div>
         </div>
 

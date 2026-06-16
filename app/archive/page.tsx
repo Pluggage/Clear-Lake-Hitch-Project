@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { FileText } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { ArchiveExplorer } from './ArchiveExplorer'
+import { JsonLd } from '@/components/json-ld'
 import './archive.css'
 
 export const metadata: Metadata = {
@@ -27,10 +28,25 @@ const ADD_TEMPLATE = `{
   url: "https://link-to-report.pdf"
 }`
 
+const datasetSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'Clear Lake hitch spawner counts and conservation record',
+  description:
+    'A compiled, sourced record of Clear Lake hitch (Lavinia exilicauda chi) spawner surveys, lake conditions, and conservation milestones, drawn from CDFW, USGS, Lake County Water Resources, tribal monitoring programs, and federal status documents.',
+  url: 'https://www.clearlakehitchproject.org/archive',
+  temporalCoverage: '2013/2025',
+  spatialCoverage: 'Clear Lake, Lake County, California',
+  keywords: ['Clear Lake hitch', 'Lavinia exilicauda chi', 'spawner survey', 'endangered species', 'Clear Lake', 'Lake County California'],
+  creator: { '@type': 'Organization', name: 'The Clear Lake Hitch Project' },
+  isAccessibleForFree: true,
+}
+
 export default function ArchivePage() {
   return (
     <>
       <Navigation />
+      <JsonLd data={datasetSchema} />
       <div id="main" role="main" className="archive-page">
         <div className="archive-hero">
           <div className="archive-hero-inner">

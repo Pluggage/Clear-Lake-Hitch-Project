@@ -4,20 +4,14 @@
    (globals.css defines --muted as a background, which would break this page). */
 
 .creeks-page {
-  --lake: #1a6fa8;
-  --lake-dark: #0d4a72;
-  --lake-light: #d6eaf8;
-  --green: #2d7a3a;
-  --green-light: #e8f5eb;
-  --amber: #c87800;
-  --amber-light: #fff3d6;
-  --red: #c0392b;
-  --sand: #f5f0e8;
-  --text: #1a1a1a;
+  /* Brand palette (--lake, --green, --amber, etc.) is inherited from
+     globals.css :root. Only --muted and --border are pinned here: both are
+     shadcn tokens with dark variants, and globals' --muted is a background,
+     while this light page uses --muted for muted text. */
   --muted: #5a6474;
   --border: #dde3ea;
 
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
   color: var(--text);
   background: #fff;
   line-height: 1.6;

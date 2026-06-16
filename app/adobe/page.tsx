@@ -67,8 +67,8 @@ export default function AdobePage() {
           <div className="stats-inner">
             <div className="stat"><div className="stat-num">5</div><div className="stat-label">Most-frequented years: 2016 18 22 23 25</div></div>
             <div className="stat"><div className="stat-num">2025</div><div className="stat-label">Most recent confirmed adults</div></div>
-            <div className="stat"><div className="stat-num a">Multiple</div><div className="stat-label">Documented fish passage barriers</div></div>
-            <div className="stat"><div className="stat-num g">#2</div><div className="stat-label">Historic spawning tributary rank</div></div>
+            <div className="stat"><div className="stat-num a qual">Multiple</div><div className="stat-label">Documented fish passage barriers</div></div>
+            <div className="stat"><div className="stat-num g qual">#2</div><div className="stat-label">Historic spawning tributary rank</div></div>
           </div>
         </div>
 

@@ -4,12 +4,11 @@
    detail pages. The shared <Navigation> supplies its own nav styles. */
 
 .creek-detail {
-  --lake: #1a6fa8; --lake-dark: #0d4a72; --lake-light: #d6eaf8;
-  --green: #2d7a3a; --green-light: #e8f5eb;
-  --amber: #c87800; --amber-light: #fff3d6;
-  --red: #c0392b; --sand: #f5f0e8; --text: #1a1a1a; --muted: #5a6474;
+  /* Brand palette inherited from globals.css :root; only --muted (muted text)
+     and --border are pinned here (both shadcn tokens with dark variants). */
+  --muted: #5a6474;
   --border: #dde3ea;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
   color: var(--text); background: #fff; line-height: 1.6;
 }
 .creek-detail * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -59,6 +58,7 @@
 .creek-detail .stat { text-align: center; padding: .9rem; background: #fff; border-radius: 10px; border: 1px solid var(--border); }
 .creek-detail .stat-num { font-size: 1.75rem; font-weight: 700; color: var(--lake); }
 .creek-detail .stat-num.g { color: var(--green); } .creek-detail .stat-num.a { color: var(--amber); } .creek-detail .stat-num.r { color: var(--red); }
+.creek-detail .stat-num.qual { font-size: 1.05rem; font-weight: 600; }
 .creek-detail .stat-label { font-size: .73rem; color: var(--muted); margin-top: 2px; }
 
 /* LIVE STATUS */
@@ -92,7 +92,7 @@
 .creek-detail .fc-area { fill: url(#fg); }
 .creek-detail .fc-line { fill: none; stroke: #7fd8ff; stroke-width: 1.5; stroke-linejoin: round; filter: drop-shadow(0 0 3px rgba(127,216,255,.5)); }
 .creek-detail .fc-grid { stroke: rgba(255,255,255,.04); stroke-width: 1; }
-.creek-detail .fc-xlabel { font-size: 8px; fill: rgba(255,255,255,.28); font-family: system-ui, sans-serif; }
+.creek-detail .fc-xlabel { font-size: 8px; fill: rgba(255,255,255,.28); font-family: var(--font-geist-sans), system-ui, sans-serif; }
 .creek-detail .fc-empty { display: flex; align-items: center; justify-content: center; height: 80px; color: rgba(255,255,255,.25); font-size: .78rem; }
 
 /* SPAWNER TIMELINE */
