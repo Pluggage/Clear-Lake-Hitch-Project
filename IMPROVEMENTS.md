@@ -60,7 +60,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 - [ ] 🔴 Give photos provenance (credit / date / descriptive alt / license); reconcile "WPD staff" vs "Taylor Woodruff" credits
 - [x] 🟡 Added screen-reader data tables behind the population + creek spawner charts (visually hidden, so the numbers are reachable by assistive tech and crawlers).
 - [x] 🟡 Differentiated the species-guide cards: each fish icon is now a tinted chip color-coded by status (native, introduced, invasive, threatened, extinct, extirpated, failed).
-- [ ] 🟡 Add a hitch life-cycle / migration diagram and a schematic watershed map
+- [x] 🟡 Added a hitch life-cycle / migration diagram (on `/faq`), with a callout for where drought/barriers break the cycle. *(A schematic watershed map is still to do.)*
 - [ ] 🟡 Optimize image delivery (next/image or srcset, explicit dimensions) before the photo drop
 
 ### Elevate the visual system

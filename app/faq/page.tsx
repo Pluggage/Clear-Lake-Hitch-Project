@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Navigation } from '@/components/navigation'
 import { faqItems, idGuide, glossary } from './faq-data'
+import { Lifecycle } from '@/components/lifecycle'
 
 export const metadata: Metadata = {
   title: 'FAQ & Field Guide',
@@ -23,6 +24,7 @@ export default function FaqPage() {
             </p>
             <nav aria-label="On this page" className="flex flex-wrap gap-2 mt-6 text-sm">
               <a href="#faq" className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors">Questions</a>
+              <a href="#lifecycle" className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors">Life cycle</a>
               <a href="#identify" className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors">Identify the hitch</a>
               <a href="#glossary" className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors">Glossary</a>
             </nav>
@@ -45,6 +47,13 @@ export default function FaqPage() {
                 </details>
               ))}
             </div>
+          </section>
+
+          <section id="lifecycle" className="scroll-mt-20 mt-14">
+            <h2 className="text-2xl font-bold mb-3" style={{ color: 'var(--lake-dark)' }}>
+              The hitch&apos;s life cycle
+            </h2>
+            <Lifecycle />
           </section>
 
           <section id="identify" className="scroll-mt-20 mt-14">
