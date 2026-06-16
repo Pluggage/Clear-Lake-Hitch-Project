@@ -6,6 +6,27 @@ import { FISH, FAILED_FISH, type Fish as FishType } from "@/lib/fish-data"
 
 type FilterType = "all" | "native" | "introduced" | "invasive" | "extinct"
 
+function accent(fish: FishType): { fg: string; bg: string } {
+  if (fish.status === "threatened") return { fg: "var(--amber)", bg: "var(--amber-light)" }
+  if (fish.status === "invasive") return { fg: "var(--red)", bg: "#fdecea" }
+  if (fish.status === "extinct") return { fg: "#555", bg: "#f0f0f0" }
+  if (fish.status === "extirpated") return { fg: "#7a5c00", bg: "#fff0cc" }
+  if (fish.type === "failed") return { fg: "#6040a0", bg: "#f5f0ff" }
+  if (fish.type === "native") return { fg: "var(--green)", bg: "var(--green-light)" }
+  return { fg: "var(--lake)", bg: "var(--lake-light)" }
+}
+
+function FishIcon({ fish, size = "md" }: { fish: FishType; size?: "md" | "lg" }) {
+  const a = accent(fish)
+  const box = size === "lg" ? "w-12 h-12" : "w-10 h-10"
+  const icon = size === "lg" ? "w-6 h-6" : "w-5 h-5"
+  return (
+    <div className={`${box} rounded-lg flex items-center justify-center mb-2`} style={{ background: a.bg }}>
+      <Fish className={icon} style={{ color: a.fg }} aria-hidden="true" />
+    </div>
+  )
+}
+
 function FishTag({ type, status }: { type: string; status: string }) {
   const tags = []
   
@@ -78,7 +99,7 @@ function FishModal({ fish, onClose }: { fish: FishType; onClose: () => void }) {
           <X className="w-5 h-5" />
         </button>
         
-        <Fish className="w-12 h-12 text-[var(--lake)] mb-2" />
+        <FishIcon fish={fish} size="lg" />
         <h2 className="text-xl font-bold mt-2">{fish.name}</h2>
         <p className="text-[var(--muted-color)] text-sm italic mb-4">{fish.sci}</p>
         
@@ -241,7 +262,7 @@ export function FishGuideSection() {
                 onClick={() => setSelectedFish(fish)}
                 className="bg-white border border-[var(--border-color)] rounded-xl p-5 cursor-pointer transition-all hover:border-[var(--lake)] hover:-translate-y-0.5 hover:shadow-lg"
               >
-                <Fish className="w-8 h-8 text-[var(--lake)] mb-2" />
+                <FishIcon fish={fish} />
                 <div className="font-bold text-sm mb-0.5">{fish.name}</div>
                 <div className="text-xs text-[var(--muted-color)] italic mb-1">{fish.sci}</div>
                 {fish.introYear && (
@@ -300,7 +321,7 @@ export function FishGuideSection() {
                   onClick={() => setSelectedFish(fish)}
                   className="bg-white border border-[var(--border-color)] rounded-xl p-5 cursor-pointer transition-all hover:border-[#6040a0] hover:-translate-y-0.5 hover:shadow-lg"
                 >
-                  <Fish className="w-8 h-8 text-[#6040a0] mb-2" />
+                  <FishIcon fish={fish} />
                   <div className="font-bold text-sm mb-0.5">{fish.name}</div>
                   <div className="text-xs text-[var(--muted-color)] italic mb-1">{fish.sci}</div>
                   {fish.introYear && (

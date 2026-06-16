@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Fish } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -69,7 +68,7 @@ export function HeroSection() {
         </div>
         
         {/* Fish Card */}
-        <div className="hidden md:flex justify-center items-center">
+        <div className="flex justify-center items-center">
           <div className="bg-white/10 border border-white/20 rounded-2xl p-6 text-center backdrop-blur-sm max-w-[300px]">
             <div className="relative w-full h-[130px] mb-4">
               <picture className="contents">

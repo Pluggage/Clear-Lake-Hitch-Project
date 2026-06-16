@@ -59,14 +59,14 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 - [x] 🔴 Put the four flagship creeks' real photos on their `/creeks` cards + a cleaner "Field photo coming" empty state for the rest. (Send more creek photos to fill the others — see `NEEDS-FROM-YOU.md`.)
 - [ ] 🔴 Give photos provenance (credit / date / descriptive alt / license); reconcile "WPD staff" vs "Taylor Woodruff" credits
 - [x] 🟡 Added screen-reader data tables behind the population + creek spawner charts (visually hidden, so the numbers are reachable by assistive tech and crawlers).
-- [ ] 🟡 Differentiate the species-guide icons by status/family (39 identical fish icons today)
+- [x] 🟡 Differentiated the species-guide cards: each fish icon is now a tinted chip color-coded by status (native, introduced, invasive, threatened, extinct, extirpated, failed).
 - [ ] 🟡 Add a hitch life-cycle / migration diagram and a schematic watershed map
 - [ ] 🟡 Optimize image delivery (next/image or srcset, explicit dimensions) before the photo drop
 
 ### Elevate the visual system
 - [ ] 🟡 Actually load **Geist** as the brand typeface (+ a display face for headings) — this pass only unified to the system font; wiring Geist needs a build check
 - [ ] 🟡 Consolidate color tokens into one source of truth (rename the `--muted` collision that forces every page to re-fork the palette)
-- [ ] 🟡 Show the hero fish photo on mobile (`hidden md:flex` today); unify hero type scale across pages
+- [x] 🟡 Hero fish photo now shows on mobile. *(Unifying the hero type scale across pages still to do.)*
 - [ ] ⚪ Stop rendering qualitative words ("Multiple", "#2") in the big-number stat style
 
 ### Wayfinding & discoverability
