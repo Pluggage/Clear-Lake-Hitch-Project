@@ -574,9 +574,9 @@ const timelineData: TimelineEra[] = [
       {
         year: "2013",
         yearClass: "",
-        title: "CDFW visual spawner surveys begin: fewer than 500 counted; Moyle et al. paper published",
-        detail: "CDFW begins standardized visual hitch spawner surveys across Clear Lake tributaries. The first count: fewer than 500 fish, a staggering contrast to the tens of thousands documented in the 1890s. In the same year, Moyle et al. publish \"The native and introduced fishes of Clear Lake: a review of the past to assist with decisions of the future,\" the comprehensive species-by-species historical review that forms the scientific foundation for understanding this collapse.",
-        tags: ["CDFW", "monitoring", "Moyle 2013", "science"]
+        title: "CDFW visual spawner surveys begin: fewer than 500 counted; Thompson et al. paper published",
+        detail: "CDFW begins standardized visual hitch spawner surveys across Clear Lake tributaries. The first count: fewer than 500 fish, a staggering contrast to the tens of thousands documented in the 1890s. In the same year, Thompson et al. publish \"The native and introduced fishes of Clear Lake: a review of the past to assist with decisions of the future,\" the comprehensive species-by-species historical review that forms the scientific foundation for understanding this collapse.",
+        tags: ["CDFW", "monitoring", "Thompson 2013", "science"]
       }
     ]
   },
@@ -805,7 +805,7 @@ export default function TimelinePage() {
             From 12,000 years of indigenous stewardship to the collapse of native species, told two ways: by era and by species. The full story of what was lost, what persists, and why.
           </p>
           <span className="inline-block mt-4 text-xs bg-black/30 border border-white/25 rounded-full px-3.5 py-1.5 text-white/90">
-            Incorporating data from Moyle et al. 2013 · USGS OFR 2025-1018 · USFWS Federal Register · CDFW surveys
+            Incorporating data from Thompson et al. 2013 · USGS OFR 2025-1018 · USFWS Federal Register · CDFW surveys
           </span>
         </div>
       </div>
@@ -1080,7 +1080,7 @@ export default function TimelinePage() {
                 {/* Abundance Chart */}
                 <div className="px-6 py-5 border-b border-border bg-[#fafbfc]">
                   <div className="text-[0.72rem] font-bold uppercase tracking-wider text-muted-foreground mb-3">
-                    Abundance Score by Era (Moyle et al. 2013 / USGS)
+                    Abundance Score by Era (Thompson et al. 2013 / USGS)
                   </div>
                   <div className="flex gap-1.5 items-stretch">
                     {selectedSpecies.scores.map((s, i) => {
@@ -1166,7 +1166,7 @@ export default function TimelinePage() {
       {/* Source Footer */}
       <div className="max-w-[900px] mx-auto px-4 md:px-8 py-6 border-t border-border text-[0.72rem] text-muted-foreground italic leading-relaxed">
         Primary sources:{" "}
-        <span className="not-italic">Moyle et al. 2013: &quot;The native and introduced fishes of Clear Lake: a review of the past to assist with decisions of the future&quot; (California Fish and Game 99(1):7-41)</span>
+        <span className="not-italic">Thompson et al. 2013: &quot;The native and introduced fishes of Clear Lake: a review of the past to assist with decisions of the future&quot; (California Fish and Game 99(1):7-41)</span>
         {" · "}
         <a href="https://pubs.usgs.gov/publication/ofr20251018" target="_blank" rel="noopener noreferrer" className="text-[#1a6fa8] no-underline hover:underline">
           USGS OFR 2025-1018
@@ -1185,7 +1185,7 @@ export default function TimelinePage() {
         </a>
         {" · "}Tribal monitoring programs · Historical records
         <br /><br />
-        Species abundance scores based on Appendix I of Moyle et al. 2013. Scoring: 5=Abundant, 4=Common, 3=Declining, 2=Rare, 1=Extirpated, 0=Not present / not yet introduced.
+        Species abundance scores based on Appendix I of Thompson et al. 2013. Scoring: 5=Abundant, 4=Common, 3=Declining, 2=Rare, 1=Extirpated, 0=Not present / not yet introduced.
       </div>
     </div>
     </>

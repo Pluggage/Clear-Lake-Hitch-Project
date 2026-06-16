@@ -36,7 +36,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 ## ⬜ Remaining
 
 ### Prove the data
-- [ ] 🟡 **Verify the 2013 paper's authorship** — it's cited as "Moyle et al. 2013" in ~6 places, but the lead author of *California Fish and Game* 99(1):7-41 may be **Thompson** (Lisa C. Thompson). If so, change "Moyle et al." → "Thompson et al." (or "Thompson, Moyle et al."). Journal/volume already corrected.
+- [x] 🟡 **Verified the 2013 paper's authorship (high confidence)** — it is **Thompson, Giusti, Weber & Keiffer 2013** (Lisa C. Thompson lead), *California Fish and Game* 99(1):7-41. Corrected "Moyle et al. 2013" → "Thompson et al. 2013" across the timeline; kept the separate, real Peter Moyle "extinction by 2100" quote.
 - [ ] 🟡 Host the key CDFW/USGS PDFs locally (`public/reports/`) with the official link as secondary, so the evidence base doesn't depend on fragile off-site links
 - [ ] 🟡 Publish the spawner series as a downloadable, dated dataset (CSV/JSON) with a provenance column
 - [ ] ⚪ Move canonical citation strings into one shared module (`lib/sources.ts`) so timeline/archive can't drift again
@@ -55,7 +55,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 - [ ] 🟡 Decide & state the donate/funding posture; add an ESA public-comment advocacy action + social share buttons
 
 ### Make the data visual & beautiful
-- [ ] 🔴 Fix the homepage "Interactive Map" — it currently iframes a redirect stub; use a real embed or a thumbnail + "Open the map" button
+- [x] 🔴 Fixed the homepage "Interactive Map" — replaced the redirect-stub iframe with a clean click-through panel to `/map`
 - [ ] 🔴 Put the **real creek photos** on the cards + design a proper empty state for the rest *(photos in hand)*
 - [ ] 🔴 Give photos provenance (credit / date / descriptive alt / license); reconcile "WPD staff" vs "Taylor Woodruff" credits
 - [ ] 🟡 Add screen-reader data tables behind the charts (numbers are currently locked in divs)
@@ -75,7 +75,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 - [ ] 🟡 Per-page metadata + OG/social cards; `schema.org` JSON-LD (Organization, Dataset, BreadcrumbList); split the client-only /timeline so it gets real metadata; fix the map's single-underscore `replace`
 
 ### Content gaps & audiences
-- [ ] 🔴 Add an FAQ, a glossary, and a "how to identify the Clear Lake hitch" guide (also a legal/safety gap for a protected fish)
+- [x] 🔴 Added an FAQ, glossary, and "how to identify the Clear Lake hitch" guide at `/faq` (linked in nav)
 - [ ] 🔴 Tell the Pomo/cultural story with attributed Tribal voice + links (replace the repeated "since time immemorial" line)
 - [ ] 🟡 Lead the hero with the stakes (96% decline / county emergency), not taxonomy
 - [ ] 🟡 Audience surfaces (researcher data path, angler legality/safety, educator fact sheet, press kit); Spanish core safety/rescue content

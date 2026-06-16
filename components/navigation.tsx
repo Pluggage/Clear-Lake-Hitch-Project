@@ -20,6 +20,7 @@ const pageLinks = [
   { href: "/map", label: "Map" },
   { href: "/archive", label: "Hitch Archive" },
   { href: "/timeline", label: "Timeline" },
+  { href: "/faq", label: "FAQ" },
 ]
 
 const base = "transition-colors flex items-center"
