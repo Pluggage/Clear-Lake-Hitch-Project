@@ -206,3 +206,12 @@ summary:focus-visible {
   transform-origin: center;
   animation: wsPulse 3.2s ease-in-out infinite;
 }
+
+/* Watershed map — each creek marker links to its tributary profile */
+.ws-creek {
+  cursor: pointer;
+}
+.ws-creek:hover text,
+.ws-creek:focus-visible text {
+  fill: var(--lake-dark) !important;
+}
