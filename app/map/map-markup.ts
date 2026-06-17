@@ -302,9 +302,9 @@ export const MAP_MARKUP = `
       </div>
       <div class="mpanel">
         <div class="mtabs">
-          <div class="mtab on" data-tab="survey">Survey Data</div>
-          <div class="mtab" data-tab="zone">Zone/Creek</div>
-          <div class="mtab" data-tab="threats">Threats</div>
+          <div class="mtab on" data-tab="survey" role="button" tabindex="0">Survey Data</div>
+          <div class="mtab" data-tab="zone" role="button" tabindex="0">Zone/Creek</div>
+          <div class="mtab" data-tab="threats" role="button" tabindex="0">Threats</div>
         </div>
         <div style="padding:8px 11px 0;flex-shrink:0"><input id="creekSearch" placeholder="Search creeks…" style="width:100%;padding:6px 10px;border-radius:8px;border:1px solid #1e3a52;background:#050e18;color:#7ec8e3;font-size:10px;outline:none"></div>
         <div class="mpane on" id="mpane-survey">

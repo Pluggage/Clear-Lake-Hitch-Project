@@ -49,6 +49,9 @@ export default function CreeksPage() {
             {/* PRIORITY TRIBUTARIES MINI-CHART */}
             <div className="trib-overview">
               <div className="trib-ov-title">Priority Tributaries: 2025 Status</div>
+              <p style={{ fontSize: '0.72rem', opacity: 0.7, margin: '2px 0 10px' }}>
+                Relative spawning importance — a qualitative ranking from recent survey activity, not a measured count.
+              </p>
               <div className="trib-bars">
                 {priorityTributaries.map((t) => (
                   <div className="trib-row" key={t.name}>

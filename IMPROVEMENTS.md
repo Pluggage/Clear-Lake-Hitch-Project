@@ -70,7 +70,7 @@ Check items off as they ship. Priorities: 🔴 high · 🟡 medium · ⚪ low.
 - [x] ⚪ Word-valued stats ("Multiple", "#2", "Lakeport", "1,000s", "Jun 14", "SE Shore") now render in a smaller "qualitative" style on the creek pages, not the big-numeral style.
 
 ### Wayfinding & discoverability
-- [x] 🔴 Added homepage deep-links: a Creeks card in quick-access, a "Full timeline" link under the population chart, and a footer nav across all pages.
+- [x] 🔴 Added homepage deep-links: a Creeks card in quick-access, a "Full timeline" link under the population chart, and a footer nav. *(Correction from the June 17 audit: the shared footer is now on Home, About, FAQ, Archive, and the creek pages — but NOT yet /timeline or /map. See [AUDIT-2026-06-17.md](AUDIT-2026-06-17.md).)*
 - [ ] 🟡 Add breadcrumbs / "related" strips to the dead-end /timeline, /archive, /map; add a navigational footer
 - [x] 🟡 `schema.org` JSON-LD: Organization (site-wide), **Dataset** on `/archive`, **BreadcrumbList** on creek pages. Fixed the map underscore bug. Gave `/timeline` real metadata via a route-segment layout. *(Per-page OpenGraph images are still to do.)*
 

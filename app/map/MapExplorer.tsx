@@ -9,6 +9,16 @@ const ZONES = mzd as Record<string, Info>
 const CREEKS = mckd as Record<string, Info>
 const CITIES = mcitd as Record<string, Info>
 
+// Map a creek/zone id to its profile route (dedicated pages + /creek/[slug]).
+const CREEK_ROUTE: Record<string, string> = {
+  kelsey: '/kelsey', adobe: '/adobe', forbes: '/forbes', burns: '/burns',
+  rodman: '/creek/rodman-slough', scotts_sys: '/creek/scotts-creek', lyons: '/creek/lyons',
+  morrison: '/creek/morrison', lucerne: '/creek/lucerne', manning: '/creek/manning',
+  rumsey: '/creek/rumsey', mcgaugh: '/creek/mcgaugh', cole: '/creek/cole',
+  schindler: '/creek/schindler', thompson: '/creek/thompson', hill: '/creek/hill',
+  highland: '/creek/highland-creek', seigler_sys: '/creek/seigler-system',
+}
+
 export function MapExplorer() {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -30,7 +40,11 @@ export function MapExplorer() {
       const archLink = locId
         ? `<a href="/archive?q=${encodeURIComponent(locId.replace(/_/g, ' '))}" target="_blank" rel="noopener noreferrer" class="march-link">📂 View related reports in Archive ↗</a>`
         : ''
-      return `<div class="mcard"><h3>${d.t}</h3>${tags}<p style="margin-top:6px">${d.b}</p>${archLink}</div><div class="mcard"><h3>Key data</h3>${rows}</div>`
+      const route = locId ? CREEK_ROUTE[locId] : undefined
+      const profileLink = route
+        ? `<a href="${route}" class="march-link" style="background:rgba(126,200,227,.22);margin-right:6px">→ View full creek profile</a>`
+        : ''
+      return `<div class="mcard"><h3>${d.t}</h3>${tags}<p style="margin-top:6px">${d.b}</p>${profileLink}${archLink}</div><div class="mcard"><h3>Key data</h3>${rows}</div>`
     }
 
     function mSwitchTab(n: string) {
@@ -104,6 +118,18 @@ export function MapExplorer() {
     }
     root.addEventListener('click', onClick)
 
+    // Keyboard: activate focusable map controls (tabs are tabindex=0) with
+    // Enter/Space, mirroring the click delegation above.
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return
+      const t = e.target as Element
+      const tab = t.closest('[data-tab]'); if (tab) { e.preventDefault(); return mSwitchTab((tab as HTMLElement).dataset.tab!) }
+      const creek = t.closest('[data-creek]'); if (creek) { e.preventDefault(); return selectCreek((creek as HTMLElement).dataset.creek!) }
+      const zone = t.closest('[data-zone]'); if (zone) { e.preventDefault(); return selectZone((zone as HTMLElement).dataset.zone!) }
+      const city = t.closest('[data-city]'); if (city) { e.preventDefault(); return selectCity((city as HTMLElement).dataset.city!) }
+    }
+    root.addEventListener('keydown', onKey)
+
     const searchInput = $<HTMLInputElement>('#creekSearch')
     const onInput = (e: Event) => searchCreek((e.target as HTMLInputElement).value)
     searchInput?.addEventListener('input', onInput)
@@ -125,6 +151,7 @@ export function MapExplorer() {
 
     return () => {
       root.removeEventListener('click', onClick)
+      root.removeEventListener('keydown', onKey)
       searchInput?.removeEventListener('input', onInput)
       wrap?.removeEventListener('wheel', onWheel)
       wrap?.removeEventListener('mousedown', onDown)
