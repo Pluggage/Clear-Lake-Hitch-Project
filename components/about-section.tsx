@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const infoCards = [
   {
     title: "Biology",
@@ -50,6 +52,11 @@ export function AboutSection() {
                 Today, the Clear Lake hitch faces mounting threats: prolonged drought, loss of spawning habitat, harmful algal blooms, competition and predation from invasive species, and reduced water flows in tributaries. In February 2023, Lake County declared a <strong className="text-[var(--text)]">local state of emergency</strong> due to the risk of extinction. As of January 2025, the U.S. Fish &amp; Wildlife Service has proposed listing the hitch as <strong className="text-[var(--text)]">threatened under the Federal Endangered Species Act</strong>.
               </p>
             </div>
+            <p className="mt-5">
+              <Link href="/about" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--lake)] hover:underline">
+                Who runs this project? About &amp; contact &rarr;
+              </Link>
+            </p>
           </div>
 
           {/* Info Cards */}
@@ -64,7 +71,7 @@ export function AboutSection() {
                     : "bg-[var(--sand)] border-l-[var(--lake)]"
                   }`}
               >
-                <h4 className="text-sm font-bold mb-1">{card.title}</h4>
+                <h3 className="text-sm font-bold mb-1">{card.title}</h3>
                 <p className="text-sm text-[var(--muted-color)] leading-relaxed">{card.content}</p>
               </div>
             ))}

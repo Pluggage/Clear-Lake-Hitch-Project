@@ -6,10 +6,11 @@ const involvementOptions = [
   {
     icon: Telescope,
     title: "Become a Community Scientist",
-    description: "Report Clear Lake hitch sightings during the spring spawning season (March to May). Your observations directly support the long-term population record.",
-    linkText: "Volunteer here",
-    href: "https://www.lakecountyca.gov/1913/Community-Science",
-    external: true,
+    description: "Report Clear Lake hitch sightings during the spring spawning season (March to May). Your observations directly support the long-term population record — share one using the form below.",
+    linkText: "Report a sighting ↓",
+    href: "#report",
+    external: false,
+    secondary: { text: "Official county volunteer program", href: "https://www.lakecountyca.gov/1913/Community-Science" },
   },
   {
     icon: Tag,
@@ -78,6 +79,17 @@ export function GetInvolvedSection() {
                   {option.linkText}
                   {option.external && <ExternalLink className="w-3.5 h-3.5" />}
                 </Link>
+                {"secondary" in option && option.secondary && (
+                  <Link
+                    href={option.secondary.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 flex items-center gap-1.5 text-xs text-[var(--muted-color)] hover:text-[var(--lake)] hover:underline"
+                  >
+                    {option.secondary.text}
+                    <ExternalLink className="w-3 h-3" />
+                  </Link>
+                )}
                 {"additionalLinks" in option && option.additionalLinks && (
                   <div className="flex flex-col gap-1.5 mt-2">
                     {option.additionalLinks.map((link: { text: string; href: string }) => (
@@ -95,19 +107,36 @@ export function GetInvolvedSection() {
                   </div>
                 )}
                 {"note" in option && option.note && (
-                  <span className="block text-xs text-[var(--amber)] font-semibold mt-2">{option.note}</span>
+                  <span className="block text-xs text-[var(--amber-text)] font-semibold mt-2">{option.note}</span>
                 )}
               </div>
             )
           })}
         </div>
 
-        <div className="mt-12 pt-10 border-t border-[var(--border-color)]">
+        <div id="report" className="scroll-mt-24 mt-12 pt-10 border-t border-[var(--border-color)]">
           <h3 className="text-xl font-bold text-[var(--text)] mb-2">Report a hitch sighting</h3>
           <p className="text-[var(--muted-color)] text-sm max-w-[560px] mb-6 leading-relaxed">
             Saw hitch in a creek this spring? Share what you saw to support the community-science record. For a fish
             stranded in a drying creek, call the Hitch Rescue Team at (707) 263-2344 right away.
           </p>
+          <ol className="flex flex-col sm:flex-row gap-4 mb-8 max-w-[760px]">
+            {[
+              { n: "1", t: "Watch a tributary", d: "March to May, when adult hitch run up the creeks to spawn." },
+              { n: "2", t: "Note the details", d: "Creek, date, a rough count, and a photo if you can." },
+              { n: "3", t: "Submit below", d: "Your report adds to the community-science record." },
+            ].map((s) => (
+              <li key={s.n} className="flex-1 flex gap-3 items-start">
+                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[var(--lake)] text-white text-sm font-bold flex items-center justify-center">
+                  {s.n}
+                </span>
+                <span>
+                  <strong className="block text-sm text-[var(--text)]">{s.t}</strong>
+                  <span className="text-xs text-[var(--muted-color)] leading-relaxed">{s.d}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
           <SiteForm kind="sighting" />
         </div>
       </div>

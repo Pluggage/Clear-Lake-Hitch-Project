@@ -21,7 +21,7 @@ export const MAP_MARKUP = `
             <div class="legend-row"><div class="legend-dot" style="background:#d8b830;border:1px solid #ead848;width:6px;height:6px"></div>Town / community</div>
             <div class="legend-row"><div class="legend-dot" style="background:#071e30;border:1.5px dashed #1e4a6b;width:6px;height:6px"></div>Isolated water body</div>
             <div class="legend-sep"></div>
-            <div style="font-size:8px;color:#2a4a62;line-height:1.5">Click any creek or lake zone for details. Scroll or pinch to zoom. Drag to pan.</div>
+            <div style="font-size:8px;color:#7fa3bd;line-height:1.5">Click any creek or lake zone for details. Scroll or pinch to zoom. Drag to pan.</div>
           </div>
         </div>
         <div class="zoom-controls">
@@ -330,7 +330,7 @@ export const MAP_MARKUP = `
             <div class="myr-row"><span class="myr-label">2016</span><div class="myr-bar"><div class="myr-fill" style="width:27%;background:#a0b8c8"></div></div><span class="myr-val" style="color:#a0b8c8">693</span></div>
             <div class="myr-row"><span class="myr-label">2014</span><div class="myr-bar"><div class="myr-fill" style="width:44%;background:#7ec8e3"></div></div><span class="myr-val" style="color:#7ec8e3">1,119</span></div>
             <div class="myr-row"><span class="myr-label">2013</span><div class="myr-bar"><div class="myr-fill" style="width:20%;background:#c03030"></div></div><span class="myr-val" style="color:#fca5a5">&lt;500</span></div>
-            <p style="color:#3a6070;font-size:9px;margin-top:5px">★ Record. 11-yr avg: 1,032.</p>
+            <p style="color:#7fa3bd;font-size:9px;margin-top:5px">★ Record. 11-yr avg: 1,032.</p>
           </div>
           <div class="msh">LAKE COUNTY WPD + COMMUNITY SCIENCE</div>
           <div class="mcard"><h3>WPD 2024: 10 Tributaries</h3>
@@ -342,7 +342,7 @@ export const MAP_MARKUP = `
             <div class="mdr"><span class="mdl">Seigler Canyon</span><span class="mdv mdw">None (~2004)</span></div>
           </div>
         </div>
-        <div class="mpane" id="mpane-zone"><div id="mzone-disp"><div class="mph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg><p style="font-size:10.5px;margin-top:7px;color:#2a5a72">Click any lake zone or creek to load info.</p></div></div></div>
+        <div class="mpane" id="mpane-zone"><div id="mzone-disp"><div class="mph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg><p style="font-size:10.5px;margin-top:7px;color:#7fa3bd">Click any lake zone or creek to load info.</p></div></div></div>
         <div class="mpane" id="mpane-threats">
           <div class="mcard"><h3>Spawning Habitat Loss</h3><span class="mtag mtw">Critical</span><p style="margin-top:5px">Tributaries run dry before juveniles emigrate. 9 documented barriers. Big Valley groundwater pumping under CA State Water Board reporting orders (Jan 2024).</p></div>
           <div class="mcard"><h3>Invasive Species</h3><span class="mtag mtw">High</span><p style="margin-top:5px">~20 introduced species. Bass and catfish prey on juveniles; carp and goldfish consume hitch eggs.</p></div>
@@ -354,7 +354,7 @@ export const MAP_MARKUP = `
             <div class="mdr"><span class="mdl">Federal ESA proposed</span><span class="mdv mdw">Jan 2025</span></div>
           </div>
         </div>
-        <div class="msrc"><a href="https://www.usgs.gov/centers/california-water-science-center" target="_blank">USGS CAWSC</a> · <a href="https://pubs.usgs.gov/publication/ofr20251018" target="_blank">OFR 2025-1018</a> · <a href="https://www.lakecountyca.gov/1450/Clear-Lake-Hitch" target="_blank">Lake Co. WPD</a> · <span style="color:#1a3a52">GeoJSON: Lake Co. GIS</span></div>
+        <div class="msrc"><a href="https://www.usgs.gov/centers/california-water-science-center" target="_blank">USGS CAWSC</a> · <a href="https://pubs.usgs.gov/publication/ofr20251018" target="_blank">OFR 2025-1018</a> · <a href="https://www.lakecountyca.gov/1450/Clear-Lake-Hitch" target="_blank">Lake Co. WPD</a> · <span style="color:#6a8aa0">GeoJSON: Lake Co. GIS</span></div>
       </div>
     </div>
   </div>

@@ -50,7 +50,7 @@ export function HeroSection() {
               />
               Live Conditions
             </Link>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <Link
                 href="#fish"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-transparent text-white border-[1.5px] border-white/50 hover:bg-white/10 transition-colors"
@@ -80,7 +80,7 @@ export function HeroSection() {
                 />
               </picture>
             </div>
-            <h3 className="text-white text-lg font-semibold mb-1">Clear Lake Hitch</h3>
+            <p className="text-white text-lg font-semibold mb-1">Clear Lake Hitch</p>
             <p className="text-white/70 text-sm italic mb-2">Lavinia exilicauda chi</p>
             <p className="text-white/50 text-xs">Endemic · Up to 350mm · Lives ~6 years</p>
           </div>

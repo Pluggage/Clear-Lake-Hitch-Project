@@ -75,7 +75,7 @@ function FishTag({ type, status }: { type: string; status: string }) {
   }
   if (status === "threatened") {
     tags.push(
-      <span key="threatened" className="inline-block text-[0.68rem] font-bold tracking-wide px-2 py-0.5 rounded-lg uppercase bg-[var(--amber-light)] text-[var(--amber)]">
+      <span key="threatened" className="inline-block text-[0.68rem] font-bold tracking-wide px-2 py-0.5 rounded-lg uppercase bg-[var(--amber-light)] text-[var(--amber-text)]">
         CA Threatened
       </span>
     )
@@ -296,10 +296,10 @@ export function FishGuideSection() {
                 <div className="font-bold text-sm mb-0.5">{fish.name}</div>
                 <div className="text-xs text-[var(--muted-color)] italic mb-1">{fish.sci}</div>
                 {fish.introYear && (
-                  <div className="text-xs text-[var(--amber)] mb-1">Introduced {fish.introYear}</div>
+                  <div className="text-xs text-[var(--amber-text)] mb-1">Introduced {fish.introYear}</div>
                 )}
                 {fish.lastSeen && (
-                  <div className="text-xs text-[var(--amber)] mb-1">Last seen c. {fish.lastSeen}</div>
+                  <div className="text-xs text-[var(--amber-text)] mb-1">Last seen c. {fish.lastSeen}</div>
                 )}
                 <FishTag type={fish.type} status={fish.status} />
               </div>
@@ -358,7 +358,7 @@ export function FishGuideSection() {
                   <div className="font-bold text-sm mb-0.5">{fish.name}</div>
                   <div className="text-xs text-[var(--muted-color)] italic mb-1">{fish.sci}</div>
                   {fish.introYear && (
-                    <div className="text-xs text-[var(--amber)] mb-1">Introduced {fish.introYear}</div>
+                    <div className="text-xs text-[var(--amber-text)] mb-1">Introduced {fish.introYear}</div>
                   )}
                   <FishTag type={fish.type} status={fish.status} />
                 </div>

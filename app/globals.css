@@ -12,6 +12,7 @@
   --green-light: #e8f5eb;
   --amber: #c87800;
   --amber-light: #fff3d6;
+  --amber-text: #9a5b00; /* AA-contrast amber for small text on light backgrounds */
   --red: #c0392b;
   --sand: #f5f0e8;
   --text: #1a1a1a;

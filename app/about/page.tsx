@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Navigation } from '@/components/navigation'
 import { SiteForm } from '@/components/site-form'
+import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'About & Contact',
@@ -117,6 +118,7 @@ export default function AboutPage() {
           </section>
         </div>
       </main>
+      <Footer />
     </>
   )
 }

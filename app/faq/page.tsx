@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Navigation } from '@/components/navigation'
 import { faqItems, idGuide, glossary } from './faq-data'
 import { Lifecycle } from '@/components/lifecycle'
+import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'FAQ & Field Guide',
@@ -102,6 +103,7 @@ export default function FaqPage() {
           </section>
         </div>
       </main>
+      <Footer />
     </>
   )
 }
