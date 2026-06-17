@@ -42,7 +42,7 @@ const CREEKS: Creek[] = [
   { name: "Adobe Creek", href: "/adobe", status: "active", shore: "South shore", x: 121, y: 256, lx: 128, ly: 282, ta: "middle" },
   { name: "Kelsey Creek", href: "/kelsey", status: "active", shore: "South shore", x: 261, y: 271, lx: 249, ly: 263, ta: "end" },
   { name: "Cole Creek", href: "/creek/cole", status: "restore", shore: "South shore", x: 260, y: 283, lx: 272, ly: 295, ta: "start" },
-  { name: "Burns Valley", href: "/burns", status: "active", shore: "East shore", x: 606, y: 416, lx: 620, ly: 410, ta: "start" },
+  { name: "Burns Valley", href: "/burns", status: "active", shore: "East shore", x: 614, y: 400, lx: 612, ly: 384, ta: "middle" },
   { name: "Seigler System", href: "/creek/seigler-system", status: "concern", shore: "East shore", x: 663, y: 459, lx: 652, ly: 474, ta: "end" },
 ]
 

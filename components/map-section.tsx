@@ -30,8 +30,7 @@ export function MapSection() {
             src="/map?embed=1"
             title="Interactive map of Clear Lake and its spawning tributaries"
             loading="lazy"
-            className="w-full border-0 block"
-            style={{ height: "520px" }}
+            className="w-full border-0 block h-[78svh] md:h-[540px]"
           />
         </div>
       </div>
