@@ -33,28 +33,28 @@ type Creek = {
 // grouped by the shore each tributary drains into.
 const CREEKS: Creek[] = [
   { name: "Scotts Creek", status: "active", shore: "North shore", x: 188, y: 104, lx: 188, ly: 84, ta: "middle" },
-  { name: "Rodman Slough", status: "active", shore: "North shore", x: 262, y: 100, lx: 285, ly: 80, ta: "start" },
-  { name: "Middle Creek", status: "quiet", shore: "North shore", x: 150, y: 140, lx: 118, ly: 140, ta: "end" },
-  { name: "Hendricks Creek", status: "active", shore: "North shore", x: 355, y: 128, lx: 380, ly: 112, ta: "start" },
-  { name: "Forbes Creek", status: "active", shore: "West shore", x: 158, y: 248, lx: 118, ly: 250, ta: "end" },
-  { name: "Copsey Creek", status: "active", shore: "East shore", x: 618, y: 248, lx: 642, ly: 244, ta: "start" },
-  { name: "Seigler Canyon", status: "concern", shore: "East shore", x: 602, y: 352, lx: 628, ly: 356, ta: "start" },
-  { name: "Burns Valley Creek", status: "active", shore: "South shore", x: 236, y: 318, lx: 204, ly: 330, ta: "end" },
-  { name: "Kelsey Creek", status: "active", shore: "South shore", x: 300, y: 348, lx: 296, ly: 374, ta: "middle" },
-  { name: "Adobe Creek", status: "active", shore: "South shore", x: 372, y: 366, lx: 372, ly: 398, ta: "middle" },
-  { name: "Manning Creek", status: "active", shore: "South shore", x: 430, y: 392, lx: 412, ly: 420, ta: "middle" },
-  { name: "Cole Creek", status: "restore", shore: "South shore", x: 486, y: 380, lx: 470, ly: 450, ta: "middle" },
+  { name: "Rodman Slough", status: "active", shore: "North shore", x: 278, y: 108, lx: 300, ly: 92, ta: "start" },
+  { name: "Middle Creek", status: "quiet", shore: "North shore", x: 150, y: 150, lx: 120, ly: 150, ta: "end" },
+  { name: "Hendricks Creek", status: "active", shore: "North shore", x: 372, y: 132, lx: 396, ly: 120, ta: "start" },
+  { name: "Forbes Creek", status: "active", shore: "West shore", x: 142, y: 236, lx: 116, ly: 240, ta: "end" },
+  { name: "Copsey Creek", status: "active", shore: "East shore", x: 636, y: 232, lx: 660, ly: 228, ta: "start" },
+  { name: "Seigler Canyon", status: "concern", shore: "East shore", x: 590, y: 392, lx: 614, ly: 392, ta: "start" },
+  { name: "Burns Valley Creek", status: "active", shore: "South shore", x: 250, y: 318, lx: 222, ly: 332, ta: "end" },
+  { name: "Kelsey Creek", status: "active", shore: "South shore", x: 318, y: 342, lx: 312, ly: 368, ta: "middle" },
+  { name: "Adobe Creek", status: "active", shore: "South shore", x: 392, y: 362, lx: 392, ly: 388, ta: "middle" },
+  { name: "Manning Creek", status: "active", shore: "South shore", x: 452, y: 384, lx: 452, ly: 410, ta: "middle" },
+  { name: "Cole Creek", status: "restore", shore: "South shore", x: 506, y: 408, lx: 512, ly: 432, ta: "middle" },
 ]
 
 const ARMS = [
-  { t: "Upper Arm", x: 250, y: 185 },
-  { t: "Main Lake", x: 380, y: 240 },
-  { t: "Oaks Arm", x: 560, y: 215 },
-  { t: "Lower Arm", x: 592, y: 398 },
+  { t: "Upper Arm", x: 248, y: 190 },
+  { t: "Main Lake", x: 398, y: 250 },
+  { t: "Oaks Arm", x: 578, y: 208 },
+  { t: "Lower Arm", x: 558, y: 372 },
 ]
 
 const LAKE_PATH =
-  "M 132.0,150.0 C 140.3,134.2 174.5,108.3 200.0,100.0 C 225.5,91.7 258.3,94.2 285.0,100.0 C 311.7,105.8 335.8,126.7 360.0,135.0 C 384.2,143.3 400.0,149.2 430.0,150.0 C 460.0,150.8 507.0,135.8 540.0,140.0 C 573.0,144.2 606.0,161.7 628.0,175.0 C 650.0,188.3 674.7,207.5 672.0,220.0 C 669.3,232.5 637.3,245.8 612.0,250.0 C 586.7,254.2 542.3,243.0 520.0,245.0 C 497.7,247.0 473.3,252.8 478.0,262.0 C 482.7,271.2 526.0,285.3 548.0,300.0 C 570.0,314.7 594.3,330.8 610.0,350.0 C 625.7,369.2 645.7,400.0 642.0,415.0 C 638.3,430.0 608.3,440.8 588.0,440.0 C 567.7,439.2 539.7,421.3 520.0,410.0 C 500.3,398.7 485.0,375.7 470.0,372.0 C 455.0,368.3 446.3,390.0 430.0,388.0 C 413.7,386.0 393.7,368.0 372.0,360.0 C 350.3,352.0 322.8,348.0 300.0,340.0 C 277.2,332.0 253.3,322.0 235.0,312.0 C 216.7,302.0 201.2,292.8 190.0,280.0 C 178.8,267.2 174.7,249.2 168.0,235.0 C 161.3,220.8 156.0,209.2 150.0,195.0 C 144.0,180.8 123.7,165.8 132.0,150.0 Z"
+  "M 150,120 C 165,95 205,86 248,92 C 295,98 330,122 372,132 C 430,146 486,126 538,132 C 592,138 642,158 660,196 C 670,216 660,232 636,242 C 600,256 560,252 524,258 C 505,270 486,266 478,280 C 472,294 492,300 512,312 C 545,332 575,360 592,398 C 604,420 598,436 578,440 C 552,444 520,426 496,412 C 462,392 430,374 392,362 C 340,346 286,332 240,312 C 198,294 162,272 144,240 C 130,212 126,176 134,150 C 138,136 142,128 150,120 Z"
 
 const SHORES: Shore[] = ["North shore", "West shore", "East shore", "South shore"]
 

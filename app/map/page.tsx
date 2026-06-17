@@ -10,10 +10,22 @@ export const metadata: Metadata = {
   alternates: { canonical: '/map' },
 }
 
-export default function MapPage() {
+export default async function MapPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ embed?: string }>
+}) {
+  const { embed } = await searchParams
+  const isEmbed = embed === '1'
   return (
     <>
-      <Navigation />
+      {isEmbed ? (
+        // Embedded (e.g. the homepage mini-map): hide the nav and let the map
+        // fill the iframe height instead of reserving 60px for the nav bar.
+        <style dangerouslySetInnerHTML={{ __html: '.map-page{height:100dvh !important}' }} />
+      ) : (
+        <Navigation />
+      )}
       <MapExplorer />
     </>
   )
