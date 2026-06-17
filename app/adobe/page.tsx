@@ -55,8 +55,8 @@ export default function AdobePage() {
                 <path className="mm-creek" d="M 660,390 L 618,396 L 537,408" />
                 <path className="mm-highlight" d="M 121.4,255.9 L 129.1,262.7 L 130.9,278.0 L 129.9,284.1 L 136.1,291.4 L 131.0,300.3 L 126.2,318.6 L 115.4,343.2 L 113.3,379.0 L 103.9,398.5 L 91.1,407.6 L 88.4,421.5 L 84.5,430.9 L 79.5,435.6" />
                 <circle className="mm-mouth" cx="121.4" cy="255.9" r="5" />
-                <text x="140" y="360" fill="rgba(255,213,79,.9)" fontSize="11" fontWeight="700" fontFamily="system-ui,sans-serif">Adobe Creek</text>
-                <text x="140" y="373" fill="rgba(255,213,79,.55)" fontSize="8" fontFamily="system-ui,sans-serif">South shore · Big Valley</text>
+                <text x="140" y="360" fill="rgba(255,213,79,.9)" fontSize="11" fontWeight="700" fontFamily="inherit">Adobe Creek</text>
+                <text x="140" y="373" fill="rgba(255,213,79,.55)" fontSize="8" fontFamily="inherit">South shore · Big Valley</text>
               </svg>
             </div>
           </div>

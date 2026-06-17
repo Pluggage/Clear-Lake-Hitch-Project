@@ -53,8 +53,8 @@ export default function BurnsPage() {
                 <path className="mm-creek" d="M 660,390 L 618,396 L 537,408" />
                 <path className="mm-highlight" d="M 537,408 L 558,376 L 577,383 L 589,388 L 608,399 L 617,397 L 625,404 L 630,410 L 626,413 L 632,416 L 632,420 L 636,427 L 645,431 L 650,438 L 660,441 L 663,445 L 665,454 L 663,459" />
                 <circle className="mm-mouth" cx="537" cy="408" r="5" />
-                <text x="490" y="370" fill="rgba(255,213,79,.9)" fontSize="11" fontWeight="700" fontFamily="system-ui,sans-serif">Burns Valley Cr.</text>
-                <text x="490" y="383" fill="rgba(255,213,79,.55)" fontSize="8" fontFamily="system-ui,sans-serif">SE shore · Lower Arm</text>
+                <text x="490" y="370" fill="rgba(255,213,79,.9)" fontSize="11" fontWeight="700" fontFamily="inherit">Burns Valley Cr.</text>
+                <text x="490" y="383" fill="rgba(255,213,79,.55)" fontSize="8" fontFamily="inherit">SE shore · Lower Arm</text>
               </svg>
             </div>
           </div>

@@ -76,7 +76,7 @@ export function PopulationTimeline() {
       <div className="max-w-[1100px] mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-5 flex-wrap gap-2">
-          <h2 className="text-base font-bold text-foreground">
+          <h2 className="text-xl font-bold text-foreground">
             Clear Lake Hitch: Spawner Count by Year
           </h2>
           <button
