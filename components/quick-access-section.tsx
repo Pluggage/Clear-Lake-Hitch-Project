@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { FISH } from "@/lib/fish-data"
 
 interface SpawnPhase {
   phase: string
@@ -124,7 +125,7 @@ export function QuickAccessSection() {
           <span className="w-2.5 h-2.5 rounded-full bg-[var(--lake)] flex-shrink-0" />
           <div>
             <strong className="block text-sm font-semibold text-foreground">Explore Fish Guide</strong>
-            <span className="text-xs text-muted-foreground">All 36 species + failed introductions</span>
+            <span className="text-xs text-muted-foreground">All {FISH.length} species + failed introductions</span>
           </div>
         </Link>
 

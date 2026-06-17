@@ -893,17 +893,17 @@ export const ARCHIVE: ArchiveEntry[] = [
     year: 2025,
     source: "U.S. Fish & Wildlife Service, Federal Register 90 FR 4916 (January 16, 2025)",
     agency: "USFWS",
-    summary: "The federal proposal to list the Clear Lake hitch as threatened under the Endangered Species Act with a Section 4(d) rule, and to designate critical habitat including Clear Lake, Thurston Lake, and 18 tributaries. Based on a comprehensive Species Status Assessment evaluating population viability under multiple climate scenarios.",
+    summary: "The federal proposal to list the Clear Lake hitch as threatened under the Endangered Species Act with a Section 4(d) rule. The proposal deferred designation of critical habitat to a later date. Based on a comprehensive Species Status Assessment evaluating population viability under multiple climate scenarios.",
     takeaways: [
       "USFWS proposes threatened (not endangered) listing with a Section 4(d) rule allowing some flexibility for conservation-beneficial activities",
-      "Critical habitat proposed for Clear Lake, Thurston Lake, and 18 specific tributaries",
+      "Critical habitat was not designated in this rule; USFWS stated it would be proposed at a later date",
       "Species Status Assessment found hitch at high risk of extinction within 50 years under most climate scenarios",
       "Dr. Peter Moyle (UC Davis): hitch is 'extremely likely to be driven to extinction by 2100' without intervention",
       "Thurston Lake population treated as a distinct demographic unit. Its isolation makes it both a critical refugia and a separate conservation concern"
     ],
-    tags: ["federal listing","ESA","critical habitat","USFWS","policy","Section 4(d)","SSA","climate","Thurston Lake"],
+    tags: ["federal listing","ESA","USFWS","policy","Section 4(d)","SSA","climate","Thurston Lake"],
     locations: ["lake","thurston","kelsey","adobe","forbes","manning","cole","burns"],
-    url: "https://www.federalregister.gov/documents/2025/01/22/2025-01502/endangered-and-threatened-wildlife-and-plants-threatened-species-status-for-clear-lake-hitch"
+    url: "https://www.federalregister.gov/documents/2025/01/16/2024-31756/endangered-and-threatened-wildlife-and-plants-threatened-species-status-with-section-4d-rule-for"
   },
   {
     title: "Lake County Resolution Declaring a Local State of Emergency for the Clear Lake Hitch",

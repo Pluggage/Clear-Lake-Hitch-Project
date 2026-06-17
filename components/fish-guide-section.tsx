@@ -246,7 +246,7 @@ export function FishGuideSection() {
           Fishes of Clear Lake
         </h2>
         <p className="text-[var(--muted-color)] text-base max-w-[650px] mb-8 leading-relaxed">
-          All 36 documented fish species of Clear Lake (native, introduced, and those lost) plus 4 failed introductions. Click any card for detailed information.
+          All {FISH.length} documented fish species of Clear Lake (native, introduced, and those lost) plus {FAILED_FISH.length} failed introductions. Click any card for detailed information.
         </p>
         
         {/* Controls */}

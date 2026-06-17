@@ -23,7 +23,7 @@ export default function CreeksPage() {
             <div>
               <div className="hero-badges">
                 <span className="hero-badge b-white">{creeks.length} Documented Tributaries</span>
-                <span className="hero-badge b-green">{priorityTributaries.length} Active Spawning Streams</span>
+                <span className="hero-badge b-green">{priorityTributaries.length} Priority Tributaries</span>
                 <span className="hero-badge b-blue">Live USGS Data</span>
               </div>
               <h1>

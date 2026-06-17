@@ -10,7 +10,7 @@ const popData = [
   { yr: 2017, count: 517, est: false, ctx: "USGS begins gillnet surveys, establishing the baseline that will later reveal a 96% decline.", color: "#a0b8c8" },
   { yr: 2018, count: 1153, est: false, ctx: "Strong year. 1,153 spawners. Adobe Creek most frequented tributary this season.", color: "#7ec8e3" },
   { yr: 2019, count: 612, est: false, ctx: "Below average. 612 spawners. USGS gillnet catches already ~55% below 2017 baseline.", color: "#a0b8c8" },
-  { yr: 2020, count: 1672, est: false, ctx: "Best year in over a decade. All 1,672 hitch observed exclusively in Kelsey Creek.", color: "#6ee7b7" },
+  { yr: 2020, count: 1672, est: false, ctx: "Strongest year of the 2010s. All 1,672 hitch observed exclusively in Kelsey Creek.", color: "#6ee7b7" },
   { yr: 2021, count: 120, est: false, ctx: "Catastrophic drought. Only 120 spawners, a 93% crash from the prior year. Tributaries ran dry.", color: "#c03030" },
   { yr: 2022, count: 306, est: false, ctx: "Still in crisis. 306 spawners. USGS gillnet shows ~4% of 2017 baseline. Lake County declares emergency in early 2023.", color: "#d08040" },
   { yr: 2023, count: 2548, est: false, ctx: "Record year: 2,548 spawners after heavy winter rains refilled tributaries. A fragile sign of hope.", color: "#00c853" },
@@ -106,7 +106,7 @@ export function PopulationTimeline() {
                 {d.est ? "<" : ""}
                 {d.count.toLocaleString()}
               </div>
-              <div className="text-[0.82rem] text-muted-foreground">spawners observed</div>
+              <div className="text-[0.82rem] text-muted-foreground">spawners (lake-wide)</div>
               {changeInfo && (
                 <span
                   className="inline-block text-[0.78rem] font-bold py-[2px] px-2 rounded-[10px] ml-1.5"
@@ -170,7 +170,7 @@ export function PopulationTimeline() {
         />
 
         <p className="text-[0.7rem] text-muted-foreground mt-3 leading-relaxed">
-          Source: CDFW and Lake County Water Resources visual spawner surveys (adult hitch counted in tributaries), 2013 through the 2025 season, distinct from the USGS gillnet relative-abundance index behind the 96% decline figure.{" "}
+          Source: CDFW and Lake County Water Resources visual spawner surveys (adult hitch counted in tributaries), 2013 through the 2025 season, distinct from the USGS gillnet relative-abundance index behind the 96% decline figure. Recent-year totals are CDFW lake-wide figures that combine survey programs and can differ from any single program&apos;s raw tributary counts.{" "}
           <Link href="/archive" className="underline hover:text-[var(--lake)]">Source archive</Link>
           {" · "}
           <a href="https://pubs.usgs.gov/publication/ofr20251018" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--lake)]">USGS OFR 2025-1018</a>
@@ -181,7 +181,7 @@ export function PopulationTimeline() {
         <table className="sr-only">
           <caption>Clear Lake hitch spawner counts by year</caption>
           <thead>
-            <tr><th scope="col">Year</th><th scope="col">Spawners observed</th></tr>
+            <tr><th scope="col">Year</th><th scope="col">Spawners (lake-wide)</th></tr>
           </thead>
           <tbody>
             {popData.map((row) => (

@@ -72,7 +72,7 @@ const SPECIES: Species[] = [
       {era:'2023-Present', items:[
         {y:'Feb 2023',t:'Lake County emergency declaration',d:'First governmental emergency declaration for a fish species in Lake County history.',tag:'policy'},
         {y:'2023',t:'Record 2,548 spawners after wet winter',d:'The highest count since monitoring began. Shows both the recovery potential and the total dependence on rainfall.',tag:'good'},
-        {y:'Jan 2025',t:'USFWS proposes federal Threatened listing',d:'Proposed critical habitat covers Clear Lake, Thurston Lake, and 18 tributaries. SSA finds high extinction risk within 50 years under most scenarios.',tag:'policy'},
+        {y:'Jan 2025',t:'USFWS proposes federal Threatened listing',d:'A proposed rule for threatened status with a Section 4(d) rule; critical habitat was deferred to a later date. The SSA finds high extinction risk within 50 years under most scenarios.',tag:'policy'},
         {y:'Spring 2025',t:'1,567 spawners: above 11-year average',d:'A solid year. Monitoring by CDFW, tribal agencies, and LCWPD continues.',tag:'good'},
       ]},
     ]
@@ -606,8 +606,8 @@ const timelineData: TimelineEra[] = [
       {
         year: "2020",
         yearClass: "good",
-        title: "1,672 spawners: best count in over a decade",
-        detail: "All 1,672 hitch are observed exclusively in Kelsey Creek, the strongest year since monitoring began. But the concentration in a single tributary also highlights the species' catastrophic vulnerability: one bad year on one creek could erase the entire spawning class.",
+        title: "1,672 spawners — the strongest year of the 2010s",
+        detail: "All 1,672 hitch are observed exclusively in Kelsey Creek, the strongest spawning year of the decade (later surpassed by the 2023 record). But the concentration in a single tributary also highlights the species' catastrophic vulnerability: one bad year on one creek could erase the entire spawning class.",
         tags: ["spawning", "kelsey creek", "best count"]
       },
       {
@@ -658,14 +658,14 @@ const timelineData: TimelineEra[] = [
         year: "Jan 2025",
         yearClass: "policy",
         title: "USFWS proposes federal Threatened listing under ESA",
-        detail: "The U.S. Fish & Wildlife Service publishes a proposed rule to list the Clear Lake hitch as threatened under the federal Endangered Species Act, with proposed critical habitat designation for Clear Lake, Thurston Lake, and 18 tributaries. The Species Status Assessment found the hitch at high risk of extinction within 50 years under most climate scenarios.",
-        tags: ["ESA", "federal listing", "critical habitat", "USFWS"]
+        detail: "The U.S. Fish & Wildlife Service publishes a proposed rule to list the Clear Lake hitch as threatened under the federal Endangered Species Act, paired with a Section 4(d) rule. The proposal deferred designation of critical habitat to a later date. The Species Status Assessment found the hitch at high risk of extinction within 50 years under most climate scenarios.",
+        tags: ["ESA", "federal listing", "Section 4(d)", "USFWS"]
       },
       {
         year: "2025",
         yearClass: "",
-        title: "USGS publishes OFR 2025-1018: most comprehensive fish survey to date",
-        detail: "The U.S. Geological Survey publishes Open-File Report 2025-1018, documenting gillnet survey results from 2017 through 2022. The report confirms a 96% decline in hitch relative abundance and shows non-native species dominating Clear Lake's fish assemblage, with over 20 introduced species established.",
+        title: "USGS publishes OFR 2025-1018: hitch gillnet monitoring report",
+        detail: "The U.S. Geological Survey publishes Open-File Report 2025-1018, a gillnet sampling-and-monitoring report for the Clear Lake hitch covering 2017 through 2023. It documents a 96% decline in hitch relative abundance (2017 to 2022) and shows non-native species dominating Clear Lake's fish assemblage, with over 20 introduced species established.",
         tags: ["USGS", "OFR 2025-1018", "gillnet"]
       }
     ]

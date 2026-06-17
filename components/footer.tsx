@@ -30,7 +30,7 @@ export function Footer() {
           <strong className="text-[#f59e0b]">Permits are required to conduct fish rescues.</strong> Always contact the Hitch Rescue Team at (707) 263-2344 rather than attempting relocation yourself.
         </p>
         <p className="text-xs mt-4 opacity-60 max-w-[600px] mx-auto leading-relaxed">
-          Disclaimer: Lake coordinates, tributary locations, and associated data presented on this site are still being verified and may contain inaccuracies. This project is for educational and awareness purposes. Always confirm details with official sources before making decisions based on this information.
+          Disclaimer: Map coordinates and tributary boundaries are approximate and still being verified. Population figures, dates, and citations are drawn from the linked CDFW, USGS, and USFWS sources. This project is for educational and awareness purposes; always confirm details with official sources before making decisions based on this information.
         </p>
         <p className="text-xs mt-6 opacity-45">
           Created with care for Clear Lake and the communities that depend on it.

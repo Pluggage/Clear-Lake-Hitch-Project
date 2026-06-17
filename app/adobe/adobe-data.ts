@@ -25,7 +25,7 @@ export const photos: Photo[] = [
   },
   {
     thumb: '/images/adobe/adobe-wfd-survey-site-thumb.jpg', full: '/images/adobe/adobe-wfd-survey-site-large.jpg',
-    tag: 'Survey Site', title: 'WFD Survey Site', sub: 'Adobe Creek monitoring point · Spring 2026',
+    tag: 'Survey Site', title: 'WPD Survey Site', sub: 'Adobe Creek monitoring point · Spring 2026',
     caption: 'The Lake County Water Resources Department survey site on Adobe Creek, photographed in spring 2026. A wooden livestock exclusion frame marks the survey transect. The creek runs clear with riparian reed grass lining both banks and valley oaks visible upstream.',
   },
   {
@@ -41,7 +41,7 @@ export const photos: Photo[] = [
   {
     thumb: '/images/adobe/adobe-upstream-thumb.jpg', full: '/images/adobe/adobe-upstream-large.jpg',
     tag: 'Upper Watershed', title: 'Upstream Reach', sub: 'Adobe Creek in Big Valley · Spring 2026',
-    caption: 'Looking upstream from the WFD survey site on Adobe Creek, spring 2026. The creek winds through open valley floor with rock-armored banks. Snow-dusted Mayacamas peaks are visible on the horizon, indicating the upper watershed was still receiving precipitation.',
+    caption: 'Looking upstream from the WPD survey site on Adobe Creek, spring 2026. The creek winds through open valley floor with rock-armored banks. Snow-dusted Mayacamas peaks are visible on the horizon, indicating the upper watershed was still receiving precipitation.',
   },
 ]
 
