@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { Fish } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { LakeConditions } from '@/components/creek/LakeConditions'
+import { PhotoLightbox } from '@/components/creek/PhotoLightbox'
+import { galleries } from '@/components/creek/galleries'
 import { JsonLd } from '@/components/json-ld'
 import { creeks, type Creek } from '../../creeks/creek-data'
 import { mckd } from '../../map/map-data'
@@ -76,6 +78,7 @@ export default async function CreekPage({ params }: { params: Promise<{ slug: st
   if (!creek) notFound()
 
   const info = MAP_KEY[slug] ? MCKD[MAP_KEY[slug]] : undefined
+  const gallery = galleries[slug]
   const status = STATUS_BADGE[creek.status]
   const shore = creek.location.split(',')[0]
   const systemKey = SYSTEM[slug]
@@ -199,6 +202,21 @@ export default async function CreekPage({ params }: { params: Promise<{ slug: st
             )}
           </aside>
         </div>
+
+        {/* FIELD PHOTOS */}
+        {gallery && gallery.length > 0 && (
+          <section style={{ padding: '0 2rem 3.5rem' }}>
+            <div className="section-inner">
+              <span className="section-label">Field Photos</span>
+              <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>{creek.name} in the field</h2>
+              <p style={{ color: 'var(--muted)', fontSize: '.95rem', marginBottom: 0 }}>
+                {gallery.length} photo{gallery.length > 1 ? 's' : ''} documenting survey reaches, barriers, fish observations, and
+                seasonal conditions from Lake County Watershed Protection District community science monitoring.
+              </p>
+              <PhotoLightbox photos={gallery} />
+            </div>
+          </section>
+        )}
 
         {/* FOOTER */}
         <footer>

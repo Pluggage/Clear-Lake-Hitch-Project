@@ -1,33 +1,4 @@
 // Static data for the Burns Valley Creek detail page (ported from public/burns.html).
-import type { Photo } from '@/components/creek/PhotoLightbox'
-
-export const photos: Photo[] = [
-  {
-    thumb: '/images/burns/burns-wpd-survey-site-thumb.jpg', full: '/images/burns/burns-wpd-survey-site-large.jpg',
-    tag: 'Survey Site', title: 'WPD Survey Site', sub: 'Lake County monitoring reach',
-    caption: 'WPD Survey Site: Burns Valley Creek at the Lake County WPD monitoring reach. Lush summer canopy, low reflective water. This is one of the sites where the 2024 juvenile and larvae counts were documented.',
-  },
-  {
-    thumb: '/images/burns/burns-lower-reach-thumb.jpg', full: '/images/burns/burns-lower-reach-large.jpg',
-    tag: 'Lower Reach', title: 'Lower Reach', sub: 'Urban corridor · Lower Arm drainage',
-    caption: "Lower Reach: Burns Valley Creek through the urban corridor. Rock-lined banks, floating aquatic vegetation, and residential fencing visible. This reach connects the watershed to Clear Lake's Lower Arm.",
-  },
-  {
-    thumb: '/images/burns/burns-spawning-activity-thumb.jpg', full: '/images/burns/burns-spawning-activity-large.jpg',
-    tag: '⭐ Spawn Substrate', title: 'Spawning Substrate', sub: 'Gravel bed · active spawn conditions',
-    caption: 'Spawning Substrate: Clear shallow water over gravel at a concrete wall section. This type of substrate (clean gravel with good flow) is what hitch seek for egg deposition. The clarity of the water here indicates good conditions during the active spawn window.',
-  },
-  {
-    thumb: '/images/burns/burns-upstream-reach-thumb.jpg', full: '/images/burns/burns-upstream-reach-large.jpg',
-    tag: 'Upstream', title: 'Upstream Reach', sub: 'Natural upper watershed',
-    caption: 'Upstream Reach: Burns Valley Creek in the upper watershed. Clear, rocky-bottomed channel with spring-green riparian canopy. The natural character of this reach contrasts with the more developed lower sections.',
-  },
-  {
-    thumb: '/images/burns/burns-valley-dry-creek-thumb.jpg', full: '/images/burns/burns-valley-dry-creek-large.jpg',
-    tag: '⚠ Flow Cutoff', title: 'Dry Season', sub: 'Late-season cutoff · juvenile stranding risk',
-    caption: 'Dry Season: Burns Valley Creek reduced to isolated pools and exposed gravel at a road crossing. Illustrates the late-season flow cutoff risk. In 2024 flow ceased June 14, when ~4,000 juveniles were still rearing, timing of dry-down is critical.',
-  },
-]
 
 export const infoCards: { variant: '' | 'grn' | 'amb' | 'red'; title: string; body: string }[] = [
   { variant: 'grn', title: '★ Standout 2024 Nursery', body: '~4,000 juvenile hitch and thousands of larvae confirmed by Lake County WPD in 2024. Also documented Sacramento blackfish juveniles, a healthy multi-species nursery.' },

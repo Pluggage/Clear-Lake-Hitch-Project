@@ -1,38 +1,4 @@
 // Static data for the Forbes Creek detail page (ported from public/forbes.html).
-import type { Photo } from '@/components/creek/PhotoLightbox'
-
-export const photos: Photo[] = [
-  {
-    thumb: '/images/forbes/forbes-spawning-activity-thumb.jpg', full: '/images/forbes/forbes-spawning-activity-large.jpg',
-    tag: '⭐ Spawn Run', title: 'Spawning Activity', sub: 'Adult hitch · lower reach · March 2026',
-    caption: 'Spawning Activity: Dense school of adult hitch actively spawning in the lower reach. This is the clearest documentation of what the whole project is protecting. March 2026.',
-  },
-  {
-    thumb: '/images/forbes/forbes-creek-mouth-thumb.jpg', full: '/images/forbes/forbes-creek-mouth-large.jpg',
-    tag: 'Creek Mouth', title: 'Creek Mouth', sub: 'Confluence with Clear Lake · March 2026',
-    caption: 'Creek Mouth: Forbes Creek entering Clear Lake. Wide, marshy confluence with willow canopy and mountain backdrop visible across the lake. March 2026.',
-  },
-  {
-    thumb: '/images/forbes/forbes-monitoring-site-thumb.jpg', full: '/images/forbes/forbes-monitoring-site-large.jpg',
-    tag: 'Survey Site', title: 'County Monitoring Site', sub: 'WPD survey reach · Lakeport · March 2026',
-    caption: 'County Monitoring Site: Channelized concrete reach through Lakeport. The hardened banks are typical of urban creeks; WPD surveys this section annually. March 2026.',
-  },
-  {
-    thumb: '/images/forbes/forbes-downstream-reach-thumb.jpg', full: '/images/forbes/forbes-downstream-reach-large.jpg',
-    tag: 'Downstream', title: 'Downstream Reach', sub: 'Summer conditions · urban channel',
-    caption: 'Downstream Reach: Summer conditions in the lower urban channel. Reduced flow, algae growth, and encroaching vegetation. Shows the water quality pressure this section faces during warm months.',
-  },
-  {
-    thumb: '/images/forbes/forbes-creek-dry-thumb.jpg', full: '/images/forbes/forbes-creek-dry-large.jpg',
-    tag: '⚠ Flow Cutoff', title: 'Near-Dry Channel', sub: 'Road crossing · late-season low flow',
-    caption: 'Road Crossing / Late-Season Dry Conditions: The creek at a road crossing culvert, reduced to isolated pools. Illustrates the flow cutoff risk that can strand juvenile hitch before emigration.',
-  },
-  {
-    thumb: '/images/forbes/forbes-upstream-thumb.jpg', full: '/images/forbes/forbes-upstream-large.jpg',
-    tag: 'Upstream', title: 'Upstream Reach', sub: 'Natural watershed · upper Forbes Creek',
-    caption: 'Upstream Reach: Natural rocky upper watershed. Low winter flow in the channel, bare-branched oaks reflecting in still pools. This reach has better natural character than the lower channelized sections.',
-  },
-]
 
 export const surveyEvents: { dot: string; label: string; title: string; body: string }[] = [
   { dot: 'var(--lake)', label: 'March 2026: Field Visit', title: 'Site documentation', body: 'Project field visit to document creek mouth, road crossings, and pre-season conditions. 2026 spawn survey data pending. WPD program runs through spring.' },

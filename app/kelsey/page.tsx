@@ -4,7 +4,8 @@ import { Navigation } from '@/components/navigation'
 import { SpawnerTimeline } from '@/components/creek/SpawnerTimeline'
 import { PhotoLightbox } from '@/components/creek/PhotoLightbox'
 import { LiveConditions } from './LiveConditions'
-import { infoCards, barriers, survey, nearby, popData, photos } from './kelsey-data'
+import { infoCards, barriers, survey, nearby, popData } from './kelsey-data'
+import { galleries } from '@/components/creek/galleries'
 import '@/components/creek/creek-detail.css'
 
 export const metadata: Metadata = {
@@ -109,9 +110,9 @@ export default function KelseyPage() {
             {/* PHOTOS */}
             <div style={{ marginBottom: '3rem' }}>
               <span className="section-label">Field Photos</span>
-              <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>Kelsey Creek in Every Season</h2>
-              <p style={{ color: 'var(--muted)', fontSize: '.95rem', marginBottom: '1rem' }}>Field photography from Lake County WPD staff: creek mouth, barriers, gauge sites, and seasonal conditions. Click any photo to open full size.</p>
-              <PhotoLightbox photos={photos} />
+              <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>Kelsey Creek in the field</h2>
+              <p style={{ color: 'var(--muted)', fontSize: '.95rem', marginBottom: '1rem' }}>Fish-ladder barriers and the detention structure, hitch and suckers at Merritt Road, the dry winter bed, and the creek mouth. Click any photo to open full size.</p>
+              <PhotoLightbox photos={galleries.kelsey} />
             </div>
           </div>
 

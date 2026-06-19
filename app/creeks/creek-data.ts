@@ -30,7 +30,7 @@ export const priorityTributaries: { name: string; pct: number; bar: string; labe
 export const creeks: Creek[] = [
   {
     href: '/adobe', name: 'Adobe Creek', searchName: 'adobe creek', status: 'active',
-    image: '/images/adobe/adobe-spawning-activity-thumb.jpg',
+    image: '/creek-photos/adobe/01.webp',
     location: 'South shore, Big Valley',
     description: 'Historic #2 spawning stream, most frequented in 2016, 2018, 2022, 2023, 2025. Highland Creek joins upstream.',
     tags: [{ label: 'Active', variant: 'active' }, { label: 'Barriers', variant: 'barrier' }],
@@ -43,7 +43,7 @@ export const creeks: Creek[] = [
   },
   {
     href: '/burns', name: 'Burns Valley Creek', searchName: 'burns valley creek', status: 'active',
-    image: '/images/burns/burns-spawning-activity-thumb.jpg',
+    image: '/creek-photos/burns/01.webp',
     location: 'SE shore, rearing habitat',
     description: 'Rearing habitat: ~4,000 juvenile hitch and thousands of larvae documented in 2024. Major juvenile nursery on the SE shore.',
     tags: [{ label: 'Rearing habitat', variant: 'none' }, { label: 'Active 2024', variant: 'active' }],
@@ -80,7 +80,7 @@ export const creeks: Creek[] = [
   },
   {
     href: '/forbes', name: 'Forbes Creek', searchName: 'forbes creek', status: 'active',
-    image: '/images/forbes/forbes-spawning-activity-thumb.jpg',
+    image: '/creek-photos/forbes/02.webp',
     location: 'West shore, Lakeport',
     description: '4.7-mile stream entering Clear Lake at Lakeport. Adults confirmed April 18, 2024. Flow cut off May 28, 2024.',
     tags: [{ label: 'Active 2024', variant: 'active' }],
@@ -105,7 +105,7 @@ export const creeks: Creek[] = [
   },
   {
     href: '/kelsey', name: 'Kelsey Creek', searchName: 'kelsey creek', status: 'active',
-    image: '/images/kelsey/photo-1.jpg',
+    image: '/creek-photos/kelsey/01.webp',
     location: 'South shore, Clear Lake State Park',
     description: 'In 2020 every single one of the 1,672 hitch observed lake-wide was here. The most critical active spawning tributary. USGS gauged.',
     tags: [{ label: '#1 Active', variant: 'active' }, { label: 'Barrier removal', variant: 'restore' }],

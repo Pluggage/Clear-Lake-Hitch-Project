@@ -4,7 +4,8 @@ import { Navigation } from '@/components/navigation'
 import { SpawnerTimeline } from '@/components/creek/SpawnerTimeline'
 import { PhotoLightbox } from '@/components/creek/PhotoLightbox'
 import { LakeConditions } from '@/components/creek/LakeConditions'
-import { popData, photos, infoCards, barriers, survey, nearby } from './adobe-data'
+import { popData, infoCards, barriers, survey, nearby } from './adobe-data'
+import { galleries } from '@/components/creek/galleries'
 import '@/components/creek/creek-detail.css'
 
 export const metadata: Metadata = {
@@ -110,9 +111,9 @@ export default function AdobePage() {
             {/* PHOTOS */}
             <div style={{ marginBottom: '3rem' }}>
               <span className="section-label">Field Photos</span>
-              <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>Adobe Creek in Every Season</h2>
-              <p style={{ color: 'var(--muted)', fontSize: '.95rem', marginBottom: '1rem' }}>Field photography from Lake County WPD staff: creek mouth, barriers, gauge sites, and seasonal conditions.</p>
-              <PhotoLightbox photos={photos} credit="Taylor Woodruff" />
+              <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>Adobe Creek in the field</h2>
+              <p style={{ color: 'var(--muted)', fontSize: '.95rem', marginBottom: '1rem' }}>Hitch reaching the Adobe reservoir dam in 2023, eggs and egg desiccation, fish stranded by disconnecting side channels, and the dry summer bed at Bell Hill Road.</p>
+              <PhotoLightbox photos={galleries.adobe} />
             </div>
           </div>
 

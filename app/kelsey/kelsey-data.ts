@@ -1,5 +1,4 @@
 // Static data for the Kelsey Creek detail page (ported from public/kelsey.html).
-import type { Photo } from '@/components/creek/PhotoLightbox'
 
 export interface PopPoint {
   yr: number
@@ -26,15 +25,6 @@ export const popData: PopPoint[] = [
 ]
 
 /** Field photo grid (in display order). Cards without a thumb render as placeholders. */
-export const photos: Photo[] = [
-  { thumb: '/images/kelsey/photo-1.jpg', tag: '2026 Season', title: 'Creek Mouth', sub: 'Entry at Clear Lake State Park' },
-  { thumb: '/images/kelsey/photo-2.jpg', tag: 'Barrier', title: 'Main Street Crossing', sub: 'Barrier reach · Kelseyville' },
-  { thumb: null, tag: 'USGS Site', title: 'USGS Gauge Station', sub: 'Stn. 11449500 · continuous flow' },
-  { thumb: '/images/kelsey/photo-3.jpg', tag: 'Barrier', title: 'Fish Ladder / Barrier', sub: 'Known passage obstacle · in-stream' },
-  { thumb: null, tag: 'Big Valley', title: 'Big Valley Reach', sub: 'Agricultural corridor · upstream' },
-  { thumb: '/images/kelsey/photo-4.jpg', tag: 'Spawn Run', title: 'Spawning Activity', sub: 'Adults visible in shallows · spring run' },
-]
-
 export const infoCards: { variant: '' | 'grn' | 'amb' | 'red'; title: string; body: string }[] = [
   { variant: 'grn', title: '✓ 2024 to 2025 Survey Status', body: 'Adult hitch confirmed at Kelsey Creek in both CDFW visual surveys. Among the leading active tributaries each season.' },
   { variant: '', title: '📍 Location', body: 'Rises in western Mayacamas Mountains · flows through Kelseyville and Big Valley · enters Clear Lake at Clear Lake State Park, south shore.' },

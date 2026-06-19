@@ -1,6 +1,5 @@
 // Static data for the Adobe Creek detail page (ported from public/adobe.html).
 import type { PopPoint } from '@/components/creek/SpawnerTimeline'
-import type { Photo } from '@/components/creek/PhotoLightbox'
 
 export const popData: PopPoint[] = [
   { yr: 2013, count: 500, est: true, ctx: 'Drought era. Adobe ran low. Survey methods still being standardized.', color: '#c03030' },
@@ -15,34 +14,6 @@ export const popData: PopPoint[] = [
   { yr: 2023, count: 2548, ctx: '★ Record year after heavy winter rains. Adobe among leading contributors.', color: '#00c853' },
   { yr: 2024, count: 1042, ctx: 'Adults confirmed at Adobe. Federal ESA listing proposed January 2025.', color: '#7ec8e3' },
   { yr: 2025, count: 1567, ctx: '★ Adobe confirmed leading tributary. 1,567 spawners recorded lake-wide.', color: '#7ec8e3' },
-]
-
-export const photos: Photo[] = [
-  {
-    thumb: '/images/adobe/adobe-spawning-activity-thumb.jpg', full: '/images/adobe/adobe-spawning-activity-large.jpg',
-    tag: 'Spawn Run', title: 'Spawning Activity', sub: 'Hitch massing in Adobe Creek · Spring 2026',
-    caption: 'A dense aggregation of hitch spawners visible through the clear water of Adobe Creek in spring 2026. Dozens of adults are visible holding position over gravel substrate, a strong indicator of active spawning behavior at this site.',
-  },
-  {
-    thumb: '/images/adobe/adobe-wfd-survey-site-thumb.jpg', full: '/images/adobe/adobe-wfd-survey-site-large.jpg',
-    tag: 'Survey Site', title: 'WPD Survey Site', sub: 'Adobe Creek monitoring point · Spring 2026',
-    caption: 'The Lake County Water Resources Department survey site on Adobe Creek, photographed in spring 2026. A wooden livestock exclusion frame marks the survey transect. The creek runs clear with riparian reed grass lining both banks and valley oaks visible upstream.',
-  },
-  {
-    thumb: '/images/adobe/adobe-lower-reach-thumb.jpg', full: '/images/adobe/adobe-lower-reach-large.jpg',
-    tag: 'Lower Reach', title: 'Lower Reach', sub: 'Adobe Creek approaching Clear Lake · Spring 2026',
-    caption: 'The lower reach of Adobe Creek in spring 2026, looking upstream from a bridge crossing. Flanked by riparian willows and cottonwoods just leafing out. A gravel bar is visible mid-channel, and the creek maintains clear, fishable flow at this point in the season.',
-  },
-  {
-    thumb: '/images/adobe/adobe-dry-creek-thumb.jpg', full: '/images/adobe/adobe-dry-creek-large.jpg',
-    tag: 'Drought', title: 'Dry Season Bed', sub: 'Adobe Creek below irrigation threshold',
-    caption: "Adobe Creek's lower reach during low-flow conditions. The gravelly streambed is nearly completely exposed with white mineral deposits on the rocks. Seasonal drying is a recurring fish passage concern, as hitch require continuous flow from the lake to access upstream spawning habitat.",
-  },
-  {
-    thumb: '/images/adobe/adobe-upstream-thumb.jpg', full: '/images/adobe/adobe-upstream-large.jpg',
-    tag: 'Upper Watershed', title: 'Upstream Reach', sub: 'Adobe Creek in Big Valley · Spring 2026',
-    caption: 'Looking upstream from the WPD survey site on Adobe Creek, spring 2026. The creek winds through open valley floor with rock-armored banks. Snow-dusted Mayacamas peaks are visible on the horizon, indicating the upper watershed was still receiving precipitation.',
-  },
 ]
 
 export const infoCards: { variant: '' | 'grn' | 'amb' | 'red'; title: string; body: string }[] = [

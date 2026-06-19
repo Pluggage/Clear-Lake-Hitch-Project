@@ -3,7 +3,8 @@ import { Fish } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { LakeConditions } from '@/components/creek/LakeConditions'
 import { PhotoLightbox } from '@/components/creek/PhotoLightbox'
-import { photos, infoCards, barriers, survey, nearby } from './burns-data'
+import { infoCards, barriers, survey, nearby } from './burns-data'
+import { galleries } from '@/components/creek/galleries'
 import '@/components/creek/creek-detail.css'
 
 export const metadata: Metadata = {
@@ -132,9 +133,9 @@ export default function BurnsPage() {
             {/* PHOTOS */}
             <div style={{ marginBottom: '3rem' }}>
               <span className="section-label">Field Photos</span>
-              <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>Burns Valley Creek in Every Season</h2>
-              <p style={{ color: 'var(--muted)', fontSize: '.95rem', marginBottom: '1rem' }}>Field photography by Taylor Woodruff: WPD survey sites, spawning substrate, seasonal flow conditions, and the creek corridor through Burns Valley.</p>
-              <PhotoLightbox photos={photos} credit="Taylor Woodruff" />
+              <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>Burns Valley Creek in the field</h2>
+              <p style={{ color: 'var(--muted)', fontSize: '.95rem', marginBottom: '1rem' }}>Juvenile hitch and blackfish near the mouth at Lakeshore Drive, and the LCWPD survey reaches along Burns Valley Road — facing up and downstream.</p>
+              <PhotoLightbox photos={galleries.burns} />
             </div>
           </div>
 

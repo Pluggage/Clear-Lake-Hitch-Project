@@ -3,7 +3,8 @@ import { Fish } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { LakeConditions } from '@/components/creek/LakeConditions'
 import { PhotoLightbox } from '@/components/creek/PhotoLightbox'
-import { photos, surveyEvents, infoCards, barriers, survey, nearby } from './forbes-data'
+import { surveyEvents, infoCards, barriers, survey, nearby } from './forbes-data'
+import { galleries } from '@/components/creek/galleries'
 import '@/components/creek/creek-detail.css'
 
 export const metadata: Metadata = {
@@ -121,9 +122,9 @@ export default function ForbesPage() {
             {/* PHOTOS */}
             <div style={{ marginBottom: '3rem' }}>
               <span className="section-label">Field Photos</span>
-              <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>Forbes Creek in Every Season</h2>
-              <p style={{ color: 'var(--muted)', fontSize: '.95rem', marginBottom: '1rem' }}>Field photography from the project&apos;s March 2026 site visit and Lake County WPD staff: creek mouth, road crossings, survey points, and seasonal conditions.</p>
-              <PhotoLightbox photos={photos} credit="Taylor Woodruff" />
+              <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>Forbes Creek in the field</h2>
+              <p style={{ color: 'var(--muted)', fontSize: '.95rem', marginBottom: '1rem' }}>The marshy mouth at Clear Lake, and the March 2026 spawning run stacked up below the Highway 29 culvert — a barrier few hitch get past.</p>
+              <PhotoLightbox photos={galleries.forbes} />
             </div>
           </div>
 
