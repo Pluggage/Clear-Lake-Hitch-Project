@@ -49,7 +49,7 @@ export const faqItems: { q: string; a: string }[] = [
   },
   {
     q: "Has there been any good news for the hitch?",
-    a: "Yes. After a wet winter, 2023 produced 2,548 spawners, the highest count since standardized surveys began, and spring 2025 recorded 1,567, above the recent multi-year average. These rebounds show the hitch can recover when water conditions allow, even as they underscore how completely the species now depends on rainfall. A separate, genetically distinct population also persists in hydrologically isolated Thurston Lake, which could serve as a refuge.",
+    a: "Yes. After a wet winter, 2023 produced 2,548 spawners, the highest count since standardized surveys began, and spring 2025 recorded 1,567, above the recent multi-year average. The rebounds show the fish can bounce back when the rains come, but also how completely the runs now ride on the weather rather than any steady recovery. A separate, genetically distinct population also persists in hydrologically isolated Thurston Lake, which could serve as a refuge.",
   },
   {
     q: "How can ordinary people help protect the hitch?",

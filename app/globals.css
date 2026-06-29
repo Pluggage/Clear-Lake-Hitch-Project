@@ -93,6 +93,7 @@
 @theme inline {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -137,6 +138,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  /* Heritage display serif for top-level headings (body stays Geist) */
+  h1, h2 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
   }
 }
 

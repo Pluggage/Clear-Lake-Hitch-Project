@@ -56,7 +56,7 @@ export function GetInvolvedSection() {
           Help Protect the Hitch
         </h2>
         <p className="text-[var(--muted-color)] text-base max-w-[650px] mb-12 leading-relaxed">
-          {"Whether you're a scientist, angler, student, or just a curious resident, there's a way for you to contribute to Clear Lake Hitch conservation."}
+          {"There are a few ways to help, and none of them need a permit or a science degree. The most useful for most people is simple: watch a creek during the spring run and report what you see."}
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

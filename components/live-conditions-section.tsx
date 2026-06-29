@@ -325,8 +325,8 @@ export function LiveConditionsSection() {
         </div>
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-3 mb-2">Live Conditions &amp; Spawner Map</h2>
         <p className="text-white/60 text-base max-w-[650px] mb-10 leading-relaxed">
-          Real-time lake level, dam discharge, cyanobacteria monitoring, and spawning season status, alongside the
-          interactive tributary survey map.
+          These gauges read live from USGS. When the lake drops and the creeks stop flowing, as in 2021, the hitch
+          can&apos;t reach their spawning grounds and the run collapses. Here is where things stand now.
         </p>
 
         {/* Conditions Grid */}

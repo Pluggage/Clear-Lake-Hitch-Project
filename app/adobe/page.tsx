@@ -95,7 +95,7 @@ export default function AdobePage() {
                 <div className="prose">
                   <p>Adobe Creek has been the most frequented hitch spawning tributary in more survey years than any other creek in the dataset: 2016, 2018, 2022, 2023, and 2025. In some of those years it even eclipsed Kelsey. That makes it the clearest illustration of how hitch distribute their spawning effort: in good water years, multiple tributaries carry significant runs. Only in the worst drought years does everything collapse to a single stream.</p>
                   <p>The creek runs through Big Valley agricultural land before reaching the lake, picking up flow from Highland Creek upstream. Its lower reach passes through working farmland and road crossings that introduce multiple documented fish passage barriers: culverts, crossings, and channel modifications that impede or delay hitch migration in low-flow years.</p>
-                  <div className="pull-quote">Adobe Creek and Kelsey Creek together form the backbone of south-shore hitch spawning. When both are running strong, the population has room to recover. When both run dry in the same year, the consequences are catastrophic.<cite>Lake County Water Resources Department</cite></div>
+                  <div className="pull-quote">Adobe and Kelsey carry most of the south-shore spawning between them. In wet years both run and the population has room to rebuild; in the driest years both can fail at once, with little else to fall back on.</div>
                 </div>
                 <div className="info-cards">
                   {infoCards.map((c) => (

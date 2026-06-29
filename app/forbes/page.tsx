@@ -106,7 +106,7 @@ export default function ForbesPage() {
                 <div className="prose">
                   <p>Forbes Creek is one of the few hitch spawning tributaries that runs directly through an incorporated city. The creek enters Clear Lake at Lakeport, the Lake County seat, making it one of the most publicly accessible spawning streams in the watershed. Forbes was confirmed active in the 2025 Lake County WPD survey, contributing to a lake-wide hitch count of 1,567, among the strongest tributary seasons on record. The 2026 survey window is currently open; this site was field-documented in March 2026.</p>
                   <p>At 4.7 miles, Forbes is a modest-length stream. Its urban and peri-urban passage means it crosses roads and developed land before reaching the lake, introducing potential barriers and water quality pressures not present in more rural systems. Historic flow cutoff timing (like the May 28, 2024 dry-down) can compress the juvenile rearing window in drought-influenced years.</p>
-                  <div className="pull-quote">Seeing hitch in Forbes Creek is a reminder that this isn&apos;t just a wilderness species. These fish are swimming through our cities, past our parks and roads, right up to the lake&apos;s edge every spring.<cite>Lake County Water Resources Department</cite></div>
+                  <div className="pull-quote">Forbes is one of the few spawning creeks that runs straight through a city. Each spring the hitch move up it through Lakeport, past parks and road crossings, right to the lake&apos;s edge.</div>
                 </div>
                 <div className="info-cards">
                   {infoCards.map((c) => (

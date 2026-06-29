@@ -115,9 +115,9 @@ export default function BurnsPage() {
               <h2 className="section-h2l" style={{ marginTop: '.6rem' }}>Where the Next Generation Is Born</h2>
               <div className="about-grid">
                 <div className="prose">
-                  <p>Burns Valley Creek plays a distinct role in the hitch lifecycle compared to streams like Kelsey or Adobe. While those creeks are primarily documented through adult spawner counts, Burns Valley in 2024 became the standout nursery stream, with ~4,000 juvenile hitch and thousands of larvae recorded by Lake County WPD. That&apos;s not just spawning activity. That&apos;s successful reproduction confirmed through to the next generation.</p>
+                  <p>Burns Valley Creek plays a distinct role in the hitch lifecycle compared to streams like Kelsey or Adobe. While those creeks are primarily documented through adult spawner counts, Burns Valley in 2024 became the standout nursery stream, with ~4,000 juvenile hitch and thousands of larvae recorded by Lake County WPD. That is reproduction confirmed all the way to the next generation, the stage of the cycle that usually fails.</p>
                   <p>The creek enters Clear Lake&apos;s Lower Arm near the city of Clearlake, draining the Burns Valley corridor southeast of the lake. Sacramento blackfish juveniles were also documented alongside the hitch in 2024, indicating a healthy multi-species nursery environment when flows are adequate.</p>
-                  <div className="pull-quote">Burns Valley Creek in 2024 showed us what success looks like: not just adults in the water, but thousands of juveniles rearing and preparing to return to the lake. That is the definition of a functioning spawning tributary.<cite>Lake County WPD Survey, 2024</cite></div>
+                  <div className="pull-quote">Counting adult hitch only proves they entered the creek. Finding thousands of juveniles and larvae proves they bred and the young survived to rear. That is what a working spawning tributary looks like.</div>
                 </div>
                 <div className="info-cards">
                   {infoCards.map((c) => (

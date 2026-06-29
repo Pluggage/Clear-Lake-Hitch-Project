@@ -33,7 +33,7 @@ export function HeroSection() {
           
           {/* Subheading */}
           <p className="text-white/85 text-base md:text-lg mb-8 leading-relaxed max-w-xl">
-            The Clear Lake Hitch is a culturally significant minnow found nowhere else on Earth. We track the science, document its decline, and raise awareness for this fish and the lake ecosystem it calls home.
+            The Clear Lake Hitch lives in this one California lake and nowhere else on Earth. Its numbers have fallen about 96% since 2017, and in 2023 Lake County declared a local state of emergency over the risk of losing it. This site gathers the surveys, the live lake data, and the record of what is happening.
           </p>
           
           {/* CTAs */}

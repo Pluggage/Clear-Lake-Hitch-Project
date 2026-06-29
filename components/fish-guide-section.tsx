@@ -336,7 +336,7 @@ export function FishGuideSection() {
         <div className="mt-10 pt-6 border-t-2 border-[var(--border-color)]">
           <h3 className="text-lg font-bold text-[var(--text)] mb-1">Unsuccessful Introductions</h3>
           <p className="text-sm text-[var(--muted-color)] mb-4">
-            These species were released into Clear Lake but failed to establish self-sustaining populations, illustrating that Clear Lake&apos;s unique warm, shallow, and eutrophic conditions are not suitable for all introduced fish species.
+            These were stocked in Clear Lake and never took hold. The lake&apos;s warm, shallow, algae-rich water doesn&apos;t suit every fish.
           </p>
           
           <div className="relative">

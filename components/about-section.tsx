@@ -8,7 +8,7 @@ const infoCards = [
   },
   {
     title: "Cultural Significance",
-    content: "A vital subsistence resource for Pomo Tribes since time immemorial. Spring spawning runs were historically massive events tied to ceremony, community, and food security.",
+    content: "A subsistence resource for the Pomo Tribes since time immemorial. The spring spawning runs were major seasonal events, central to both food and ceremony.",
     variant: "default",
   },
   {
@@ -18,7 +18,7 @@ const infoCards = [
   },
   {
     title: "Federal ESA Listing Proposed: January 2025",
-    content: "The U.S. Fish & Wildlife Service has proposed listing the CLH as threatened under federal law, a critical step toward broader habitat and population protection.",
+    content: "The U.S. Fish & Wildlife Service has proposed listing the CLH as threatened under federal law, which would add Endangered Species Act protections on top of the state's.",
     variant: "danger",
   },
   {
@@ -43,7 +43,7 @@ export function AboutSection() {
             </h2>
             <div className="space-y-4 text-[var(--muted-color)] text-[0.97rem] leading-relaxed">
               <p>
-                The Clear Lake hitch (<em>Lavinia exilicauda chi</em>) is a subspecies of minnow found only in Clear Lake, Lake County, California, the <strong className="text-[var(--text)]">largest natural freshwater lake entirely within California</strong>, and one of the <strong className="text-[var(--text)]">oldest lakes in North America </strong> at nearly 500,000 years old. It is one of the most ecologically and culturally significant fish in the state, and it&apos;s disappearing.
+                The Clear Lake hitch (<em>Lavinia exilicauda chi</em>) is a subspecies of minnow found only in Clear Lake, Lake County, California, the <strong className="text-[var(--text)]">largest natural freshwater lake entirely within California</strong>, and one of the <strong className="text-[var(--text)]">oldest lakes in North America </strong> at nearly 500,000 years old. It is found nowhere else on Earth, and it&apos;s disappearing.
               </p>
               <p>
                 Each spring, adult hitch migrate from the lake into its tributaries to spawn, a spectacle that has sustained the <strong className="text-[var(--text)]">Indigenous Pomo Tribes</strong> as a food and cultural resource since time immemorial. The Pomo people know this fish as <em>chi</em>. Tribal communities have long held deep spiritual and practical connections to this fish and the watershed that sustains it.

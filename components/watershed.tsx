@@ -83,9 +83,9 @@ export function Watershed() {
         </span>
         <h2 className="text-2xl md:text-3xl font-bold text-[var(--text)] mb-2">The Clear Lake watershed at a glance</h2>
         <p className="text-[var(--muted-color)] text-base max-w-[680px] mb-8 leading-relaxed">
-          A dozen tributary creeks ring California&apos;s largest natural lake, and each spring the hitch run up them to
-          spawn. Dots mark where the priority creeks meet the lake, colored by recent spawning status. Tap any creek
-          to open its profile, or explore the full{" "}
+          The hitch spawn in some 27 creeks around Clear Lake, but a handful, Kelsey and Adobe above all, carry most
+          of the run. Each dot marks where a priority creek meets the lake, colored by its recent spawning status. Tap
+          any creek for its profile, or open the full{" "}
           <Link href="/map" className="text-[var(--lake)] font-semibold hover:underline">
             interactive map
           </Link>

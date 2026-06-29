@@ -13,8 +13,8 @@ export function MapSection() {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">Interactive Tributary Map</h2>
             <p className="text-white/60 text-sm max-w-[650px] leading-relaxed">
-              Explore every spawning creek, lake zone, and survey site, with population trends and habitat
-              conditions for each.
+              Each dot is a creek the hitch spawn in. Kelsey and Adobe still carry most of the run; click any creek
+              for its survey history and conditions.
             </p>
           </div>
           <Link

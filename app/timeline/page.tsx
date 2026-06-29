@@ -644,7 +644,7 @@ const timelineData: TimelineEra[] = [
         year: "2023",
         yearClass: "good",
         title: "Record spawning year: 2,548 hitch after heavy rains",
-        detail: "An exceptionally wet winter refills tributaries and the lake. 2,548 spawners are counted, the highest number since surveys began. A fragile sign of hope that demonstrates the hitch can recover when water conditions allow. But it also underscores how entirely the species' fate depends on rainfall. There is no resilience buffer.",
+        detail: "An exceptionally wet winter refills tributaries and the lake. 2,548 spawners are counted, the highest number since surveys began. It showed the trap, though: the run tracks rainfall almost one to one, so a single dry spring can wipe it out.",
         tags: ["spawning", "record", "recovery signal"]
       },
       {
