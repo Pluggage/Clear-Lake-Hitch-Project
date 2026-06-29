@@ -49,7 +49,8 @@ export function GetInvolvedSection() {
   return (
     <section id="involved" className="py-20 px-4 md:px-8">
       <div className="max-w-[1100px] mx-auto">
-        <span className="inline-block text-xs font-bold tracking-widest uppercase text-[var(--lake)] bg-[var(--lake-light)] px-3 py-1 rounded-full mb-4">
+        <span className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.18em] uppercase text-[var(--lake)] mb-4">
+          <span className="h-px w-7 bg-[var(--lake)]" aria-hidden="true" />
           Get Involved
         </span>
         <h2 className="text-2xl md:text-3xl font-bold text-[var(--text)] mb-2">

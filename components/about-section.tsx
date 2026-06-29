@@ -30,12 +30,13 @@ const infoCards = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 px-4 md:px-8">
+    <section id="about" className="py-20 px-4 md:px-8 bg-[var(--sand)]">
       <div className="max-w-[1100px] mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Content */}
           <div>
-            <span className="inline-block text-xs font-bold tracking-widest uppercase text-[var(--lake)] bg-[var(--lake-light)] px-3 py-1 rounded-full mb-4">
+            <span className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.18em] uppercase text-[var(--lake)] mb-4">
+              <span className="h-px w-7 bg-[var(--lake)]" aria-hidden="true" />
               About the Hitch
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-[var(--text)] mb-4">
@@ -82,7 +83,7 @@ export function AboutSection() {
                   ? "bg-[var(--amber-light)] border-l-[var(--amber)]"
                   : card.variant === "danger"
                     ? "bg-[#fdecea] border-l-[var(--red)]"
-                    : "bg-[var(--sand)] border-l-[var(--lake)]"
+                    : "bg-white border-l-[var(--lake)]"
                   }`}
               >
                 <h3 className="text-sm font-bold mb-1">{card.title}</h3>

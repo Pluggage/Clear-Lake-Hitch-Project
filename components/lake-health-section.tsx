@@ -45,7 +45,8 @@ export function LakeHealthSection() {
   return (
     <section id="health" className="py-20 px-4 md:px-8 bg-[var(--lake-dark)] text-white">
       <div className="max-w-[1100px] mx-auto">
-        <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#7fd8ff] bg-white/[0.12] px-3 py-1 rounded-full mb-4">
+        <span className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.18em] uppercase text-[#7fd8ff] mb-4">
+          <span className="h-px w-7 bg-[#7fd8ff]" aria-hidden="true" />
           Lake Health
         </span>
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">

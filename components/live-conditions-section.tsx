@@ -315,7 +315,8 @@ export function LiveConditionsSection() {
       <div className="max-w-[1100px] mx-auto">
         {/* Header */}
         <div className="flex items-center gap-3 mb-2">
-          <span className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-[rgba(127,216,255,.1)] text-[#7fd8ff] border border-[rgba(127,216,255,.2)]">
+          <span className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.18em] uppercase text-[#7fd8ff]">
+            <span className="h-px w-7 bg-[#7fd8ff]" aria-hidden="true" />
             Lake Status
           </span>
           <div className="flex items-center gap-1.5 bg-[rgba(255,80,80,.12)] border border-[rgba(255,80,80,.25)] rounded-full px-2.5 py-0.5 text-[10px] font-bold text-[#ff8a8a] tracking-wider">
