@@ -52,6 +52,20 @@ export function AboutSection() {
                 Today, the Clear Lake hitch faces mounting threats: prolonged drought, loss of spawning habitat, harmful algal blooms, competition and predation from invasive species, and reduced water flows in tributaries. In February 2023, Lake County declared a <strong className="text-[var(--text)]">local state of emergency</strong> due to the risk of extinction. As of January 2025, the U.S. Fish &amp; Wildlife Service has proposed listing the hitch as <strong className="text-[var(--text)]">threatened under the Federal Endangered Species Act</strong>.
               </p>
             </div>
+            <figure className="mt-6 rounded-xl overflow-hidden border border-[var(--border-color)]">
+              <picture>
+                <source srcSet="/creek-photos/adobe/03-lg.webp" type="image/webp" />
+                <img
+                  src="/creek-photos/adobe/03-lg.webp"
+                  alt="Hitch swimming up Adobe Creek toward the Adobe Reservoir dam during the spring spawning run, April 2023"
+                  className="w-full max-h-[380px] object-cover block"
+                  loading="lazy"
+                />
+              </picture>
+              <figcaption className="text-xs text-[var(--muted-color)] px-3 py-2 bg-[var(--sand)]">
+                Adult hitch reaching the Adobe Creek dam during the spring run, April 2023.
+              </figcaption>
+            </figure>
             <p className="mt-5">
               <Link href="/about" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--lake)] hover:underline">
                 Who runs this project? About &amp; contact &rarr;
