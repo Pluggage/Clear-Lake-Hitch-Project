@@ -72,7 +72,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <span className="absolute bottom-3 right-4 z-10 text-[11px] text-white/55">Kelsey Creek · Photo: Taylor Woodruff</span>
+      <span className="absolute bottom-3 right-4 z-10 text-[11px] text-white/55">Kelsey Creek, Lake County, California</span>
     </section>
   )
 }
