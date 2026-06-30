@@ -81,7 +81,7 @@ const SPECIES: Species[] = [
     id:'splittail', name:'Clear Lake Splittail', latin:'Pogonichthys ciscoides',
     status:'extinct', statusLabel:'Extinct, Endemic',
     scores:[5,5,2,2,1,1],
-    summary:'An endemic species found nowhere else on Earth. Once "very abundant" through the 1930s, it collapsed in the 1940s alongside the hitch, likely driven by the same pesticide contamination and habitat loss. Declared extirpated by 1973. A direct precedent for what can happen to the hitch.',
+    summary:'An endemic species found nowhere else on Earth. Once "very abundant" through the 1930s, it collapsed in the 1940s alongside the hitch, likely driven by the same pesticide contamination and habitat loss. Declared extirpated by 1973.',
     timeline:[
       {era:'1870s-1930s', items:[
         {y:'1870s-1930s',t:'Common to very abundant, especially 1920s to 1930s',d:'The Clear Lake splittail, endemic to the Clear Lake basin, thrives through this period. Found nowhere else on Earth, it is a cornerstone of the native fish assemblage.',tag:'good'},
@@ -99,7 +99,7 @@ const SPECIES: Species[] = [
     id:'perch', name:'Sacramento Perch', latin:'Archoplites interruptus',
     status:'extirpated', statusLabel:'Extirpated (2008)',
     scores:[4,4,3,2,2,1],
-    summary:'California\'s only native sunfish. Declined steadily after carp introduction in the 1880s, with brief recoveries in the 1930s. By 2008, believed completely extirpated from Clear Lake. A cautionary example of how introduced carp destroyed a native species over more than a century.',
+    summary:'California\'s only native sunfish. Declined steadily after carp introduction in the 1880s, with brief recoveries in the 1930s. By 2008, believed completely extirpated from Clear Lake.',
     timeline:[
       {era:'1800s-1930s', items:[
         {y:'1800s',t:'Common throughout Clear Lake',d:'Sacramento perch is historically common and represents an important component of the native fish community.',tag:'neutral'},
@@ -134,14 +134,14 @@ const SPECIES: Species[] = [
     id:'chub', name:'Thicktail Chub', latin:'Gila crassicauda',
     status:'extinct', statusLabel:'Globally Extinct',
     scores:[5,3,2,1,1,1],
-    summary:'Globally extinct. Once common across Central Valley waterways including Clear Lake, the thicktail chub declined through the 1920s and was last observed anywhere on Earth in 1938. One of California\'s most notable modern fish extinctions, and a direct warning for what could happen to the hitch.',
+    summary:'Globally extinct. Once common across Central Valley waterways including Clear Lake, the thicktail chub declined through the 1920s and was last observed anywhere on Earth in 1938.',
     timeline:[
       {era:'1800s-1920s', items:[
         {y:'Pre-1900s',t:'Common in Clear Lake and Central Valley',d:'Thicktail chub is a widespread native species found throughout Central Valley waterways.',tag:'neutral'},
         {y:'1926',t:'Documented as declining',d:'The first formal documentation of decline. The species is losing ground across its range.',tag:'warn'},
       ]},
       {era:'1930s', items:[
-        {y:'1938',t:'Last observed anywhere on Earth',d:'The thicktail chub is last documented at Clear Lake and anywhere else in 1938. No confirmed specimens have been found since. It is now considered globally extinct, a cautionary loss that shaped California fisheries conservation policy.',tag:'danger'},
+        {y:'1938',t:'Last observed anywhere on Earth',d:'The thicktail chub is last documented at Clear Lake and anywhere else in 1938. No confirmed specimens have been found since. It is now considered globally extinct.',tag:'danger'},
       ]},
     ]
   },
@@ -459,7 +459,7 @@ const timelineData: TimelineEra[] = [
         year: "1938",
         yearClass: "danger",
         title: "Thicktail chub: last observed anywhere on Earth",
-        detail: "The thicktail chub, once abundant across Central Valley waterways including Clear Lake, is last documented around 1938. It is now declared globally extinct, one of California's most significant fish extinctions. This is a direct precedent and warning for the hitch, facing many of the same stressors.",
+        detail: "The thicktail chub, once abundant across Central Valley waterways including Clear Lake, is last documented around 1938. It is now declared globally extinct. The hitch faces many of the same stressors today.",
         tags: ["extinction", "thicktail chub", "native species"]
       },
       {
