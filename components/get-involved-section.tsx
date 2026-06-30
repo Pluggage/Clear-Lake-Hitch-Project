@@ -27,6 +27,7 @@ const involvementOptions = [
     linkText: "Call (707) 263-2344",
     href: "tel:7072632344",
     external: false,
+    emphasis: true,
     note: "Permits are required to conduct fish rescues. Always contact the Rescue Team rather than attempting relocation yourself.",
   },
   {
@@ -66,9 +67,9 @@ export function GetInvolvedSection() {
             return (
               <div
                 key={option.title}
-                className="bg-[var(--sand)] rounded-2xl p-6 border border-[var(--border-color)]"
+                className={`rounded-2xl p-6 border ${"emphasis" in option && option.emphasis ? "bg-[#fff3d6] border-[var(--amber)]" : "bg-[var(--sand)] border-[var(--border-color)]"}`}
               >
-                <Icon className="w-8 h-8 text-[var(--lake)] mb-4" />
+                <Icon className={`w-8 h-8 mb-4 ${"emphasis" in option && option.emphasis ? "text-[var(--amber-text)]" : "text-[var(--lake)]"}`} />
                 <h3 className="font-bold text-base mb-2">{option.title}</h3>
                 <p className="text-sm text-[var(--muted-color)] leading-relaxed mb-4">{option.description}</p>
                 <Link

@@ -5,7 +5,7 @@ export function MapSection() {
   return (
     <section
       id="map"
-      className="pb-16 px-4 md:px-8"
+      className="relative overflow-hidden pb-20 px-4 md:px-8"
       style={{ background: "linear-gradient(180deg,#060f1a 0%,#0c2035 50%,#07141f 100%)" }}
     >
       <div className="max-w-[1100px] mx-auto">
@@ -34,6 +34,15 @@ export function MapSection() {
           />
         </div>
       </div>
+      {/* Wave divider into the sand watershed section below */}
+      <svg
+        className="absolute bottom-0 left-0 w-full h-[40px] md:h-[56px] block"
+        viewBox="0 0 1440 56"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path d="M0,56 L0,30 C240,6 480,6 720,22 C960,38 1200,42 1440,18 L1440,56 Z" fill="var(--sand)" />
+      </svg>
     </section>
   )
 }
