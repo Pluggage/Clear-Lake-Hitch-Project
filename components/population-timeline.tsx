@@ -72,11 +72,11 @@ export function PopulationTimeline() {
   }
 
   return (
-    <div className="bg-background border-b border-border py-8 px-4 md:px-8">
+    <div className="bg-background border-b border-border py-12 px-4 md:px-8">
       <div className="max-w-[1100px] mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-5 flex-wrap gap-2">
-          <h2 className="text-xl font-bold text-foreground">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Clear Lake Hitch: Spawner Count by Year
           </h2>
           <button
@@ -127,7 +127,7 @@ export function PopulationTimeline() {
         </div>
 
         {/* Bar Chart */}
-        <div className="relative h-12 mb-2 flex items-end gap-[3px]">
+        <div className="relative h-44 mb-2 flex items-end gap-[3px] border-b border-[var(--border-color)] pb-px">
           {popData.map((item, i) => {
             const h = Math.max(3, (item.count / popMax) * 100)
             const isActive = i === popIdx
@@ -144,11 +144,11 @@ export function PopulationTimeline() {
                   className="w-full rounded-t transition-all duration-400 min-h-[2px] group-hover:brightness-120"
                   style={{
                     height: `${h}%`,
-                    background: isActive ? item.color : "#d0dbe6",
+                    background: isActive ? item.color : item.color + "40",
                     boxShadow: isActive ? "0 0 8px rgba(26,111,168,0.4)" : "none",
                   }}
                 />
-                <div className="text-[0.58rem] text-muted-foreground mt-[1px] tabular-nums">
+                <div className="text-[0.62rem] text-muted-foreground mt-1 tabular-nums">
                   {String(item.yr).slice(2)}
                 </div>
               </div>
