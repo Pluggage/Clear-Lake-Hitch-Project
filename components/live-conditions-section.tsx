@@ -321,7 +321,7 @@ export function LiveConditionsSection() {
             LIVE
           </div>
         </div>
-        <h2 className="text-2xl md:text-3xl font-bold text-white mt-3 mb-2">Live Conditions &amp; Spawner Map</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-3 mb-2">Live Conditions</h2>
         <p className="text-white/60 text-base max-w-[650px] mb-10 leading-relaxed">
           These gauges read live from USGS. When the lake drops and the creeks stop flowing, as in 2021, the hitch
           can&apos;t reach their spawning grounds and the run collapses. Here is where things stand now.

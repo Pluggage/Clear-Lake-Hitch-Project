@@ -122,7 +122,7 @@ export default async function CreekPage({ params }: { params: Promise<{ slug: st
               <p className="hero-sub">{creek.location}. {creek.description}</p>
               <div className="hero-btns">
                 <a href="/creeks" className="btn btn-outline">← All Creeks</a>
-                <a href="/map" className="btn btn-outline">View on map</a>
+                <a href={`/map?creek=${slugOf(creek)}`} className="btn btn-outline">View on map</a>
               </div>
             </div>
           </div>
@@ -185,7 +185,7 @@ export default async function CreekPage({ params }: { params: Promise<{ slug: st
             <div className="side-card">
               <h3>Quick Actions</h3>
               <div className="side-actions">
-                <a href="/map" className="side-btn primary">Open Interactive Map</a>
+                <a href={`/map?creek=${slugOf(creek)}`} className="side-btn primary">Open Interactive Map</a>
                 <a href={`/archive?q=${encodeURIComponent(creek.name.replace(/ Creek| Slough| System/g, '').trim())}`} className="side-btn outline">Archive Reports</a>
                 <a href="tel:7072632344" className="side-btn emergency">⚠ Report Stranded Hitch</a>
               </div>
