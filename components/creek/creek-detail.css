@@ -253,4 +253,12 @@
   .creek-detail .stats-inner { grid-template-columns: 1fr 1fr; }
   .creek-detail .photo-grid { grid-template-columns: 1fr; }
   .creek-detail .barriers-grid { grid-template-columns: 1fr; }
+  .creek-detail .survey-table, .creek-detail .survey-table tbody, .creek-detail .survey-table tr, .creek-detail .survey-table td { display: block; width: 100%; }
+  .creek-detail .survey-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .creek-detail .survey-table tr { padding: .75rem 1rem; border-bottom: 1px solid var(--border); }
+  .creek-detail .survey-table tr:last-child { border-bottom: none; }
+  .creek-detail .survey-table td { padding: .15rem 0; border: none; }
+  .creek-detail .survey-table td:first-child { font-size: 1rem; margin-bottom: .2rem; }
+  .creek-detail .survey-table td:not(:first-child):not(:last-child)::before { content: attr(data-label) ": "; color: var(--muted); font-weight: 400; }
+  .creek-detail .survey-table td:last-child { margin-top: .2rem; }
 }

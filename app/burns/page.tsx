@@ -82,7 +82,7 @@ export default function BurnsPage() {
               <div className="pop-title">Burns Valley Creek: 2024 Juvenile Output</div>
             </div>
             <p style={{ color: 'var(--muted)', fontSize: '.9rem', marginBottom: '1.5rem', lineHeight: 1.7 }}>In 2024, Burns Valley Creek produced the strongest documented juvenile output of any surveyed tributary. Lake County WPD recorded counts across three life stages (larvae, juveniles, and adults) in the same survey window.</p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(160px,1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
               <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 12, padding: '1.1rem', textAlign: 'center', borderTop: '4px solid var(--green)' }}>
                 <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--green)', lineHeight: 1 }}>~4,000</div>
                 <div style={{ fontSize: '.75rem', color: 'var(--muted)', marginTop: 4, textTransform: 'uppercase', letterSpacing: '.06em', fontWeight: 600 }}>Juveniles observed</div>
@@ -203,10 +203,10 @@ export default function BurnsPage() {
               <tbody>
                 {survey.map((r) => (
                   <tr key={r.year}>
-                    <td className="val">{r.year}</td>
-                    <td className={r.statusClass}>{r.status}{r.badge && <span className="kel-badge">{r.badge}</span>}</td>
-                    <td className="val">{r.count}</td>
-                    <td>{r.notes}</td>
+                    <td data-label="Year" className="val">{r.year}</td>
+                    <td data-label="Burns Valley Status" className={r.statusClass}>{r.status}{r.badge && <span className="kel-badge">{r.badge}</span>}</td>
+                    <td data-label="Lake-wide Count" className="val">{r.count}</td>
+                    <td data-label="Notes">{r.notes}</td>
                   </tr>
                 ))}
               </tbody>

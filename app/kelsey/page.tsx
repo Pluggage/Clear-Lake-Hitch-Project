@@ -182,10 +182,10 @@ export default function KelseyPage() {
               <tbody>
                 {survey.map((r) => (
                   <tr key={r.year}>
-                    <td className="val">{r.year}</td>
-                    <td className={r.statusClass}>{r.status}{r.badge && <span className="kel-badge">{r.badge}</span>}</td>
-                    <td className="val">{r.count}</td>
-                    <td>{r.notes}</td>
+                    <td data-label="Year" className="val">{r.year}</td>
+                    <td data-label="Adults at Kelsey" className={r.statusClass}>{r.status}{r.badge && <span className="kel-badge">{r.badge}</span>}</td>
+                    <td data-label="Lake-wide Count" className="val">{r.count}</td>
+                    <td data-label="Notes">{r.notes}</td>
                   </tr>
                 ))}
               </tbody>

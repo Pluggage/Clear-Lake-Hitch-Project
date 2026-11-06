@@ -201,20 +201,22 @@ export function PopulationTimeline() {
           <Link href="/timeline" className="underline hover:text-[var(--lake)]">Full timeline</Link>
         </p>
 
-        <table className="sr-only">
-          <caption>Clear Lake hitch spawner counts by year</caption>
-          <thead>
-            <tr><th scope="col">Year</th><th scope="col">Spawners (lake-wide)</th></tr>
-          </thead>
-          <tbody>
-            {popData.map((row) => (
-              <tr key={row.yr}>
-                <td>{row.yr}</td>
-                <td>{row.est ? "Fewer than " : ""}{row.count.toLocaleString()}</td>
-              </tr>
-            ))}
-          </tbody>
+        <div className="sr-only">
+          <table>
+            <caption>Clear Lake hitch spawner counts by year</caption>
+            <thead>
+              <tr><th scope="col">Year</th><th scope="col">Spawners (lake-wide)</th></tr>
+            </thead>
+            <tbody>
+              {popData.map((row) => (
+                <tr key={row.yr}>
+                  <td>{row.yr}</td>
+                  <td>{row.est ? "Fewer than " : ""}{row.count.toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
         </table>
+        </div>
       </div>
 
       <style jsx>{`

@@ -123,20 +123,22 @@ export function SpawnerTimeline({
           <a href="https://pubs.usgs.gov/publication/ofr20251018" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--lake)', textDecoration: 'underline' }}>USGS OFR 2025-1018</a>
         </p>
 
-        <table className="sr-only">
-          <caption>{title}</caption>
-          <thead>
-            <tr><th scope="col">Year</th><th scope="col">Spawners (lake-wide)</th></tr>
-          </thead>
-          <tbody>
-            {data.map((p) => (
-              <tr key={p.yr}>
-                <td>{p.yr}</td>
-                <td>{p.est ? 'Fewer than ' : ''}{p.count.toLocaleString()}</td>
-              </tr>
-            ))}
-          </tbody>
+        <div className='sr-only'>
+          <table>
+            <caption>{title}</caption>
+            <thead>
+              <tr><th scope="col">Year</th><th scope="col">Spawners (lake-wide)</th></tr>
+            </thead>
+            <tbody>
+              {data.map((p) => (
+                <tr key={p.yr}>
+                  <td>{p.yr}</td>
+                  <td>{p.est ? 'Fewer than ' : ''}{p.count.toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
         </table>
+        </div>
       </div>
     </div>
   )
