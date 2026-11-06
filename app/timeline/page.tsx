@@ -38,7 +38,7 @@ const SPECIES: Species[] = [
     status:'native', statusLabel:'Native, State Threatened',
     scores:[5,5,2,3,2,3],
     highlight:true,
-    summary:'The only fish endemic to Clear Lake and its watershed that has not yet gone extinct, but is at high risk. Once sustaining Pomo communities for millennia, the hitch has declined by over 96% since 2017 and faces extinction within 50 years under most climate scenarios.',
+    summary:'The only fish endemic to Clear Lake and its watershed that has not yet gone extinct, but is at high risk. Once sustaining Pomo communities for millennia, USGS gillnet surveys recorded a decline of about 96% between 2017 and 2022, and the hitch faces extinction within 50 years under most climate scenarios.',
     timeline:[
       {era:'Pre-1840-1890s', items:[
         {y:'Pre-1840',t:'Major staple for Pomo people for thousands of years',d:'The hitch (chi in Pomo) is central to Pomo subsistence, spirituality, and seasonal food cycles. Massive spring spawning runs fill tributaries across the watershed.',tag:'gold'},
@@ -67,13 +67,15 @@ const SPECIES: Species[] = [
         {y:'2014',t:'Listed as Threatened under California ESA',d:'State listing provides legal protection but does not address the core drivers of decline: water diversions, invasive species, drought.',tag:'policy'},
         {y:'2020',t:'1,672 spawners: strongest single-creek count on record',d:'Kelsey Creek alone produces all 1,672 spawners. A sign of the species\' potential and its dangerous dependence on a single tributary.',tag:'good'},
         {y:'2021',t:'Only 120 spawners: 93% crash in one year',d:'Three drought years in succession collapse the population. Tributaries run dry before juvenile fish can emigrate. The lowest count ever recorded.',tag:'danger'},
-        {y:'2022',t:'306 spawners: USGS confirms 96% decline from 2017 baseline',d:'The 96% decline documented by USGS gillnet surveys triggers federal ESA action. The species is in freefall.',tag:'danger'},
+        {y:'2022',t:'306 spawners; USGS gillnet index down 96% from 2017',d:'USGS gillnet surveys, a separate measure from spawner counts, recorded relative abundance about 96% below the 2017 baseline.',tag:'danger'},
       ]},
       {era:'2023-Present', items:[
         {y:'Feb 2023',t:'Lake County emergency declaration',d:'First governmental emergency declaration for a fish species in Lake County history.',tag:'policy'},
         {y:'2023',t:'Record 2,548 spawners after wet winter',d:'The highest count since monitoring began. Shows both the recovery potential and the total dependence on rainfall.',tag:'good'},
         {y:'Jan 2025',t:'USFWS proposes federal Threatened listing',d:'A proposed rule for threatened status with a Section 4(d) rule; critical habitat was deferred to a later date. The SSA finds high extinction risk within 50 years under most scenarios.',tag:'policy'},
         {y:'Spring 2025',t:'1,567 spawners: above 11-year average',d:'A solid year. Monitoring by CDFW, tribal agencies, and LCWPD continues.',tag:'good'},
+        {y:'Jan 2026',t:'Federal decision deadline passes',d:'The one-year deadline for a final decision on the January 2025 proposal passes without a final rule.',tag:'policy'},
+        {y:'Apr 2026',t:'Lawsuit filed over the missed deadline',d:'The Center for Biological Diversity sues to compel a final listing decision. No final rule had been published as of November 2026.',tag:'policy'},
       ]},
     ]
   },
@@ -620,8 +622,8 @@ const timelineData: TimelineEra[] = [
       {
         year: "2022",
         yearClass: "danger",
-        title: "306 spawners: USGS confirms 96% decline from 2017 baseline",
-        detail: "Only 306 spawners counted. The USGS gillnet survey confirms hitch abundance has fallen to approximately 4% of the 2017 baseline, a 96% decline in five years. Over 20 non-native species now dominate the fish assemblage. The species is in freefall. This data triggers urgent federal-level response.",
+        title: "306 spawners; USGS gillnet index down 96% from 2017",
+        detail: "Only 306 spawners counted. The USGS gillnet survey confirms hitch abundance has fallen to approximately 4% of the 2017 baseline, a 96% decline in five years. Over 20 non-native species now dominate the fish assemblage.",
         tags: ["96% decline", "USGS", "gillnet", "non-native dominance"]
       }
     ]
@@ -699,6 +701,20 @@ const timelineData: TimelineEra[] = [
         title: "Cole Creek Restoration: 1.55 miles; Main Street barrier removal on Kelsey",
         detail: "The Cole Creek Restoration Project aims to restore 1.55 miles of spawning habitat. The Main Street barrier on Kelsey Creek is being removed. These physical habitat improvements address one of the most direct threats to hitch spawning success.",
         tags: ["restoration", "cole creek", "barrier removal"]
+      },
+      {
+        year: "Jan 2026",
+        yearClass: "policy",
+        title: "Federal decision deadline passes with no final rule",
+        detail: "The U.S. Fish & Wildlife Service's January 16, 2026 deadline for a final decision on the proposed listing passes without a final rule.",
+        tags: ["ESA", "federal listing", "USFWS"]
+      },
+      {
+        year: "Apr 2026",
+        yearClass: "policy",
+        title: "Lawsuit filed over the missed listing deadline",
+        detail: "The Center for Biological Diversity sues the U.S. Fish & Wildlife Service in federal court in Northern California, asking that the agency be ordered to issue a final listing rule by a set date. No final rule had been published in the Federal Register as of November 2026.",
+        tags: ["ESA", "federal listing", "lawsuit", "USFWS"]
       },
       {
         year: "2026",

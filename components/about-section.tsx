@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const infoCards = [
   {
@@ -18,7 +19,7 @@ const infoCards = [
   },
   {
     title: "Federal ESA Listing Proposed: January 2025",
-    content: "The U.S. Fish & Wildlife Service has proposed listing the CLH as threatened under federal law, which would add Endangered Species Act protections on top of the state's.",
+    content: "The U.S. Fish & Wildlife Service has proposed listing the CLH as threatened under federal law, which would add Endangered Species Act protections on top of the state's. A final decision was due in January 2026 and had not been published as of November 2026.",
     variant: "danger",
   },
   {
@@ -50,19 +51,18 @@ export function AboutSection() {
                 Each spring, adult hitch migrate from the lake into its tributaries to spawn, a spectacle that has sustained the <strong className="text-[var(--text)]">Indigenous Pomo Tribes</strong> as a food and cultural resource since time immemorial. The Pomo people know this fish as <em>chi</em>. Tribal communities have long held deep spiritual and practical connections to this fish and the watershed that sustains it.
               </p>
               <p>
-                Today, the Clear Lake hitch faces mounting threats: prolonged drought, loss of spawning habitat, harmful algal blooms, competition and predation from invasive species, and reduced water flows in tributaries. In February 2023, Lake County declared a <strong className="text-[var(--text)]">local state of emergency</strong> due to the risk of extinction. As of January 2025, the U.S. Fish &amp; Wildlife Service has proposed listing the hitch as <strong className="text-[var(--text)]">threatened under the Federal Endangered Species Act</strong>.
+                Today, the Clear Lake hitch faces mounting threats: prolonged drought, loss of spawning habitat, harmful algal blooms, competition and predation from invasive species, and reduced water flows in tributaries. In February 2023, Lake County declared a <strong className="text-[var(--text)]">local state of emergency</strong> due to the risk of extinction. In January 2025, the U.S. Fish &amp; Wildlife Service proposed listing the hitch as <strong className="text-[var(--text)]">threatened under the Federal Endangered Species Act</strong>; the final decision is overdue and the subject of a 2026 lawsuit.
               </p>
             </div>
             <figure className="mt-6 rounded-xl overflow-hidden border border-[var(--border-color)]">
-              <picture>
-                <source srcSet="/creek-photos/adobe/03-lg.webp" type="image/webp" />
-                <img
-                  src="/creek-photos/adobe/03-lg.webp"
-                  alt="Hitch swimming up Adobe Creek toward the Adobe Reservoir dam during the spring spawning run, April 2023"
-                  className="w-full max-h-[380px] object-cover block"
-                  loading="lazy"
-                />
-              </picture>
+              <Image
+                src="/creek-photos/adobe/03-lg.webp"
+                alt="Hitch swimming up Adobe Creek toward the Adobe Reservoir dam during the spring spawning run, April 2023"
+                width={960}
+                height={1280}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="w-full max-h-[380px] object-cover block"
+              />
               <figcaption className="text-xs text-[var(--muted-color)] px-3 py-2 bg-[var(--sand)]">
                 Adult hitch reaching the Adobe Creek dam during the spring run, April 2023.
               </figcaption>

@@ -9,7 +9,7 @@ export const faqItems: { q: string; a: string }[] = [
   },
   {
     q: "How endangered is the hitch right now?",
-    a: "It has been listed as Threatened under the California Endangered Species Act since 2014, and in January 2025 the U.S. Fish & Wildlife Service proposed listing it as Threatened under the federal Endangered Species Act. USGS gillnet surveys documented a 96% decline in relative abundance between 2017 and 2022, and the federal Species Status Assessment found the hitch at high risk of extinction within 50 years under most scenarios. In February 2023, Lake County declared a local state of emergency, the first ever for a fish species in the county.",
+    a: "It has been listed as Threatened under the California Endangered Species Act since 2014, and in January 2025 the U.S. Fish & Wildlife Service proposed listing it as Threatened under the federal Endangered Species Act. A final decision was due in January 2026 and had not been published as of November 2026; a lawsuit filed in April 2026 seeks to compel one. USGS gillnet surveys documented a 96% decline in relative abundance between 2017 and 2022, and the federal Species Status Assessment found the hitch at high risk of extinction within 50 years under most scenarios. In February 2023, Lake County declared a local state of emergency, the first ever for a fish species in the county.",
   },
   {
     q: "Is it legal to catch, keep, or handle a Clear Lake hitch?",
@@ -100,7 +100,7 @@ export const idGuide: {
     },
   ],
   safetyNote:
-    "Do not catch, handle, net, or remove any fish you believe may be a Clear Lake hitch. It has been listed as threatened under the California Endangered Species Act since 2014, and on January 16, 2025 the U.S. Fish & Wildlife Service proposed listing it as threatened under the federal Endangered Species Act. Under state law, \"take\" (including catching, harming, harassing, or killing) is prohibited without authorization. The right action is to observe, photograph from a distance if you safely can, and report it with the date, location, approximate size, number of fish, and a photo. Small juvenile hitch and roach are hard to tell apart in the field, so when unsure, report it as a \"possible hitch\" with a photo rather than a firm ID, and confirm current reporting channels with CDFW.",
+    "Do not catch, handle, net, or remove any fish you believe may be a Clear Lake hitch. It has been listed as threatened under the California Endangered Species Act since 2014, and on January 16, 2025 the U.S. Fish & Wildlife Service proposed listing it as threatened under the federal Endangered Species Act (a final decision is still pending). Under state law, \"take\" (including catching, harming, harassing, or killing) is prohibited without authorization. The right action is to observe, photograph from a distance if you safely can, and report it with the date, location, approximate size, number of fish, and a photo. Small juvenile hitch and roach are hard to tell apart in the field, so when unsure, report it as a \"possible hitch\" with a photo rather than a firm ID, and confirm current reporting channels with CDFW.",
 }
 
 export const glossary: { term: string; definition: string }[] = [
@@ -122,7 +122,7 @@ export const glossary: { term: string; definition: string }[] = [
   { term: "Riparian", definition: "Relating to the bank and vegetation alongside a stream, which provides shade, cover, and habitat for spawning fish." },
   { term: "Watershed", definition: "The entire land area that drains its rain and runoff into a common body of water, here all the creeks and slopes feeding Clear Lake." },
   { term: "CESA", definition: "The California Endangered Species Act, the state law under which the hitch was listed as threatened in 2014." },
-  { term: "ESA", definition: "The federal Endangered Species Act, under which a threatened listing for the hitch was proposed in January 2025." },
+  { term: "ESA", definition: "The federal Endangered Species Act, under which a threatened listing for the hitch was proposed in January 2025. A final decision is still pending." },
   { term: "Section 4(d) rule", definition: "A provision of the federal ESA that tailors the protections for a threatened species, allowing flexibility for activities that still benefit conservation." },
   { term: "Threatened vs. endangered", definition: "\"Threatened\" means a species is likely to become endangered in the foreseeable future, a less severe legal category than \"endangered,\" which means it faces immediate danger of extinction." },
   { term: "Critical habitat", definition: "Geographic areas legally identified as essential to a protected species' survival and recovery." },

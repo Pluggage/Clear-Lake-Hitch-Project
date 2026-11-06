@@ -1,18 +1,19 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export function HeroSection() {
   return (
     <section id="home" className="relative min-h-[86vh] flex items-center py-16 px-4 md:px-8 overflow-hidden">
       {/* Background: Kelsey Creek, the lake's most important spawning tributary */}
-      <picture>
-        <source srcSet="/creek-photos/kelsey/09-lg.webp" type="image/webp" />
-        <img
-          src="/creek-photos/kelsey/09-lg.webp"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </picture>
+      <Image
+        src="/creek-photos/kelsey/09-lg.webp"
+        alt=""
+        aria-hidden="true"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
       {/* Overlays for text contrast */}
       <div className="absolute inset-0 bg-gradient-to-r from-[var(--lake-dark)]/95 via-[var(--lake-dark)]/75 to-[var(--lake-dark)]/30" />
       <div className="absolute inset-0 bg-gradient-to-t from-[var(--lake-dark)]/55 via-transparent to-[var(--lake-dark)]/15" />
@@ -39,8 +40,8 @@ export function HeroSection() {
 
           {/* Subheading */}
           <p className="text-white/90 text-base md:text-lg mb-8 leading-relaxed max-w-xl">
-            The Clear Lake Hitch lives in this one California lake and nowhere else on Earth. Its numbers have fallen
-            about 96% since 2017, and in 2023 Lake County declared a local state of emergency over the risk of losing
+            The Clear Lake Hitch lives in this one California lake and nowhere else on Earth. USGS gillnet surveys
+            recorded a decline of about 96% between 2017 and 2022, and in 2023 Lake County declared a local state of emergency over the risk of losing
             it. This site gathers the surveys, the live lake data, and the record of what is happening.
           </p>
 

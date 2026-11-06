@@ -78,7 +78,7 @@ export default function AboutPage() {
               96% decline figure). Every major source is linked in the{' '}
               <a href="/archive" className="underline" style={{ color: 'var(--lake)' }}>Hitch Archive</a>.
             </p>
-            <p className="text-sm text-muted-foreground">Data last reviewed June 2026.</p>
+            <p className="text-sm text-muted-foreground">Federal status last checked November 2026. Survey data last reviewed June 2026.</p>
           </section>
 
           <section>

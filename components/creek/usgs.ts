@@ -3,10 +3,10 @@
 export interface Point { t: Date; v: number }
 export interface Gauge { series: Point[]; latest: Point; unit: string }
 
-/** Fetch a USGS instantaneous-values series, with CORS-proxy fallbacks. */
+/** Fetch a USGS instantaneous-values series, with one retry. */
 export async function fetchGauge(site: string, param: string, period?: string): Promise<Gauge> {
   const base = `https://waterservices.usgs.gov/nwis/iv/?sites=${site}&parameterCd=${param}&format=json&siteStatus=all${period ? '&period=' + period : ''}`
-  const urls = [base, `https://corsproxy.io/?${encodeURIComponent(base)}`, `https://api.allorigins.win/raw?url=${encodeURIComponent(base)}`]
+  const urls = [base, base]
   for (const url of urls) {
     try {
       const ctrl = new AbortController()
@@ -25,7 +25,7 @@ export async function fetchGauge(site: string, param: string, period?: string): 
       if (!series.length) continue
       return { series, latest: series[series.length - 1], unit: ts.variable?.unit?.unitCode || '' }
     } catch {
-      /* try next proxy */
+      /* retry */
     }
   }
   throw new Error('unavailable')

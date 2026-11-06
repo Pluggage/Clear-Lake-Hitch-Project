@@ -6,7 +6,7 @@ const BASE = 'https://www.clearlakehitchproject.org'
 export default function sitemap(): MetadataRoute.Sitemap {
   // Stable "last reviewed" date so every URL doesn't advertise a new
   // lastmod on each deploy (which search engines discount as noise).
-  const updated = new Date('2026-06-17')
+  const updated = new Date('2026-11-05')
 
   // Core App Router pages + every creek detail page (bespoke + lightweight).
   const routes = [

@@ -115,11 +115,8 @@ function fmtTime(dt: Date): string {
 
 async function fetchGauge(site: string, param: string): Promise<GaugeData> {
   const base = `https://waterservices.usgs.gov/nwis/iv/?sites=${site}&parameterCd=${param}&format=json&siteStatus=all`
-  const sources = [
-    base,
-    `https://corsproxy.io/?${encodeURIComponent(base)}`,
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(base)}`,
-  ]
+  // Same URL twice: one retry for a transient USGS failure.
+  const sources = [base, base]
 
   for (const url of sources) {
     try {

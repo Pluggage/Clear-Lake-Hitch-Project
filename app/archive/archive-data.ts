@@ -889,6 +889,20 @@ export const ARCHIVE: ArchiveEntry[] = [
      POLICY / LISTINGS
   ───────────────────────────────────────── */
   {
+    title: "Lawsuit Seeking a Final Federal Listing Decision for the Clear Lake Hitch",
+    year: 2026,
+    source: "Center for Biological Diversity, press release (April 2026)",
+    agency: "Center for Biological Diversity",
+    summary: "The Center for Biological Diversity sued the U.S. Fish & Wildlife Service after the January 16, 2026 deadline for a final decision on the proposed threatened listing passed without a final rule.",
+    takeaways: [
+      "The complaint asks the court to order the Service to issue a final listing rule by a set date",
+      "This is the plaintiff's account of the case, not a court ruling or agency finding"
+    ],
+    tags: ["federal listing","ESA","USFWS","policy","lawsuit"],
+    locations: ["lake"],
+    url: "https://biologicaldiversity.org/w/news/press-releases/lawsuit-seeks-endangered-species-protection-for-californias-clear-lake-hitch-2026-04-21/"
+  },
+  {
     title: "Proposed Rule: Threatened Species Status for Clear Lake Hitch Under the Federal ESA",
     year: 2025,
     source: "U.S. Fish & Wildlife Service, Federal Register 90 FR 4916 (January 16, 2025)",
