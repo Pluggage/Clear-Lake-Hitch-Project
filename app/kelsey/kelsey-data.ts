@@ -5,23 +5,22 @@ export interface PopPoint {
   count: number
   est?: boolean
   ctx: string
-  color: string
 }
 
 /** Lake-wide spawner counts (same data/logic as the homepage timeline). */
 export const popData: PopPoint[] = [
-  { yr: 2013, count: 500, est: true, ctx: 'Drought era. Kelsey ran low. Survey methods still being standardized.', color: '#c03030' },
-  { yr: 2014, count: 1119, ctx: 'CA lists hitch as Threatened. Kelsey among primary spawning streams.', color: '#7ec8e3' },
-  { yr: 2016, count: 693, ctx: 'Kelsey and Adobe carry the bulk of the spawning effort.', color: '#a0b8c8' },
-  { yr: 2017, count: 517, ctx: '★ Kelsey most frequented tributary. First year of USGS baseline gillnet surveys.', color: '#7ec8e3' },
-  { yr: 2018, count: 1153, ctx: 'Adobe leads; Kelsey still a major contributor this season.', color: '#7ec8e3' },
-  { yr: 2019, count: 612, ctx: '★ Kelsey most frequented again. USGS catches down ~55% from 2017 baseline.', color: '#a0b8c8' },
-  { yr: 2020, count: 1672, ctx: '★★ PEAK: ALL 1,672 hitch observed lake-wide were in Kelsey exclusively. Zero adults at any other tributary.', color: '#00c853' },
-  { yr: 2021, count: 120, ctx: 'Catastrophic drought. Only 120 spawners. Most tributaries ran completely dry.', color: '#c03030' },
-  { yr: 2022, count: 306, ctx: 'Still in crisis. USGS gillnet at ~4% of 2017 baseline. Kelsey flow marginal.', color: '#d08040' },
-  { yr: 2023, count: 2548, ctx: 'Record year after heavy winter rains. Kelsey among leading contributors.', color: '#00c853' },
-  { yr: 2024, count: 1042, ctx: 'CDFW confirms adults at Kelsey. Federal ESA listing proposed January 2025.', color: '#7ec8e3' },
-  { yr: 2025, count: 1567, ctx: 'CDFW confirms adults at Kelsey. 1,567 spawners recorded lake-wide.', color: '#7ec8e3' },
+  { yr: 2013, count: 500, est: true, ctx: 'Drought era. Kelsey ran low. Survey methods still being standardized.' },
+  { yr: 2014, count: 1119, ctx: 'CA lists hitch as Threatened. Kelsey among primary spawning streams.' },
+  { yr: 2016, count: 693, ctx: 'Kelsey and Adobe carry the bulk of the spawning effort.' },
+  { yr: 2017, count: 517, ctx: '★ Kelsey most frequented tributary. First year of USGS baseline gillnet surveys.' },
+  { yr: 2018, count: 1153, ctx: 'Adobe leads; Kelsey still a major contributor this season.' },
+  { yr: 2019, count: 612, ctx: '★ Kelsey most frequented again. USGS catches down ~55% from 2017 baseline.' },
+  { yr: 2020, count: 1672, ctx: '★★ PEAK: ALL 1,672 hitch observed lake-wide were in Kelsey exclusively. Zero adults at any other tributary.' },
+  { yr: 2021, count: 120, ctx: 'Catastrophic drought. Only 120 spawners. Most tributaries ran completely dry.' },
+  { yr: 2022, count: 306, ctx: 'Still in crisis. USGS gillnet at ~4% of 2017 baseline. Kelsey flow marginal.' },
+  { yr: 2023, count: 2548, ctx: 'Record year after heavy winter rains. Kelsey among leading contributors.' },
+  { yr: 2024, count: 1042, ctx: 'CDFW confirms adults at Kelsey. Federal ESA listing proposed January 2025.' },
+  { yr: 2025, count: 1567, ctx: 'CDFW confirms adults at Kelsey. 1,567 spawners recorded lake-wide.' },
 ]
 
 /** Field photo grid (in display order). Cards without a thumb render as placeholders. */

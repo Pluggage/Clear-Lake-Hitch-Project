@@ -2,18 +2,18 @@
 import type { PopPoint } from '@/components/creek/SpawnerTimeline'
 
 export const popData: PopPoint[] = [
-  { yr: 2013, count: 500, est: true, ctx: 'Drought era. Adobe ran low. Survey methods still being standardized.', color: '#c03030' },
-  { yr: 2014, count: 1119, ctx: 'CA lists hitch as Threatened. Adobe among primary spawning streams.', color: '#7ec8e3' },
-  { yr: 2016, count: 693, ctx: '★ Adobe led lake-wide spawning effort this season.', color: '#a0b8c8' },
-  { yr: 2017, count: 517, ctx: 'Adobe active. First year of USGS baseline gillnet surveys.', color: '#7ec8e3' },
-  { yr: 2018, count: 1153, ctx: '★ Adobe led; highest tributary count lake-wide this season.', color: '#7ec8e3' },
-  { yr: 2019, count: 612, ctx: 'Kelsey primary stream; Adobe ran marginal. USGS catches down ~55% from 2017 baseline.', color: '#a0b8c8' },
-  { yr: 2020, count: 1672, ctx: 'All 1,672 lake-wide hitch were in Kelsey exclusively; Adobe did not host a run.', color: '#d08040' },
-  { yr: 2021, count: 120, ctx: 'Catastrophic drought. Only 120 spawners. Adobe Creek ran completely dry.', color: '#c03030' },
-  { yr: 2022, count: 306, ctx: '★ Adobe among most active tributaries despite post-drought low lake-wide count.', color: '#d08040' },
-  { yr: 2023, count: 2548, ctx: '★ Record year after heavy winter rains. Adobe among leading contributors.', color: '#00c853' },
-  { yr: 2024, count: 1042, ctx: 'Adults confirmed at Adobe. Federal ESA listing proposed January 2025.', color: '#7ec8e3' },
-  { yr: 2025, count: 1567, ctx: '★ Adobe confirmed leading tributary. 1,567 spawners recorded lake-wide.', color: '#7ec8e3' },
+  { yr: 2013, count: 500, est: true, ctx: 'Drought era. Adobe ran low. Survey methods still being standardized.' },
+  { yr: 2014, count: 1119, ctx: 'CA lists hitch as Threatened. Adobe among primary spawning streams.' },
+  { yr: 2016, count: 693, ctx: '★ Adobe led lake-wide spawning effort this season.' },
+  { yr: 2017, count: 517, ctx: 'Adobe active. First year of USGS baseline gillnet surveys.' },
+  { yr: 2018, count: 1153, ctx: '★ Adobe led; highest tributary count lake-wide this season.' },
+  { yr: 2019, count: 612, ctx: 'Kelsey primary stream; Adobe ran marginal. USGS catches down ~55% from 2017 baseline.' },
+  { yr: 2020, count: 1672, ctx: 'All 1,672 lake-wide hitch were in Kelsey exclusively; Adobe did not host a run.' },
+  { yr: 2021, count: 120, ctx: 'Catastrophic drought. Only 120 spawners. Adobe Creek ran completely dry.' },
+  { yr: 2022, count: 306, ctx: '★ Adobe among most active tributaries despite post-drought low lake-wide count.' },
+  { yr: 2023, count: 2548, ctx: '★ Record year after heavy winter rains. Adobe among leading contributors.' },
+  { yr: 2024, count: 1042, ctx: 'Adults confirmed at Adobe. Federal ESA listing proposed January 2025.' },
+  { yr: 2025, count: 1567, ctx: '★ Adobe confirmed leading tributary. 1,567 spawners recorded lake-wide.' },
 ]
 
 export const infoCards: { variant: '' | 'grn' | 'amb' | 'red'; title: string; body: string }[] = [

@@ -1,13 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 
 export interface PopPoint {
   yr: number
   count: number
   est?: boolean
   ctx: string
-  color: string
 }
 
 export function SpawnerTimeline({
@@ -21,7 +20,7 @@ export function SpawnerTimeline({
   note?: string
   badges?: string[]
 }) {
-  const [idx, setIdx] = useState(0)
+  const [idx, setIdx] = useState(data.length - 1)
   const [playing, setPlaying] = useState(false)
   const timer = useRef<ReturnType<typeof setInterval> | null>(null)
   const popMax = Math.max(...data.map((d) => d.count))
@@ -46,11 +45,13 @@ export function SpawnerTimeline({
   const countText = (d.est ? '<' : '') + d.count.toLocaleString()
   const countColor = d.count < 400 ? '#c0392b' : d.count > 2000 ? '#2d7a3a' : 'var(--text)'
   let change: { text: string; bg: string; color: string } | null = null
-  if (idx > 0) {
-    const pct = Math.round(((d.count - data[idx - 1].count) / data[idx - 1].count) * 100)
+  // An estimated year is only an upper bound, so no exact change can be stated from it.
+  if (idx > 0 && !data[idx - 1].est) {
+    const prev = data[idx - 1]
+    const pct = Math.round(((d.count - prev.count) / prev.count) * 100)
     change = pct >= 0
-      ? { text: `▲ +${pct}%`, bg: '#e8f5eb', color: '#2d7a3a' }
-      : { text: `▼ ${pct}%`, bg: '#fdecea', color: '#c0392b' }
+      ? { text: `▲ +${pct}% vs ${prev.yr}`, bg: '#e8f5eb', color: '#2d7a3a' }
+      : { text: `▼ ${Math.abs(pct)}% vs ${prev.yr}`, bg: '#fdecea', color: '#c0392b' }
   }
 
   return (
@@ -62,10 +63,10 @@ export function SpawnerTimeline({
         </div>
         <div className="pop-header">
           <div className="pop-title">{title}</div>
-          <button className="pop-play" onClick={animate}>{playing ? '⏸ Pause' : idx === data.length - 1 ? '▶ Replay' : '▶ Watch the history'}</button>
+          <button className="pop-play" onClick={animate}>{playing ? '⏸ Pause' : '▶ Play year by year'}</button>
         </div>
         <div className="pop-display">
-          <div className="pop-year-big" style={{ color: d.color }}>{d.yr}</div>
+          <div className="pop-year-big">{d.yr}</div>
           <div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
               <div className="pop-count-num" style={{ color: countColor }}>{countText}</div>
@@ -75,17 +76,39 @@ export function SpawnerTimeline({
             <div className="pop-context">{d.ctx}</div>
           </div>
         </div>
-        <div className="pop-bar-wrap">
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 3, height: 48, width: '100%' }}>
-            {data.map((p, i) => (
-              <div key={p.yr} className={`pop-bar-col${i === idx ? ' active' : ''}`} onClick={() => setIdx(i)} style={{ flex: 1 }}>
-                <div className="pop-bar" style={{ height: `${Math.max(3, (p.count / popMax) * 100)}%`, background: i === idx ? p.color : '#d0dbe6' }} />
-                <div className="pop-bar-yr">{String(p.yr).slice(2)}</div>
-              </div>
-            ))}
-          </div>
+        <div className="pop-bar-wrap" aria-hidden="true">
+          {data.map((p, i) => {
+            const skipped = i > 0 && p.yr - data[i - 1].yr > 1
+            return (
+              <Fragment key={p.yr}>
+                {skipped && (
+                  <div className="pop-bar-col pop-bar-gap" title={`No ${p.yr - 1} figure`}>
+                    <div className="pop-bar-area">–</div>
+                    <div className="pop-bar-yr">{String(p.yr - 1).slice(2)}</div>
+                  </div>
+                )}
+                <div className={`pop-bar-col${i === idx ? ' active' : ''}`} onClick={() => { stop(); setIdx(i) }}>
+                  <div className="pop-bar-area">
+                    <div className="pop-bar" style={{ height: `${Math.max(1, (p.count / popMax) * 100)}%` }}>
+                      <span className="pop-bar-val">{p.est ? '<' : ''}{p.count.toLocaleString()}</span>
+                    </div>
+                  </div>
+                  <div className="pop-bar-yr">{String(p.yr).slice(2)}</div>
+                </div>
+              </Fragment>
+            )
+          })}
         </div>
-        <input type="range" className="pop-slider" min={0} max={data.length - 1} value={idx} onChange={(e) => setIdx(+e.target.value)} />
+        <input
+          type="range"
+          className="pop-slider"
+          min={0}
+          max={data.length - 1}
+          value={idx}
+          onChange={(e) => { stop(); setIdx(+e.target.value) }}
+          aria-label="Survey year"
+          aria-valuetext={`${d.yr}: ${d.est ? 'fewer than ' : ''}${d.count.toLocaleString()} spawners`}
+        />
         {badges && badges.length > 0 && (
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: '.8rem' }}>
             {badges.map((b) => (
